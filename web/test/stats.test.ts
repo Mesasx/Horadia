@@ -3,7 +3,7 @@ import { computeTotals, hoursOf } from "@/lib/stats";
 import { buildDayTimeline } from "@/lib/scheduled-item";
 import type { ScheduledItem } from "@/lib/scheduled-item";
 import { initialPlannerState, timelineFor, weekTimelines } from "@/lib/planner";
-import { d, at, HOUR } from "./support";
+import { d, at } from "./support";
 
 const MON = d(2026, 9, 14);
 

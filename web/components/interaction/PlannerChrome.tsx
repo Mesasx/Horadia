@@ -89,11 +89,11 @@ export function PlannerChrome() {
 }
 
 function DragOverlay() {
-  const { drag } = usePlannerInteraction();
+  const { drag, overDelete } = usePlannerInteraction();
   if (!drag) return null;
   return (
     <div
-      className="pointer-events-none fixed z-[60]"
+      className="interactive-card pointer-events-none fixed z-[60]"
       style={{
         left: drag.x - drag.grabX,
         top: drag.y - drag.grabY,
@@ -104,9 +104,12 @@ function DragOverlay() {
       <ActivityCard
         item={drag.item}
         lifted
+        titleVariant={drag.titleVariant}
         dragHint={
-          drag.item.kind.type === "university"
-            ? "No asistir"
+          overDelete
+            ? drag.item.kind.type === "university"
+              ? "No asistir"
+              : "Quitar"
             : undefined
         }
       />

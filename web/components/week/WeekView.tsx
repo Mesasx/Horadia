@@ -2,19 +2,20 @@
 
 /**
  * The Semana screen — Horadia's core surface (§4, §5). ~2 comfortable day
- * columns with horizontal scroll; weekend columns a little narrower; swipe or
- * the ‹ › buttons move between weeks; "Hoy" returns to the current week. Words
+ * columns with horizontal scroll; weekend columns a little narrower. Only the
+ * ‹ › buttons move between weeks; "Hoy" returns to the current week. Words
  * are never truncated — columns widen instead.
  */
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePlannerStore } from "@/store/planner-store";
 import { weekTimelines } from "@/lib/planner";
-import { weekDays, startOfWeek, addDays, isSameDay } from "@/lib/time";
+import { weekDays, startOfWeek, addWeeks, isSameDay, dayKey } from "@/lib/time";
 import { birthdayGreeting } from "@/lib/birthday";
 import { formatDayMonth } from "@/lib/format";
 import type { ScheduledItem } from "@/lib/scheduled-item";
 import type { TimeSlot } from "@/lib/timeslot";
+import { PLANNER_SCALE_LABELS, type PlannerScale } from "@/lib/planner-scale";
 import { DayColumn } from "./DayColumn";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -29,10 +30,12 @@ function columnWidths(available: number) {
 
 export function WeekView({
   now,
+  scale = "week",
   onSelectItem,
   onSelectFree,
 }: {
   now: number;
+  scale?: PlannerScale;
   onSelectItem: (item: ScheduledItem) => void;
   onSelectFree: (slot: TimeSlot, day: Date) => void;
 }) {
@@ -62,18 +65,22 @@ export function WeekView({
 
   const weekTitle = `${formatDayMonth(days[0])} – ${formatDayMonth(days[6])}`;
 
-  // swipe between weeks
-  const touch = useRef<{ x: number; y: number } | null>(null);
-
   return (
     <div className="flex h-full flex-col">
       <header className="safe-top px-4 pb-1 pt-3">
+        <p
+          className="mb-0.5 px-1 text-[11px] font-semibold uppercase tracking-wide"
+          style={{ color: "var(--text-tertiary)" }}
+          aria-label={`Escala actual: ${PLANNER_SCALE_LABELS[scale]}`}
+        >
+          {PLANNER_SCALE_LABELS[scale]}
+        </p>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1">
             <button
               aria-label="Semana anterior"
-              onClick={() => setWeekStart((w) => addDays(w, -7))}
-              className="rounded-full p-1.5 active:opacity-50"
+              onClick={() => setWeekStart((w) => addWeeks(w, -1))}
+              className="flex min-h-11 min-w-11 items-center justify-center rounded-full active:opacity-50"
             >
               <ChevronLeft size={20} />
             </button>
@@ -82,8 +89,8 @@ export function WeekView({
             </h1>
             <button
               aria-label="Semana siguiente"
-              onClick={() => setWeekStart((w) => addDays(w, 7))}
-              className="rounded-full p-1.5 active:opacity-50"
+              onClick={() => setWeekStart((w) => addWeeks(w, 1))}
+              className="flex min-h-11 min-w-11 items-center justify-center rounded-full active:opacity-50"
             >
               <ChevronRight size={20} />
             </button>
@@ -91,7 +98,7 @@ export function WeekView({
           <button
             onClick={() => setWeekStart(today)}
             disabled={isCurrentWeek}
-            className="rounded-full px-3 py-1 text-[14px] font-semibold disabled:opacity-30"
+            className="min-h-11 rounded-full px-3 py-1 text-[14px] font-semibold disabled:opacity-30"
             style={{ background: "var(--accent-soft)", color: "var(--accent)" }}
           >
             Hoy
@@ -110,27 +117,14 @@ export function WeekView({
       <div
         ref={containerRef}
         className="min-h-0 flex-1"
-        onTouchStart={(e) => {
-          touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        }}
-        onTouchEnd={(e) => {
-          const t = touch.current;
-          if (!t) return;
-          const dx = e.changedTouches[0].clientX - t.x;
-          const dy = e.changedTouches[0].clientY - t.y;
-          if (Math.abs(dx) > 64 && Math.abs(dx) > Math.abs(dy) * 1.6) {
-            setWeekStart((w) => addDays(w, dx < 0 ? 7 : -7));
-          }
-          touch.current = null;
-        }}
       >
         <div
-          className="flex h-full snap-x snap-mandatory overflow-x-auto px-3 py-2"
+          className="week-scroller flex h-full snap-x snap-mandatory overflow-x-auto px-3 py-2"
           style={{ gap: spacing }}
         >
           {days.map((date, i) => (
             <div
-              key={date.toISOString()}
+              key={dayKey(date)}
               className="h-full shrink-0 snap-start"
               style={{
                 width:

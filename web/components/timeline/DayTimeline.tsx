@@ -35,6 +35,7 @@ export function DayTimeline({
   pxPerMin = DEFAULT_PX_PER_MIN,
   showHourGutter = false,
   columnPitch = 0,
+  titleVariant = "short",
   onSelectItem,
   onSelectFree,
 }: {
@@ -43,6 +44,7 @@ export function DayTimeline({
   pxPerMin?: number;
   showHourGutter?: boolean;
   columnPitch?: number;
+  titleVariant?: "short" | "full";
   onSelectItem: (item: ScheduledItem) => void;
   onSelectFree: (slot: TimeSlot) => void;
 }) {
@@ -76,7 +78,7 @@ export function DayTimeline({
 
   return (
     <div
-      className="relative w-full"
+      className="interactive-calendar relative w-full"
       style={{ height: Math.max(totalHeight, 120), paddingLeft: gutter }}
       onPointerDown={(e) => {
         if (interaction.organizing || interaction.drag) return;
@@ -136,6 +138,7 @@ export function DayTimeline({
             height={height}
             gutter={gutter}
             config={dragConfig}
+            titleVariant={titleVariant}
             onSelect={() => onSelectItem(block.item)}
           />
         );
@@ -166,6 +169,7 @@ function DraggableCard({
   height,
   gutter,
   config,
+  titleVariant,
   onSelect,
 }: {
   item: ScheduledItem;
@@ -173,10 +177,11 @@ function DraggableCard({
   height: number;
   gutter: number;
   config: CardDragConfig;
+  titleVariant: "short" | "full";
   onSelect: () => void;
 }) {
   const interaction = usePlannerInteraction();
-  const { handlers, isDragging } = useCardDrag(item, config);
+  const { handlers, isDragging, consumeClick } = useCardDrag(item, config, titleVariant);
   const organizing = interaction.organizing;
   const canDelete = organizing && isPersonal(item);
 
@@ -190,18 +195,17 @@ function DraggableCard({
         right: 0,
         zIndex: isDragging ? 40 : 1,
         opacity: isDragging ? 0.28 : 1,
-        touchAction: "pan-y",
       }}
     >
       <div
         {...handlers}
-        onClick={() => {
-          if (!interaction.drag) onSelect();
+        onClick={(event) => {
+          if (!consumeClick(event) && !interaction.drag) onSelect();
         }}
-        className={organizing && isPersonal(item) ? "jiggle" : undefined}
+        className={`interactive-card ${organizing && isPersonal(item) ? "jiggle" : ""}`}
         style={{ height: "100%", cursor: "pointer" }}
       >
-        <ActivityCard item={item} />
+        <ActivityCard item={item} titleVariant={titleVariant} />
       </div>
 
       {canDelete ? (

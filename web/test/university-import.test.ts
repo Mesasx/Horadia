@@ -8,14 +8,13 @@ import scheduleJson from "@/data/university-schedule.json";
 
 describe("university import — G1 filter (§22)", () => {
   it("treats Gr1 as G1", () => {
-    expect(normalizedGroup("Gr1")).toBe("g1");
-    expect(normalizedGroup("G1")).toBe("g1");
-    expect(normalizedGroup("GRUPO 1")).toBe("g1");
-    expect(normalizedGroup(" g1 ")).toBe("g1");
+    for (const group of ["G1", "Gr1", "GR1", "Grupo 1", "GRUPO 1", " g1 "]) {
+      expect(normalizedGroup(group)).toBe("g1");
+    }
   });
 
   it("drops every other group", () => {
-    for (const g of ["G2", "Gr2", "G3", "GRUPO 4", "B", "1B"]) {
+    for (const g of ["G2", "G3", "G4", "Gr2", "Gr3", "Gr4", "GRUPO 4", "B", "1B"]) {
       expect(normalizedGroup(g)).toBeNull();
     }
   });
@@ -64,5 +63,15 @@ describe("university import — bundled seed", () => {
   it("subjectsByCode is keyed by code", () => {
     const map = subjectsByCode(result);
     expect(map["BI"].fullName).toContain("Bioquímica");
+  });
+
+  it("keeps full subject names and stable workspace identities", () => {
+    const map = subjectsByCode(result);
+    expect(map.FGFG.fullName).toBe("Farmacología y Farmacia Galénica");
+    expect(map.BI.fullName).toBe("Bioquímica e Inmunología");
+    expect(map["TF II"].fullName).toBe("Tecnología Farmacéutica II");
+    expect(map.FFI.fullName).toBe("Fisiología y Fisiopatología");
+    expect(map.SP.fullName).toBe("Salud Pública");
+    expect(map.FFI.workspaceId).toBe("subject:FFI");
   });
 });

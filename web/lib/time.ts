@@ -74,6 +74,15 @@ export function addDays(date: Date, days: number): Date {
   return d;
 }
 
+/**
+ * Moves by whole European calendar weeks and always returns Monday at 00:00.
+ * Calendar-day arithmetic deliberately avoids fixed millisecond durations,
+ * which are wrong across Europe/Madrid daylight-saving boundaries.
+ */
+export function addWeeks(date: Date, weeks: number): Date {
+  return startOfWeek(addDays(startOfWeek(date), weeks * 7));
+}
+
 export function addMinutes(date: Date, minutes: number): Date {
   return new Date(date.getTime() + minutes * MINUTE);
 }

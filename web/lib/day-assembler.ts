@@ -61,6 +61,8 @@ export function makeUniversityItem(
     title: code,
     badge,
     fullTitle: subject?.fullName ?? null,
+    subjectCode: event.subjectCode,
+    location: event.location,
     start: start.getTime(),
     end: end.getTime(),
     kind: { type: "university", kind: event.kind },

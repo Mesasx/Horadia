@@ -3,6 +3,7 @@
 import { CalendarRange, CalendarCheck, ChartNoAxesColumn, Settings } from "lucide-react";
 
 export type Tab = "week" | "today" | "stats" | "settings";
+export const TAB_ORDER: Tab[] = ["week", "today", "stats", "settings"];
 
 const TABS: { id: Tab; label: string; Icon: typeof CalendarRange }[] = [
   { id: "week", label: "Semana", Icon: CalendarRange },
@@ -25,14 +26,25 @@ export function TabBar({ tab, onChange }: { tab: Tab; onChange: (t: Tab) => void
         const active = tab === id;
         return (
           <button
+            type="button"
             key={id}
             onClick={() => onChange(id)}
-            className="flex min-w-0 flex-1 flex-col items-center gap-0.5 py-1.5"
+            className="flex min-h-[50px] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 py-1 transition-colors duration-200"
             style={{ color: active ? "var(--accent)" : "var(--text-secondary)" }}
             aria-current={active ? "page" : undefined}
           >
-            <Icon size={22} strokeWidth={active ? 2.4 : 2} />
-            <span className="no-truncate text-[10px] font-medium">{label}</span>
+            <span
+              className="flex h-7 w-12 items-center justify-center rounded-full transition-[background-color,transform] duration-200"
+              style={{
+                background: active ? "var(--accent-soft)" : "transparent",
+                transform: active ? "translateY(-1px)" : "translateY(0)",
+              }}
+            >
+              <Icon size={21} strokeWidth={active ? 2.4 : 2} />
+            </span>
+            <span className="no-truncate text-[10px] font-medium transition-colors duration-200">
+              {label}
+            </span>
           </button>
         );
       })}

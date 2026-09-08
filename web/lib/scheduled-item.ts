@@ -79,6 +79,9 @@ export interface ScheduledItem {
   badge?: string | null;
   /** Full name for screen readers / detail views when `title` is an abbreviation. */
   fullTitle?: string | null;
+  /** Subject code and room are kept separate from presentation labels. */
+  subjectCode?: string | null;
+  location?: string | null;
   /** epoch ms */
   start: number;
   /** epoch ms */

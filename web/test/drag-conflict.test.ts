@@ -13,7 +13,7 @@ import {
   conflictClassKeys,
 } from "@/lib/conflict";
 import type { ScheduledItem } from "@/lib/scheduled-item";
-import { d, at, HOUR, MIN } from "./support";
+import { d, at, HOUR } from "./support";
 
 const MON = d(2026, 9, 14);
 

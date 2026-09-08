@@ -50,7 +50,9 @@ export function TodayView({
       </header>
 
       <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-28">
-        {next ? <NextUpCard item={next} now={now} /> : null}
+        {next ? (
+          <NextUpCard item={next} now={now} onSelect={() => onSelectItem(next)} />
+        ) : null}
         <div
           className="mt-3 rounded-[var(--r-card)] p-2"
           style={{ background: "var(--surface)", boxShadow: "var(--shadow-resting)", border: "1px solid var(--hairline)" }}
@@ -59,6 +61,7 @@ export function TodayView({
             timeline={timeline}
             now={now}
             showHourGutter
+            titleVariant="full"
             onSelectItem={onSelectItem}
             onSelectFree={(slot) => onSelectFree(slot, today)}
           />
@@ -68,12 +71,22 @@ export function TodayView({
   );
 }
 
-function NextUpCard({ item, now }: { item: ScheduledItem; now: number }) {
+function NextUpCard({
+  item,
+  now,
+  onSelect,
+}: {
+  item: ScheduledItem;
+  now: number;
+  onSelect: () => void;
+}) {
   const c = paletteVars(item.palette);
   const Icon = iconFor(item.symbolName);
   return (
     <button
-      className="mt-2 flex w-full items-center gap-3 rounded-[var(--r-card)] px-4 py-3 text-left"
+      type="button"
+      onClick={onSelect}
+      className="interactive-card mt-2 flex min-h-11 w-full items-center gap-3 rounded-[var(--r-card)] px-4 py-3 text-left"
       style={{ background: c.fill, border: `1px solid ${c.border}`, color: c.accent }}
     >
       <Icon size={20} strokeWidth={2.2} />

@@ -56,6 +56,15 @@ describe("PlannerStore parity", () => {
     expect(personalItemsOn(s1, d(2026, 9, 16)).some((i) => i.id === item.id)).toBe(true);
   });
 
+  it("personal activities remain movable and resizable", () => {
+    const s0 = state();
+    const item = deporte(s0);
+    const moved = moveItem(s0, item.id, at(MON, 15, 0).getTime());
+    expect(findItem(moved, item.id)!.start).not.toBe(item.start);
+    const resized = resizeItem(moved, item.id, at(MON, 17, 0).getTime());
+    expect(findItem(resized, item.id)!.end).toBe(at(MON, 17, 0).getTime());
+  });
+
   it("moveItemToDay keeps the time of day", () => {
     const s0 = state();
     const item = deporte(s0);
@@ -95,7 +104,7 @@ describe("PlannerStore parity", () => {
   it("copy to another day places it at the same time", () => {
     const s0 = state();
     const item = deporte(s0);
-    const { state: s1, clone } = copyItemToDay(s0, item.id, d(2026, 9, 18));
+    const { clone } = copyItemToDay(s0, item.id, d(2026, 9, 18));
     expect(new Date(clone!.start).getHours()).toBe(new Date(item.start).getHours());
     expect(new Date(clone!.start).getDate()).toBe(18);
   });
@@ -132,6 +141,21 @@ describe("PlannerStore parity", () => {
 });
 
 describe("omitting a class (§14)", () => {
+  it("university items expose full metadata and cannot be moved or resized", () => {
+    const s0 = state();
+    const event =
+      universityEvents(MON).find((candidate) => candidate.subjectCode === "FFI") ??
+      universityEvents(MON)[0];
+    const item = makeUniversityItem(event, MON, SUBJECTS_BY_CODE);
+    const withUniversity = addItem(s0, item);
+    const moved = moveItem(withUniversity, item.id, at(MON, 20, 0).getTime());
+    const resized = resizeItem(moved, item.id, at(MON, 22, 0).getTime());
+    expect(findItem(resized, item.id)!.start).toBe(item.start);
+    expect(findItem(resized, item.id)!.end).toBe(item.end);
+    expect(item.fullTitle).toBeTruthy();
+    expect(item.subjectCode).toBe(item.title);
+  });
+
   it("omit removes just that instance; restore brings it back", () => {
     const s0 = state();
     // pick a real class on this Monday

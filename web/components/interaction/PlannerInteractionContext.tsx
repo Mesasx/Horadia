@@ -11,6 +11,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -27,6 +28,7 @@ import { haptic } from "@/lib/haptics";
 
 export interface DragVisual {
   item: ScheduledItem;
+  titleVariant: "short" | "full";
   /** viewport coords of the pointer */
   x: number;
   y: number;
@@ -91,6 +93,12 @@ export function PlannerInteractionProvider({
   const [pendingConflict, setPendingConflict] = useState<PendingConflict | null>(null);
   const [undo, setUndo] = useState<UndoAction | null>(null);
   const undoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hasActiveDrag = drag !== null;
+
+  useEffect(() => {
+    document.body.classList.toggle("planner-drag-active", hasActiveDrag);
+    return () => document.body.classList.remove("planner-drag-active");
+  }, [hasActiveDrag]);
 
   const showUndo = useCallback((action: UndoAction) => {
     if (undoTimer.current) clearTimeout(undoTimer.current);

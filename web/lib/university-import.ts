@@ -10,6 +10,7 @@
 import type { PastelToken } from "./palette";
 import { PASTEL_TOKENS } from "./palette";
 import type { UniversityEventKind } from "./scheduled-item";
+import { subjectWorkspace } from "./subject-workspace";
 import {
   type TimeOfDay,
   parseTimeOfDay,
@@ -38,6 +39,8 @@ export interface ImportedSubject {
   code: string;
   fullName: string;
   color: PastelToken;
+  /** Stable relation to the subject's future notes/tasks/files workspace. */
+  workspaceId: string;
 }
 
 export interface ImportedEvent {
@@ -65,12 +68,8 @@ export interface ImportResult {
  */
 export function normalizedGroup(raw: string | null | undefined): "g1" | null {
   if (raw == null) return null;
-  const cleaned = raw
-    .toUpperCase()
-    .replaceAll("GRUPO", "G")
-    .replaceAll("GR", "G")
-    .replaceAll(" ", "");
-  return cleaned === "G1" ? "g1" : null;
+  const match = /^G(?:R|RUPO)?\s*([1-4])$/i.exec(raw.trim());
+  return match?.[1] === "1" ? "g1" : null;
 }
 
 function mapKind(raw: string): UniversityEventKind | null {
@@ -102,6 +101,7 @@ export function importSchedule(doc: unknown): ImportResult {
   const subjects: ImportedSubject[] = raw.subjects.map((s) => ({
     code: s.code,
     fullName: s.fullName,
+    workspaceId: subjectWorkspace(s.code).id,
     color: (PASTEL_TOKENS as string[]).includes(s.color)
       ? (s.color as PastelToken)
       : "stone",

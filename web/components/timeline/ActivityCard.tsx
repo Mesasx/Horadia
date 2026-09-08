@@ -19,11 +19,13 @@ export function ActivityCard({
   item,
   lifted = false,
   compact = false,
+  titleVariant = "short",
   dragHint,
 }: {
   item: ScheduledItem;
   lifted?: boolean;
   compact?: boolean;
+  titleVariant?: "short" | "full";
   /** Red overlay label shown while held over the delete zone. */
   dragHint?: string | null;
 }) {
@@ -31,10 +33,11 @@ export function ActivityCard({
   const Icon = iconFor(item.symbolName);
   const isExam = item.kind.type === "university" && item.kind.kind === "exam";
   const showRange = !compact && item.end - item.start >= 28 * 60_000;
+  const displayTitle = titleVariant === "full" ? item.fullTitle ?? item.title : item.title;
 
   return (
     <div
-      className="relative flex h-full w-full flex-col gap-0.5 overflow-hidden px-2.5 py-1.5 text-left"
+      className="interactive-card relative flex h-full w-full flex-col gap-0.5 overflow-hidden px-2.5 py-1.5 text-left"
       style={{
         background: c.fill,
         borderRadius: "var(--r-block)",
@@ -59,7 +62,7 @@ export function ActivityCard({
           className="no-truncate text-[13px] font-semibold leading-tight"
           style={{ wordBreak: "keep-all" }}
         >
-          {item.title}
+          {displayTitle}
         </span>
         {item.isPinned ? (
           <Lock

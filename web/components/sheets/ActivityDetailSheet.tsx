@@ -15,9 +15,13 @@ import { isOmitted } from "@/lib/planner";
 import { paletteVars } from "@/lib/palette";
 import { iconFor } from "@/lib/icons";
 import { formatRange, formatWeekdayLong, formatDuration } from "@/lib/format";
-import { addDays, startOfDay } from "@/lib/time";
+import { addDays, startOfDay, TimeGrid } from "@/lib/time";
 import { haptic } from "@/lib/haptics";
-import { isPersonal, type ScheduledItem } from "@/lib/scheduled-item";
+import {
+  accessibilityCategory,
+  isPersonal,
+  type ScheduledItem,
+} from "@/lib/scheduled-item";
 import {
   Check,
   Copy,
@@ -25,6 +29,8 @@ import {
   CalendarClock,
   Lock,
   LockOpen,
+  Minus,
+  Plus,
   Trash2,
 } from "lucide-react";
 
@@ -67,6 +73,9 @@ export function ActivityDetailSheet({
               </p>
             ) : null}
             <p className="text-[17px] font-bold no-truncate">{item.fullTitle ?? item.title}</p>
+            {!personal && item.fullTitle ? (
+              <p className="text-[12px] font-semibold opacity-75">{item.subjectCode ?? item.title}</p>
+            ) : null}
             <p className="text-[13px] tabular-nums opacity-80 capitalize">
               {formatWeekdayLong(day)} · {formatRange(item.start, item.end)} · {formatDuration(item.end - item.start)}
             </p>
@@ -88,6 +97,18 @@ export function ActivityDetailSheet({
                 icon={item.isPinned ? <LockOpen size={18} /> : <Lock size={18} />}
                 label={item.isPinned ? "Desbloquear" : "Fijar"}
                 onClick={() => store.togglePin(item.id)}
+              />
+              <SheetRow
+                icon={<Minus size={18} />}
+                label="Acortar 15 min"
+                disabled={item.isPinned || item.end - item.start <= TimeGrid.minimumActivityDuration}
+                onClick={() => store.resize(item.id, item.end - TimeGrid.step)}
+              />
+              <SheetRow
+                icon={<Plus size={18} />}
+                label="Alargar 15 min"
+                disabled={item.isPinned}
+                onClick={() => store.resize(item.id, item.end + TimeGrid.step)}
               />
             </SheetGroup>
 
@@ -137,6 +158,12 @@ export function ActivityDetailSheet({
           </>
         ) : (
           <>
+            <SheetGroup>
+              <DetailRow label="Abreviatura" detail={item.subjectCode ?? item.title} />
+              <DetailRow label="Tipo" detail={accessibilityCategory(item.kind)} />
+              <DetailRow label="Hora" detail={formatRange(item.start, item.end)} />
+              {item.location ? <DetailRow label="Ubicación" detail={item.location} /> : null}
+            </SheetGroup>
             <p className="px-3 py-2 text-[13px]" style={{ color: "var(--text-secondary)" }}>
               El horario de la universidad es fijo. Puedes quitar esta clase solo
               de este día; el horario oficial no cambia y es reversible.
@@ -191,5 +218,16 @@ export function ActivityDetailSheet({
         }}
       />
     </>
+  );
+}
+
+function DetailRow({ label, detail }: { label: string; detail: string }) {
+  return (
+    <div className="flex min-h-11 items-center gap-3 px-4 py-3 text-[15px]">
+      <span className="flex-1">{label}</span>
+      <span className="text-right" style={{ color: "var(--text-secondary)" }}>
+        {detail}
+      </span>
+    </div>
   );
 }

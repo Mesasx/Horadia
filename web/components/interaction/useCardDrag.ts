@@ -12,14 +12,14 @@
  * - University classes lift but never re-time (§14).
  */
 
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { usePlannerInteraction } from "./PlannerInteractionContext";
 import { haptic } from "@/lib/haptics";
 import { TimeGrid, startOfDay, endOfDayMidnight } from "@/lib/time";
 import { dayShift, shiftDay, clampStart } from "@/lib/dragmath";
 import { itemDuration, type ScheduledItem } from "@/lib/scheduled-item";
 
-const HOLD_MS = 260;
+const HOLD_MS = 360;
 const SLOP = 10;
 const DELETE_ZONE_PX = 104;
 
@@ -35,18 +35,25 @@ export interface CardDragConfig {
   columnPitch: number;
 }
 
-export function useCardDrag(item: ScheduledItem, config: CardDragConfig) {
+export function useCardDrag(
+  item: ScheduledItem,
+  config: CardDragConfig,
+  titleVariant: "short" | "full" = "short",
+) {
   const interaction = usePlannerInteraction();
   const state = useRef({
     pointerId: -1,
     startX: 0,
     startY: 0,
+    lastX: 0,
+    lastY: 0,
     lifted: false,
     timer: null as ReturnType<typeof setTimeout> | null,
     tx: 0,
     ty: 0,
     overDelete: false,
     el: null as HTMLElement | null,
+    suppressClickUntil: 0,
   });
 
   const clearTimer = () => {
@@ -57,11 +64,12 @@ export function useCardDrag(item: ScheduledItem, config: CardDragConfig) {
   };
 
   const lift = useCallback(
-    (e: { clientX: number; clientY: number }) => {
+    () => {
       const s = state.current;
       const el = s.el;
       if (!el) return;
       s.lifted = true;
+      s.suppressClickUntil = Date.now() + 700;
       const rect = el.getBoundingClientRect();
       try {
         el.setPointerCapture(s.pointerId);
@@ -70,15 +78,16 @@ export function useCardDrag(item: ScheduledItem, config: CardDragConfig) {
       }
       interaction.beginDrag({
         item,
-        x: e.clientX,
-        y: e.clientY,
-        grabX: e.clientX - rect.left,
-        grabY: e.clientY - rect.top,
+        titleVariant,
+        x: s.lastX,
+        y: s.lastY,
+        grabX: s.lastX - rect.left,
+        grabY: s.lastY - rect.top,
         width: rect.width,
         height: rect.height,
       });
     },
-    [interaction, item],
+    [interaction, item, titleVariant],
   );
 
   const finish = useCallback(() => {
@@ -117,6 +126,8 @@ export function useCardDrag(item: ScheduledItem, config: CardDragConfig) {
       s.pointerId = e.pointerId;
       s.startX = e.clientX;
       s.startY = e.clientY;
+      s.lastX = e.clientX;
+      s.lastY = e.clientY;
       s.tx = 0;
       s.ty = 0;
       s.overDelete = false;
@@ -124,10 +135,9 @@ export function useCardDrag(item: ScheduledItem, config: CardDragConfig) {
       s.el = e.currentTarget as HTMLElement;
       clearTimer();
       if (interaction.organizing) {
-        lift(e);
+        lift();
       } else {
-        const { clientX, clientY } = e;
-        s.timer = setTimeout(() => lift({ clientX, clientY }), HOLD_MS);
+        s.timer = setTimeout(lift, HOLD_MS);
       }
     },
     [interaction.organizing, lift],
@@ -136,6 +146,8 @@ export function useCardDrag(item: ScheduledItem, config: CardDragConfig) {
   const onPointerMove = useCallback(
     (e: React.PointerEvent) => {
       const s = state.current;
+      s.lastX = e.clientX;
+      s.lastY = e.clientY;
       const dx = e.clientX - s.startX;
       const dy = e.clientY - s.startY;
       if (!s.lifted) {
@@ -173,8 +185,33 @@ export function useCardDrag(item: ScheduledItem, config: CardDragConfig) {
     }
   }, [interaction]);
 
+  const onContextMenu = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+  }, []);
+
+  const consumeClick = useCallback((e: React.MouseEvent): boolean => {
+    if (Date.now() >= state.current.suppressClickUntil) return false;
+    e.preventDefault();
+    e.stopPropagation();
+    return true;
+  }, []);
+
+  useEffect(
+    () => () => {
+      if (state.current.timer) clearTimeout(state.current.timer);
+    },
+    [],
+  );
+
   return {
-    handlers: { onPointerDown, onPointerMove, onPointerUp, onPointerCancel },
+    handlers: {
+      onPointerDown,
+      onPointerMove,
+      onPointerUp,
+      onPointerCancel,
+      onContextMenu,
+    },
+    consumeClick,
     isDragging: interaction.draggingId === item.id,
   };
 }
