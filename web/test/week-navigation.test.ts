@@ -1,31 +1,36 @@
 import { describe, expect, it } from "vitest";
 import {
-  hasReachedNextWeek,
+  scrollAfterWeekAdvance,
   WEEK_BOUNDARY_TOLERANCE,
 } from "@/lib/week-navigation";
 
 describe("continuous week navigation", () => {
   const nextMondayOffset = 1320;
 
-  it("does not change weeks while Sunday is still in view", () => {
-    expect(hasReachedNextWeek(1180, nextMondayOffset)).toBe(false);
+  it("does not recycle while the viewport is still in this week", () => {
+    expect(scrollAfterWeekAdvance(1180, nextMondayOffset)).toBeNull();
   });
 
-  it("changes weeks when scrolling settles on next Monday", () => {
-    expect(hasReachedNextWeek(nextMondayOffset, nextMondayOffset)).toBe(true);
+  it("places next Monday at the same position when it reaches the boundary", () => {
+    expect(scrollAfterWeekAdvance(nextMondayOffset, nextMondayOffset)).toBe(0);
+  });
+
+  it("preserves the day reached instead of forcing Monday", () => {
+    expect(scrollAfterWeekAdvance(nextMondayOffset + 188, nextMondayOffset)).toBe(188);
   });
 
   it("allows for subpixel and layout rounding at the snap point", () => {
     expect(
-      hasReachedNextWeek(
+      scrollAfterWeekAdvance(
         nextMondayOffset - WEEK_BOUNDARY_TOLERANCE,
         nextMondayOffset,
       ),
-    ).toBe(true);
+    ).toBe(0);
   });
 
   it("does not accept invalid measurements", () => {
-    expect(hasReachedNextWeek(Number.NaN, nextMondayOffset)).toBe(false);
-    expect(hasReachedNextWeek(0, Number.POSITIVE_INFINITY)).toBe(false);
+    expect(scrollAfterWeekAdvance(Number.NaN, nextMondayOffset)).toBeNull();
+    expect(scrollAfterWeekAdvance(0, Number.POSITIVE_INFINITY)).toBeNull();
+    expect(scrollAfterWeekAdvance(0, 0)).toBeNull();
   });
 });

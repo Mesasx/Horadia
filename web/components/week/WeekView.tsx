@@ -2,9 +2,9 @@
 
 /**
  * The Semana screen — Horadia's core surface (§4, §5). ~2 comfortable day
- * columns with horizontal scroll; weekend columns a little narrower. Reaching
- * the next Monday or using the ‹ › buttons changes weeks. "Hoy" returns to
- * the current week. Words are never truncated — columns widen instead.
+ * columns with continuous horizontal scroll; weekend columns a little
+ * narrower. Gesture navigation preserves the visible day across week
+ * boundaries, while the ‹ › buttons and "Hoy" land on Monday.
  */
 
 import {
@@ -21,7 +21,7 @@ import { weekDays, startOfWeek, addWeeks, isSameDay, dayKey } from "@/lib/time";
 import { birthdayGreeting } from "@/lib/birthday";
 import { timeOfDayGreeting } from "@/lib/greeting";
 import { formatDayMonth } from "@/lib/format";
-import { hasReachedNextWeek } from "@/lib/week-navigation";
+import { scrollAfterWeekAdvance } from "@/lib/week-navigation";
 import type { ScheduledItem } from "@/lib/scheduled-item";
 import type { TimeSlot } from "@/lib/timeslot";
 import { PLANNER_SCALE_LABELS, type PlannerScale } from "@/lib/planner-scale";
@@ -56,7 +56,7 @@ export function WeekView({
   const currentMondayRef = useRef<HTMLDivElement>(null);
   const nextMondayRef = useRef<HTMLDivElement>(null);
   const scrollSettleTimerRef = useRef<number | null>(null);
-  const resetScrollOnWeekChangeRef = useRef(false);
+  const pendingScrollLeftRef = useRef<number | null>(null);
   const [width, setWidth] = useState(390);
 
   useEffect(() => {
@@ -88,19 +88,24 @@ export function WeekView({
       window.clearTimeout(scrollSettleTimerRef.current);
       scrollSettleTimerRef.current = null;
     }
-    resetScrollOnWeekChangeRef.current = true;
+    pendingScrollLeftRef.current = 0;
     setWeekStart(startOfWeek(nextWeek));
   }, []);
 
-  const moveWeek = useCallback(
-    (offset: number) => navigateToWeek(addWeeks(weekStart, offset)),
-    [navigateToWeek, weekStart],
-  );
+  const moveWeek = useCallback((offset: number) => {
+    if (scrollSettleTimerRef.current !== null) {
+      window.clearTimeout(scrollSettleTimerRef.current);
+      scrollSettleTimerRef.current = null;
+    }
+    pendingScrollLeftRef.current = 0;
+    setWeekStart((current) => addWeeks(current, offset));
+  }, []);
 
   useLayoutEffect(() => {
-    if (!resetScrollOnWeekChangeRef.current) return;
-    scrollerRef.current?.scrollTo({ left: 0, behavior: "auto" });
-    resetScrollOnWeekChangeRef.current = false;
+    const nextScrollLeft = pendingScrollLeftRef.current;
+    if (nextScrollLeft === null) return;
+    scrollerRef.current?.scrollTo({ left: nextScrollLeft, behavior: "auto" });
+    pendingScrollLeftRef.current = null;
   }, [weekStart]);
 
   const finishHorizontalScroll = useCallback(() => {
@@ -111,10 +116,15 @@ export function WeekView({
     if (!scroller || !currentMonday || !nextMonday) return;
 
     const nextMondayOffset = nextMonday.offsetLeft - currentMonday.offsetLeft;
-    if (hasReachedNextWeek(scroller.scrollLeft, nextMondayOffset)) {
-      moveWeek(1);
-    }
-  }, [moveWeek]);
+    const recycledScrollLeft = scrollAfterWeekAdvance(
+      scroller.scrollLeft,
+      nextMondayOffset,
+    );
+    if (recycledScrollLeft === null) return;
+
+    pendingScrollLeftRef.current = recycledScrollLeft;
+    setWeekStart((current) => addWeeks(current, 1));
+  }, []);
 
   const handleHorizontalScroll = useCallback(() => {
     if (scrollSettleTimerRef.current !== null) {
@@ -198,7 +208,7 @@ export function WeekView({
         <div
           ref={scrollerRef}
           onScroll={handleHorizontalScroll}
-          className="week-scroller flex h-full snap-x snap-mandatory overflow-x-auto px-3 py-2"
+          className="week-scroller flex h-full snap-x snap-proximity overflow-x-auto px-3 py-2"
           style={{ gap: spacing }}
         >
           {renderedDays.map((date, i) => (

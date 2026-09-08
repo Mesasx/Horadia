@@ -59,7 +59,7 @@ export function DayColumn({
         </div>
       ) : null}
 
-      <div className="flex-1 overflow-y-auto px-2 py-2">
+      <div className="day-column-scroller flex-1 overflow-y-auto px-2 py-2">
         <DayTimeline
           timeline={timeline}
           now={now}

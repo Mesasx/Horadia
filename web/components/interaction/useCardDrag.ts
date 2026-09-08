@@ -19,8 +19,8 @@ import { TimeGrid, startOfDay, endOfDayMidnight } from "@/lib/time";
 import { dayShift, shiftDay, clampStart } from "@/lib/dragmath";
 import { itemDuration, type ScheduledItem } from "@/lib/scheduled-item";
 
-const HOLD_MS = 360;
-const SLOP = 10;
+const HOLD_MS = 480;
+const SLOP = 6;
 const DELETE_ZONE_PX = 104;
 
 export interface CardDragConfig {
