@@ -39,6 +39,14 @@ export function PlannerApp() {
     return () => clearInterval(id);
   }, []);
 
+  // Belt-and-braces: if persist rehydration never reports back (e.g. storage
+  // disabled), still show the app after mount rather than hanging on the splash.
+  useEffect(() => {
+    if (hydrated) return;
+    const id = setTimeout(() => usePlannerStore.setState({ hydrated: true }), 400);
+    return () => clearTimeout(id);
+  }, [hydrated]);
+
   if (!hydrated) {
     return (
       <div className="flex h-[100dvh] items-center justify-center" style={{ background: "var(--bg)" }}>
