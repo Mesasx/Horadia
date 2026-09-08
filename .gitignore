@@ -1,0 +1,23 @@
+.DS_Store
+*.log
+
+# Node / Next (web/)
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+.vercel/
+.env*
+!.env.example
+
+# Xcode (apple/)
+build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+.swiftpm/
+.build/
+*.moved-aside
+*.hmap
+*.ipa

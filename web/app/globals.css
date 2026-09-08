@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/*
+ * Horadia design system — the web port of `HoradiaTheme` (product brief §3).
+ * Native-feeling: SF system font, iOS corner radii, materials / blur, extremely
+ * subtle shadows, pastel palette, light + dark. No aggressive borders, no strong
+ * shadows, no Material-Design aesthetics.
+ *
+ * The pastel token variables (`--p-<token>-fill|border|accent`) are injected
+ * from `lib/palette.ts` via <PaletteStyle/> so there is a single source of truth
+ * shared with the iOS app.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces */
+  --bg: #f2f2f7;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #e9e9ee;
+
+  /* Text */
+  --text: #1c1c1e;
+  --text-secondary: rgba(60, 60, 67, 0.6);
+  --text-tertiary: rgba(60, 60, 67, 0.3);
+
+  /* Lines */
+  --separator: rgba(60, 60, 67, 0.16);
+  --hairline: rgba(60, 60, 67, 0.1);
+
+  /* Accent — soft indigo, matching the iOS AccentColor */
+  --accent: #5a5ae0;
+  --accent-soft: rgba(90, 90, 224, 0.12);
+
+  /* Now line */
+  --now: #ff3b30;
+
+  /* Radii (iOS) */
+  --r-block: 12px;
+  --r-card: 16px;
+  --r-sheet: 22px;
+  --r-pill: 999px;
+
+  /* Shadows — barely there */
+  --shadow-resting: 0 1px 2px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.05);
+  --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.06), 0 0 1px rgba(0, 0, 0, 0.05);
+  --shadow-lifted: 0 18px 40px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.12);
+
+  /* Materials */
+  --material-thin: rgba(255, 255, 255, 0.72);
+  --material-regular: rgba(255, 255, 255, 0.86);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000000;
+    --surface: #1c1c1e;
+    --surface-raised: #2c2c2e;
+    --surface-sunken: #101012;
+    --text: #ffffff;
+    --text-secondary: rgba(235, 235, 245, 0.6);
+    --text-tertiary: rgba(235, 235, 245, 0.3);
+    --separator: rgba(84, 84, 88, 0.5);
+    --hairline: rgba(235, 235, 245, 0.12);
+    --accent: #9b9bf0;
+    --accent-soft: rgba(155, 155, 240, 0.16);
+    --now: #ff453a;
+    --shadow-resting: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.5);
+    --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.5);
+    --shadow-lifted: 0 18px 40px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.5);
+    --material-thin: rgba(30, 30, 32, 0.72);
+    --material-regular: rgba(30, 30, 32, 0.9);
+  }
+}
+
+/* Explicit dark override wins in both directions (theme toggle). */
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --surface: #1c1c1e;
+  --surface-raised: #2c2c2e;
+  --surface-sunken: #101012;
+  --text: #ffffff;
+  --text-secondary: rgba(235, 235, 245, 0.6);
+  --text-tertiary: rgba(235, 235, 245, 0.3);
+  --separator: rgba(84, 84, 88, 0.5);
+  --hairline: rgba(235, 235, 245, 0.12);
+  --accent: #9b9bf0;
+  --accent-soft: rgba(155, 155, 240, 0.16);
+  --now: #ff453a;
+  --shadow-resting: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.5);
+  --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.5);
+  --shadow-lifted: 0 18px 40px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.5);
+  --material-thin: rgba(30, 30, 32, 0.72);
+  --material-regular: rgba(30, 30, 32, 0.9);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-text: var(--text);
+  --color-accent: var(--accent);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro",
+    "Helvetica Neue", system-ui, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+}
+
+/* Respect the safe area (notch / home indicator) when installed as a PWA. */
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Words are never cut in Horadia (user rule): allow wrapping, never hyphenate. */
+.no-truncate {
+  overflow-wrap: normal;
+  word-break: keep-all;
+  hyphens: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@keyframes horadia-jiggle {
+  0% { transform: rotate(-0.55deg); }
+  50% { transform: rotate(0.55deg); }
+  100% { transform: rotate(-0.55deg); }
+}
+.jiggle {
+  animation: horadia-jiggle 0.24s ease-in-out infinite;
+}
