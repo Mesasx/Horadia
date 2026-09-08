@@ -6,7 +6,7 @@
  * viewer's own timezone (Alba's is Europe/Madrid).
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePlannerStore } from "@/store/planner-store";
 import { PlannerInteractionProvider } from "@/components/interaction/PlannerInteractionContext";
 import { PlannerChrome } from "@/components/interaction/PlannerChrome";
@@ -28,9 +28,7 @@ type SheetState =
 
 export function PlannerApp() {
   const [tab, setTab] = useState<Tab>("week");
-  const [outgoingTab, setOutgoingTab] = useState<Tab | null>(null);
   const [tabDirection, setTabDirection] = useState<"forward" | "backward">("forward");
-  const transitionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [sheet, setSheet] = useState<SheetState>(null);
   const [now, setNow] = useState(() => Date.now());
   const hydrated = usePlannerStore((s) => s.hydrated);
@@ -50,13 +48,6 @@ export function PlannerApp() {
     return () => clearTimeout(id);
   }, [hydrated]);
 
-  useEffect(
-    () => () => {
-      if (transitionTimer.current) clearTimeout(transitionTimer.current);
-    },
-    [],
-  );
-
   if (!hydrated) {
     return (
       <div className="flex h-[100dvh] items-center justify-center" style={{ background: "var(--bg)" }}>
@@ -73,13 +64,10 @@ export function PlannerApp() {
 
   const changeTab = (next: Tab) => {
     if (next === tab) return;
-    if (transitionTimer.current) clearTimeout(transitionTimer.current);
     setTabDirection(
       TAB_ORDER.indexOf(next) > TAB_ORDER.indexOf(tab) ? "forward" : "backward",
     );
-    setOutgoingTab(tab);
     setTab(next);
-    transitionTimer.current = setTimeout(() => setOutgoingTab(null), 260);
   };
 
   const viewFor = (view: Tab) => {
@@ -99,18 +87,9 @@ export function PlannerApp() {
     <PlannerInteractionProvider>
       <div className="flex h-[100dvh] flex-col" style={{ background: "var(--bg)" }}>
         <main className="relative min-h-0 flex-1 overflow-hidden pb-[68px]">
-          {outgoingTab ? (
-            <div
-              key={`out-${outgoingTab}`}
-              className={`tab-view tab-exit-${tabDirection} pointer-events-none absolute inset-0`}
-              aria-hidden
-            >
-              {viewFor(outgoingTab)}
-            </div>
-          ) : null}
           <div
             key={tab}
-            className={`tab-view absolute inset-0 ${outgoingTab ? `tab-enter-${tabDirection}` : ""}`}
+            className={`tab-view tab-enter-${tabDirection} absolute inset-0`}
           >
             {viewFor(tab)}
           </div>

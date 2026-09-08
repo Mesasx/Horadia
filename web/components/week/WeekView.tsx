@@ -19,6 +19,7 @@ import { usePlannerStore } from "@/store/planner-store";
 import { weekTimelines } from "@/lib/planner";
 import { weekDays, startOfWeek, addWeeks, isSameDay, dayKey } from "@/lib/time";
 import { birthdayGreeting } from "@/lib/birthday";
+import { timeOfDayGreeting } from "@/lib/greeting";
 import { formatDayMonth } from "@/lib/format";
 import { hasReachedNextWeek } from "@/lib/week-navigation";
 import type { ScheduledItem } from "@/lib/scheduled-item";
@@ -132,7 +133,9 @@ export function WeekView({
   );
 
   const isCurrentWeek = isSameDay(weekStart, today);
-  const greeting = birthdayGreeting(new Date(now), state.preferences);
+  const currentDate = useMemo(() => new Date(now), [now]);
+  const greeting = timeOfDayGreeting(currentDate, state.preferences.ownerName);
+  const birthday = birthdayGreeting(currentDate, state.preferences);
 
   const weekTitle = `${formatDayMonth(days[0])} – ${formatDayMonth(days[6])}`;
 
@@ -175,12 +178,15 @@ export function WeekView({
             Hoy
           </button>
         </div>
-        {greeting ? (
-          <p
-            className="mt-1.5 text-[13px] font-medium no-truncate"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            {greeting}
+        <p
+          className="mt-1.5 text-[13px] font-medium no-truncate"
+          style={{ color: "var(--text-secondary)" }}
+        >
+          {greeting}
+        </p>
+        {birthday ? (
+          <p className="text-[13px] font-medium" style={{ color: "var(--accent)" }}>
+            {birthday}
           </p>
         ) : null}
       </header>
@@ -208,8 +214,8 @@ export function WeekView({
               <DayColumn
                 timeline={renderedTimelines[i]}
                 date={date}
-                isToday={isSameDay(date, new Date(now))}
-                now={isSameDay(date, new Date(now)) ? now : undefined}
+                isToday={isSameDay(date, currentDate)}
+                now={isSameDay(date, currentDate) ? now : undefined}
                 columnPitch={columnPitch}
                 onSelectItem={onSelectItem}
                 onSelectFree={onSelectFree}

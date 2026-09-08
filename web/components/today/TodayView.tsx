@@ -12,6 +12,7 @@ import { timelineItems, type ScheduledItem } from "@/lib/scheduled-item";
 import type { TimeSlot } from "@/lib/timeslot";
 import { DayTimeline } from "@/components/timeline/DayTimeline";
 import { birthdayGreeting } from "@/lib/birthday";
+import { timeOfDayGreeting } from "@/lib/greeting";
 import { formatRelativeStart, formatRange, formatWeekdayLong } from "@/lib/format";
 import { paletteVars } from "@/lib/palette";
 import { iconFor } from "@/lib/icons";
@@ -33,7 +34,8 @@ export function TodayView({
     () => timelineItems(timeline).find((i) => i.start > now) ?? null,
     [timeline, now],
   );
-  const greeting = birthdayGreeting(today, state.preferences);
+  const greeting = timeOfDayGreeting(today, state.preferences.ownerName);
+  const birthday = birthdayGreeting(today, state.preferences);
 
   return (
     <div className="flex h-full flex-col">
@@ -42,9 +44,12 @@ export function TodayView({
         <p className="text-[13px] capitalize" style={{ color: "var(--text-secondary)" }}>
           {formatWeekdayLong(today)} {today.getDate()}
         </p>
-        {greeting ? (
-          <p className="mt-1 text-[13px] font-medium" style={{ color: "var(--text-secondary)" }}>
-            {greeting}
+        <p className="mt-1 text-[13px] font-medium" style={{ color: "var(--text-secondary)" }}>
+          {greeting}
+        </p>
+        {birthday ? (
+          <p className="text-[13px] font-medium" style={{ color: "var(--accent)" }}>
+            {birthday}
           </p>
         ) : null}
       </header>
