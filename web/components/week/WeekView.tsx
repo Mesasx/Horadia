@@ -2,17 +2,25 @@
 
 /**
  * The Semana screen — Horadia's core surface (§4, §5). ~2 comfortable day
- * columns with horizontal scroll; weekend columns a little narrower. Only the
- * ‹ › buttons move between weeks; "Hoy" returns to the current week. Words
- * are never truncated — columns widen instead.
+ * columns with horizontal scroll; weekend columns a little narrower. Reaching
+ * the next Monday or using the ‹ › buttons changes weeks. "Hoy" returns to
+ * the current week. Words are never truncated — columns widen instead.
  */
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { usePlannerStore } from "@/store/planner-store";
 import { weekTimelines } from "@/lib/planner";
 import { weekDays, startOfWeek, addWeeks, isSameDay, dayKey } from "@/lib/time";
 import { birthdayGreeting } from "@/lib/birthday";
 import { formatDayMonth } from "@/lib/format";
+import { hasReachedNextWeek } from "@/lib/week-navigation";
 import type { ScheduledItem } from "@/lib/scheduled-item";
 import type { TimeSlot } from "@/lib/timeslot";
 import { PLANNER_SCALE_LABELS, type PlannerScale } from "@/lib/planner-scale";
@@ -43,6 +51,11 @@ export function WeekView({
   const today = useMemo(() => startOfWeek(new Date(now)), [now]);
   const [weekStart, setWeekStart] = useState<Date>(today);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const currentMondayRef = useRef<HTMLDivElement>(null);
+  const nextMondayRef = useRef<HTMLDivElement>(null);
+  const scrollSettleTimerRef = useRef<number | null>(null);
+  const resetScrollOnWeekChangeRef = useRef(false);
   const [width, setWidth] = useState(390);
 
   useEffect(() => {
@@ -59,6 +72,64 @@ export function WeekView({
 
   const days = useMemo(() => weekDays(weekStart), [weekStart]);
   const timelines = useMemo(() => weekTimelines(state, weekStart), [state, weekStart]);
+  const nextWeekStart = useMemo(() => addWeeks(weekStart, 1), [weekStart]);
+  const renderedDays = useMemo(
+    () => [...days, ...weekDays(nextWeekStart)],
+    [days, nextWeekStart],
+  );
+  const renderedTimelines = useMemo(
+    () => [...timelines, ...weekTimelines(state, nextWeekStart)],
+    [state, timelines, nextWeekStart],
+  );
+
+  const navigateToWeek = useCallback((nextWeek: Date) => {
+    if (scrollSettleTimerRef.current !== null) {
+      window.clearTimeout(scrollSettleTimerRef.current);
+      scrollSettleTimerRef.current = null;
+    }
+    resetScrollOnWeekChangeRef.current = true;
+    setWeekStart(startOfWeek(nextWeek));
+  }, []);
+
+  const moveWeek = useCallback(
+    (offset: number) => navigateToWeek(addWeeks(weekStart, offset)),
+    [navigateToWeek, weekStart],
+  );
+
+  useLayoutEffect(() => {
+    if (!resetScrollOnWeekChangeRef.current) return;
+    scrollerRef.current?.scrollTo({ left: 0, behavior: "auto" });
+    resetScrollOnWeekChangeRef.current = false;
+  }, [weekStart]);
+
+  const finishHorizontalScroll = useCallback(() => {
+    scrollSettleTimerRef.current = null;
+    const scroller = scrollerRef.current;
+    const currentMonday = currentMondayRef.current;
+    const nextMonday = nextMondayRef.current;
+    if (!scroller || !currentMonday || !nextMonday) return;
+
+    const nextMondayOffset = nextMonday.offsetLeft - currentMonday.offsetLeft;
+    if (hasReachedNextWeek(scroller.scrollLeft, nextMondayOffset)) {
+      moveWeek(1);
+    }
+  }, [moveWeek]);
+
+  const handleHorizontalScroll = useCallback(() => {
+    if (scrollSettleTimerRef.current !== null) {
+      window.clearTimeout(scrollSettleTimerRef.current);
+    }
+    scrollSettleTimerRef.current = window.setTimeout(finishHorizontalScroll, 120);
+  }, [finishHorizontalScroll]);
+
+  useEffect(
+    () => () => {
+      if (scrollSettleTimerRef.current !== null) {
+        window.clearTimeout(scrollSettleTimerRef.current);
+      }
+    },
+    [],
+  );
 
   const isCurrentWeek = isSameDay(weekStart, today);
   const greeting = birthdayGreeting(new Date(now), state.preferences);
@@ -79,7 +150,7 @@ export function WeekView({
           <div className="flex items-center gap-1">
             <button
               aria-label="Semana anterior"
-              onClick={() => setWeekStart((w) => addWeeks(w, -1))}
+              onClick={() => moveWeek(-1)}
               className="flex min-h-11 min-w-11 items-center justify-center rounded-full active:opacity-50"
             >
               <ChevronLeft size={20} />
@@ -89,14 +160,14 @@ export function WeekView({
             </h1>
             <button
               aria-label="Semana siguiente"
-              onClick={() => setWeekStart((w) => addWeeks(w, 1))}
+              onClick={() => moveWeek(1)}
               className="flex min-h-11 min-w-11 items-center justify-center rounded-full active:opacity-50"
             >
               <ChevronRight size={20} />
             </button>
           </div>
           <button
-            onClick={() => setWeekStart(today)}
+            onClick={() => navigateToWeek(today)}
             disabled={isCurrentWeek}
             className="min-h-11 rounded-full px-3 py-1 text-[14px] font-semibold disabled:opacity-30"
             style={{ background: "var(--accent-soft)", color: "var(--accent)" }}
@@ -119,12 +190,15 @@ export function WeekView({
         className="min-h-0 flex-1"
       >
         <div
+          ref={scrollerRef}
+          onScroll={handleHorizontalScroll}
           className="week-scroller flex h-full snap-x snap-mandatory overflow-x-auto px-3 py-2"
           style={{ gap: spacing }}
         >
-          {days.map((date, i) => (
+          {renderedDays.map((date, i) => (
             <div
               key={dayKey(date)}
+              ref={i === 0 ? currentMondayRef : i === 7 ? nextMondayRef : undefined}
               className="h-full shrink-0 snap-start"
               style={{
                 width:
@@ -132,7 +206,7 @@ export function WeekView({
               }}
             >
               <DayColumn
-                timeline={timelines[i]}
+                timeline={renderedTimelines[i]}
                 date={date}
                 isToday={isSameDay(date, new Date(now))}
                 now={isSameDay(date, new Date(now)) ? now : undefined}
