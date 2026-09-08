@@ -1,14 +1,18 @@
 {
   "meta": {
-    "schemaVersion": 1,
-    "sourceDocument": "DAMERO CUARTO 26-27",
+    "schemaVersion": 2,
+    "sourceDocument": "DAMERO CUARTO CURSO 2026-27 - 1C y 2C",
+    "sourceFiles": [
+      "1C CUARTO CURSO DAMERO 26-27.pdf",
+      "2C CUARTO CURSO DAMERO 26-27.pdf"
+    ],
     "coverage": {
-      "from": "2026-09-07",
-      "to": "2027-01-29"
+      "from": "2026-08-31",
+      "to": "2027-07-16"
     },
-    "provisional": true,
-    "notes": "Seed generated from the standard weekly pattern in the product brief (section 23). NOT the real DAMERO. Replace with the official import; second term (Feb-Jun) intentionally absent (section 24).",
-    "practiceGroup": "G1"
+    "provisional": false,
+    "practiceGroup": "G1",
+    "notes": "Transcripción verificada de ambos DAMEROS oficiales. Solo G1 y actividades para todos los grupos."
   },
   "subjects": [
     {
@@ -35,11 +39,36 @@
       "code": "SP",
       "fullName": "Salud Pública",
       "color": "rose"
+    },
+    {
+      "code": "BTF",
+      "fullName": "Biotecnología Farmacéutica",
+      "color": "butter"
+    },
+    {
+      "code": "TX",
+      "fullName": "Toxicología",
+      "color": "peach"
+    },
+    {
+      "code": "AF",
+      "fullName": "Atención Farmacéutica y Técnicas de Comunicación",
+      "color": "lilac"
+    },
+    {
+      "code": "LGP",
+      "fullName": "Legislación, Gestión y Planificación Farmacéutica",
+      "color": "seafoam"
+    },
+    {
+      "code": "FF II",
+      "fullName": "Farmacología y Farmacoterapia II",
+      "color": "sage"
     }
   ],
   "events": [
     {
-      "date": "2026-09-07",
+      "date": "2026-09-04",
       "subject": "FGFG",
       "start": "09:00",
       "end": "10:30",
@@ -47,10 +76,10 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
-      "date": "2026-09-07",
+      "date": "2026-09-04",
       "subject": "BI",
       "start": "10:45",
       "end": "12:15",
@@ -58,10 +87,10 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
-      "date": "2026-09-07",
+      "date": "2026-09-04",
       "subject": "TF II",
       "start": "12:30",
       "end": "14:00",
@@ -69,10 +98,10 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
-      "date": "2026-09-08",
+      "date": "2026-09-07",
       "subject": "FFI",
       "start": "09:00",
       "end": "10:30",
@@ -80,29 +109,40 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
-      "date": "2026-09-08",
-      "subject": "SP",
+      "date": "2026-09-07",
+      "subject": "BI",
       "start": "10:45",
       "end": "12:15",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
-      "date": "2026-09-08",
-      "subject": "BI",
+      "date": "2026-09-07",
+      "subject": "SP",
       "start": "12:30",
       "end": "14:00",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-08",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "holiday",
+      "group": null,
+      "location": null,
+      "title": "Festivo",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-09",
@@ -113,7 +153,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-09",
@@ -124,7 +164,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-09",
@@ -135,7 +175,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-10",
@@ -146,7 +186,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-10",
@@ -157,7 +197,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-10",
@@ -168,7 +208,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-11",
@@ -179,7 +219,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-11",
@@ -190,7 +230,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-11",
@@ -201,7 +241,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-14",
@@ -212,7 +252,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-14",
@@ -223,7 +263,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-14",
@@ -234,7 +274,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-15",
@@ -245,7 +285,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-15",
@@ -256,7 +296,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-15",
@@ -267,7 +307,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-16",
@@ -278,7 +318,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-16",
@@ -289,7 +329,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-16",
@@ -300,7 +340,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-17",
@@ -311,7 +351,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-17",
@@ -322,7 +362,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-17",
@@ -333,7 +373,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-18",
@@ -344,7 +384,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-18",
@@ -355,7 +395,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-18",
@@ -366,7 +406,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-21",
@@ -377,7 +417,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-21",
@@ -388,7 +428,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-21",
@@ -399,7 +439,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-22",
@@ -410,7 +450,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-22",
@@ -421,7 +461,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-22",
@@ -432,7 +472,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-23",
@@ -443,7 +483,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-23",
@@ -454,7 +494,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-23",
@@ -465,7 +505,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-23",
+      "subject": "FGFG",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "FarmaLab I",
+      "title": "P1",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-24",
@@ -476,7 +527,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-24",
@@ -487,7 +538,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-24",
@@ -498,7 +549,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-25",
@@ -509,7 +560,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-25",
@@ -520,7 +571,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-25",
@@ -531,7 +582,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-28",
@@ -542,7 +593,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-28",
@@ -553,7 +604,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-28",
@@ -564,7 +615,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-28",
+      "subject": "BI",
+      "start": "16:00",
+      "end": "20:15",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática I",
+      "title": "P_1E y P_2E",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-29",
@@ -575,7 +637,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-29",
@@ -586,7 +648,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-29",
@@ -597,7 +659,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-29",
+      "subject": "BI",
+      "start": "16:00",
+      "end": "18:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática I",
+      "title": "P_3E",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-30",
@@ -608,7 +681,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-30",
@@ -619,7 +692,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-09-30",
@@ -630,7 +703,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-01",
@@ -641,7 +714,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-01",
@@ -652,7 +725,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-01",
@@ -663,7 +736,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-02",
@@ -674,7 +747,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-02",
@@ -685,7 +758,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-02",
@@ -696,7 +769,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-10-02",
+      "subject": "SP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática II",
+      "title": "P1",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-05",
@@ -707,7 +791,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-05",
@@ -718,7 +802,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-05",
@@ -729,447 +813,117 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-06",
-      "subject": "FFI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-06",
-      "subject": "SP",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-06",
       "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "start": "09:00",
+      "end": "13:15",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática I",
+      "title": "P_4y5 E",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-07",
       "subject": "SP",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática II",
+      "title": "P2",
+      "source": "official-damero-1c"
     },
     {
-      "date": "2026-10-07",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-07",
+      "date": "2026-10-08",
       "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-08",
-      "subject": "BI",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-08",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-08",
-      "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-09",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "FarmaLab I",
+      "title": "P2A",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-09",
       "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-09",
-      "subject": "FFI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "FarmaLab I",
+      "title": "P2B",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-12",
       "subject": null,
-      "start": "09:00",
-      "end": "00:00",
+      "start": "00:00",
+      "end": "23:59",
       "type": "holiday",
       "group": null,
       "location": null,
-      "title": "Fiesta Nacional de España",
-      "source": "pattern-seed"
+      "title": "Fiesta",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-13",
       "subject": "FFI",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 1-2, 5 y 6",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-13",
-      "subject": "SP",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-13",
-      "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-14",
-      "subject": "SP",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-14",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-14",
-      "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-15",
-      "subject": "BI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-15",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-15",
-      "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-16",
-      "subject": "TF II",
+      "subject": "SP",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 3, 5 y Seminario II",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-16",
-      "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-16",
-      "subject": "FFI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-19",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-19",
-      "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-19",
       "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-20",
-      "subject": "FFI",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 4, 5 y 6",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-20",
-      "subject": "SP",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-20",
-      "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-21",
-      "subject": "SP",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-21",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-21",
       "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 1-2, 5 y 6",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "subject": "BI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 1-2, 5 y 6",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-22",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-22",
-      "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-23",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-23",
-      "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-10-23",
-      "subject": "FFI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-26",
@@ -1180,7 +934,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-26",
@@ -1191,7 +945,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-26",
@@ -1202,29 +956,29 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-27",
-      "subject": "FFI",
+      "subject": "SP",
       "start": "09:00",
       "end": "10:30",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-27",
-      "subject": "SP",
+      "subject": "FFI",
       "start": "10:45",
       "end": "12:15",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-27",
@@ -1235,7 +989,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-28",
@@ -1246,7 +1000,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-28",
@@ -1257,7 +1011,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-28",
@@ -1268,7 +1022,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-29",
@@ -1279,7 +1033,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-29",
@@ -1290,7 +1044,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-29",
@@ -1301,7 +1055,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-30",
@@ -1312,7 +1066,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-30",
@@ -1323,7 +1077,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-10-30",
@@ -1334,40 +1088,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-02",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "holiday",
       "group": null,
       "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-02",
-      "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-02",
-      "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "title": "Fiesta",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-03",
@@ -1378,7 +1110,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-03",
@@ -1389,7 +1121,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-03",
@@ -1400,18 +1132,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-04",
-      "subject": "SP",
+      "subject": "FGFG",
       "start": "09:00",
       "end": "10:30",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-04",
@@ -1422,18 +1154,29 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-04",
-      "subject": "FGFG",
+      "subject": "SP",
       "start": "12:30",
       "end": "14:00",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-04",
+      "subject": "SP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "QuimiLab II",
+      "title": "P3",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-05",
@@ -1444,7 +1187,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-05",
@@ -1455,7 +1198,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-05",
@@ -1466,7 +1209,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-06",
@@ -1477,7 +1220,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-06",
@@ -1488,18 +1231,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-06",
-      "subject": "FFI",
+      "subject": "BI",
       "start": "12:30",
       "end": "14:00",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-09",
@@ -1510,7 +1253,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-09",
@@ -1521,7 +1264,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-09",
@@ -1532,7 +1275,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-09",
+      "subject": "SP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática II / QuimiLab II",
+      "title": "P4",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-10",
@@ -1543,7 +1297,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-10",
@@ -1554,7 +1308,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-10",
@@ -1565,7 +1319,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-10",
+      "subject": "FGFG",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "FarmaLab I",
+      "title": "P3A",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-11",
@@ -1576,7 +1341,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-11",
@@ -1587,7 +1352,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-11",
@@ -1598,7 +1363,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-12",
@@ -1609,7 +1374,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-12",
@@ -1620,7 +1385,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-12",
@@ -1631,7 +1396,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-12",
+      "subject": "FGFG",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "FarmaLab I",
+      "title": "P3B",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-13",
@@ -1642,7 +1418,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-13",
@@ -1653,7 +1429,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-13",
@@ -1664,7 +1440,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-16",
@@ -1675,7 +1451,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-16",
@@ -1686,7 +1462,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-16",
@@ -1697,7 +1473,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-17",
@@ -1708,7 +1484,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-17",
@@ -1719,7 +1495,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-17",
@@ -1730,40 +1506,40 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-18",
-      "subject": "SP",
+      "subject": "FGFG",
       "start": "09:00",
       "end": "10:30",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-18",
-      "subject": "TF II",
+      "subject": "SP",
       "start": "10:45",
       "end": "12:15",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-18",
-      "subject": "FGFG",
+      "subject": "SP",
       "start": "12:30",
       "end": "14:00",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-19",
@@ -1774,7 +1550,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-19",
@@ -1785,18 +1561,18 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-19",
-      "subject": "SP",
+      "subject": "TF II",
       "start": "12:30",
       "end": "14:00",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-20",
@@ -1807,7 +1583,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-20",
@@ -1818,7 +1594,7 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-20",
@@ -1829,1206 +1605,2383 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-23",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-23",
-      "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-23",
       "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-24",
-      "subject": "FFI",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "TecnoLab",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-24",
-      "subject": "SP",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-24",
-      "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-25",
-      "subject": "SP",
+      "subject": "TF II",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "TecnoLab",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-25",
       "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-25",
-      "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-26",
-      "subject": "BI",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "TecnoLab",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-26",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
+      "subject": "TF II",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "TecnoLab",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-26",
-      "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-27",
       "subject": "TF II",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "TecnoLab",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-27",
-      "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-27",
-      "subject": "FFI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-30",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-11-30",
       "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-11-30",
-      "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-01",
-      "subject": "FFI",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-01",
-      "subject": "SP",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "end": "11:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática I",
+      "title": "P_1MV",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-01",
       "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-02",
-      "subject": "SP",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "end": "11:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática I",
+      "title": "P_2MV",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-12-01",
+      "subject": "SP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática II",
+      "title": "P5",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-02",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-02",
-      "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "subject": "BI",
+      "start": "09:00",
+      "end": "11:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática I",
+      "title": "P_3MV",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-03",
       "subject": "BI",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-03",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-03",
-      "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-04",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-04",
-      "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-04",
-      "subject": "FFI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "Aula Informática I",
+      "title": "P_4y5MV",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-07",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "holiday",
       "group": null,
       "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-07",
-      "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-07",
-      "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "title": "Festivo del centro",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-08",
       "subject": null,
-      "start": "09:00",
-      "end": "00:00",
+      "start": "00:00",
+      "end": "23:59",
       "type": "holiday",
       "group": null,
       "location": null,
-      "title": "Inmaculada Concepción",
-      "source": "pattern-seed"
+      "title": "Festivo",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-09",
-      "subject": "SP",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-09",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-09",
-      "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-10",
       "subject": "BI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 4, 6 y Seminario II",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-10",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-10",
-      "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-11",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-11",
       "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 1-2, 3 y 4",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
-      "date": "2026-12-11",
+      "date": "2026-12-14",
       "subject": "FFI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-14",
-      "subject": "FGFG",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática II / FarmaLab II",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-14",
-      "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-14",
-      "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-15",
       "subject": "FFI",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática II / FarmaLab II",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-15",
-      "subject": "SP",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-15",
-      "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-16",
-      "subject": "SP",
+      "subject": "FFI",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "FarmaLab II",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-16",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-16",
-      "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-17",
-      "subject": "BI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-17",
       "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-17",
-      "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-18",
-      "subject": "TF II",
       "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática II / FarmaLab II",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2026-12-18",
-      "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-18",
       "subject": "FFI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula de clase / FarmaLab II",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
-      "date": "2026-12-21",
+      "date": "2026-12-22",
+      "subject": "TF II",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 3, 4 y 6",
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-12-24",
       "subject": null,
-      "start": "09:00",
-      "end": "00:00",
+      "start": "00:00",
+      "end": "23:59",
       "type": "vacation",
       "group": null,
       "location": null,
-      "title": "Vacaciones de Navidad",
-      "source": "pattern-seed"
+      "title": "Navidad",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-12-25",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Navidad",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-12-26",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Navidad",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-12-27",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Navidad",
+      "source": "official-damero-1c"
     },
     {
       "date": "2026-12-28",
       "subject": null,
-      "start": "09:00",
-      "end": "00:00",
+      "start": "00:00",
+      "end": "23:59",
       "type": "vacation",
       "group": null,
       "location": null,
-      "title": "Vacaciones de Navidad",
-      "source": "pattern-seed"
+      "title": "Navidad",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-12-29",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Navidad",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-12-30",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Navidad",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-12-31",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Navidad",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2027-01-01",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Navidad",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2027-01-02",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Navidad",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2027-01-03",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Navidad",
+      "source": "official-damero-1c"
     },
     {
       "date": "2027-01-04",
       "subject": null,
-      "start": "09:00",
-      "end": "00:00",
+      "start": "00:00",
+      "end": "23:59",
       "type": "vacation",
       "group": null,
       "location": null,
-      "title": "Vacaciones de Navidad",
-      "source": "pattern-seed"
+      "title": "Navidad",
+      "source": "official-damero-1c"
     },
     {
-      "date": "2027-01-08",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "date": "2027-01-05",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
       "group": null,
       "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "title": "Navidad",
+      "source": "official-damero-1c"
     },
     {
-      "date": "2027-01-08",
-      "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
+      "date": "2027-01-06",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
       "group": null,
       "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "title": "Navidad",
+      "source": "official-damero-1c"
     },
     {
-      "date": "2027-01-08",
-      "subject": "FFI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
+      "date": "2027-01-07",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
       "group": null,
       "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-11",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "title": "Navidad",
+      "source": "official-damero-1c"
     },
     {
       "date": "2027-01-11",
-      "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-11",
-      "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-12",
       "subject": "FFI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 1-2, 5 y 6",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-12",
-      "subject": "SP",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-12",
-      "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-13",
-      "subject": "SP",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-13",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-13",
-      "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-14",
-      "subject": "BI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-14",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2027-01-14",
       "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 1-2, 4 y 5",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-15",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-15",
-      "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-15",
-      "subject": "FFI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2027-01-18",
       "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 4, 5 y 6",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-18",
-      "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-18",
-      "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-19",
-      "subject": "FFI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-19",
-      "subject": "SP",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-19",
-      "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2027-01-20",
-      "subject": "SP",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "subject": "BI",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aulas 1, 2 y 5",
       "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-20",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-20",
-      "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-1c"
     },
     {
       "date": "2027-01-21",
-      "subject": "BI",
+      "subject": "FF II",
       "start": "09:00",
       "end": "10:30",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
       "date": "2027-01-21",
-      "subject": "FFI",
+      "subject": "BTF",
       "start": "10:45",
       "end": "12:15",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
       "date": "2027-01-21",
-      "subject": "SP",
+      "subject": "AF",
       "start": "12:30",
       "end": "14:00",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
       "date": "2027-01-22",
-      "subject": "TF II",
+      "subject": "TX",
       "start": "09:00",
       "end": "10:30",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
       "date": "2027-01-22",
-      "subject": "FGFG",
+      "subject": "FF II",
       "start": "10:45",
       "end": "12:15",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
       "date": "2027-01-22",
-      "subject": "FFI",
+      "subject": "LGP",
       "start": "12:30",
       "end": "14:00",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
       "date": "2027-01-25",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "holiday",
       "group": null,
       "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-25",
-      "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-25",
-      "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
+      "title": "Festividad de Santo Tomás de Aquino",
+      "source": "official-damero-2c"
     },
     {
       "date": "2027-01-26",
-      "subject": "FFI",
+      "subject": "BTF",
       "start": "09:00",
       "end": "10:30",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
       "date": "2027-01-26",
-      "subject": "SP",
+      "subject": "AF",
       "start": "10:45",
       "end": "12:15",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
       "date": "2027-01-26",
-      "subject": "BI",
+      "subject": "TX",
       "start": "12:30",
       "end": "14:00",
       "type": "lecture",
       "group": null,
       "location": null,
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
       "date": "2027-01-27",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-27",
+      "subject": "TX",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-27",
+      "subject": "FF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-28",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-28",
+      "subject": "BTF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-28",
+      "subject": "AF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-28",
+      "subject": null,
+      "start": "16:00",
+      "end": "20:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": "Workshop Investigación",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-29",
+      "subject": "TX",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-29",
+      "subject": "FF II",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-29",
+      "subject": "LGP",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-01",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-01",
+      "subject": "LGP",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-01",
+      "subject": "BTF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-02",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-02",
+      "subject": "AF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-02",
+      "subject": "TX",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-03",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-03",
+      "subject": "TX",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-03",
+      "subject": "FF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-04",
+      "subject": "TX",
+      "start": "09:00",
+      "end": "12:15",
+      "type": "practice",
+      "group": "Todos los grupos",
+      "location": "Visita al Toxicológico",
+      "title": "P1",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-05",
+      "subject": "TX",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-05",
+      "subject": "FF II",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-05",
+      "subject": "LGP",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-08",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-08",
+      "subject": "LGP",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-08",
+      "subject": "BTF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-08",
+      "subject": "LGP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "Todos los grupos",
+      "location": "Mediateca",
+      "title": "P1",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-09",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-09",
+      "subject": "AF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-09",
+      "subject": "TX",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-09",
+      "subject": "TX",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "InstrumentaLab",
+      "title": "P2",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-10",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-10",
+      "subject": "TX",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-10",
+      "subject": "FF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-11",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-11",
+      "subject": "BTF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-11",
+      "subject": "AF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-12",
+      "subject": "TX",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-12",
+      "subject": "FF II",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-12",
+      "subject": "LGP",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-15",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-15",
+      "subject": "LGP",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-15",
+      "subject": "BTF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-15",
+      "subject": "LGP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "Todos los grupos",
+      "location": "Mediateca",
+      "title": "P2",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-16",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-16",
+      "subject": "AF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-16",
+      "subject": "TX",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-17",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-17",
+      "subject": "TX",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-17",
+      "subject": "FF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-18",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-18",
+      "subject": "BTF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-18",
+      "subject": "AF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-19",
+      "subject": "TX",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-19",
+      "subject": "FF II",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-19",
+      "subject": "LGP",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-19",
+      "subject": "TX",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "InstrumentaLab",
+      "title": "P3",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-22",
+      "subject": "LGP",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2, 5 y 6",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-26",
+      "subject": "AF",
+      "start": "12:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2, 3 y 5",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-02",
+      "subject": "TX",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "InstrumentaLab",
+      "title": "P4",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-03",
+      "subject": "TX",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "InstrumentaLab",
+      "title": "P5",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-05",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática I",
+      "title": "P3",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-08",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "TecnoLab",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-09",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "TecnoLab",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-10",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "TecnoLab",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-11",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "TecnoLab",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-12",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "TecnoLab",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-15",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática II",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-16",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática II",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-17",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática II",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-18",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática II",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-19",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática II",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-19",
+      "subject": null,
+      "start": "16:00",
+      "end": "20:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": "Actividad del centro",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-22",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Semana Santa",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-23",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Semana Santa",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-24",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Semana Santa",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-25",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Semana Santa",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-26",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "vacation",
+      "group": null,
+      "location": null,
+      "title": "Semana Santa",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-29",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "holiday",
+      "group": null,
+      "location": null,
+      "title": "Festivo",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-30",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 3, Espejo y Seminario II",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-02",
+      "subject": "TX",
+      "start": "09:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 3, Espejo y Seminario II",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-05",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "FarmaLab I",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-06",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "FarmaLab I",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-07",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "FarmaLab I",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-08",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "FarmaLab I",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-09",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "FarmaLab I",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-12",
+      "subject": "FF II",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2, 5 y 6",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-13",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-13",
+      "subject": "AF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-13",
+      "subject": "TX",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-14",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-14",
+      "subject": "TX",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-14",
+      "subject": "FF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-15",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-15",
+      "subject": "BTF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-15",
+      "subject": "AF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-16",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-16",
+      "subject": "FF II",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-16",
+      "subject": "LGP",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-19",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-19",
+      "subject": "LGP",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-19",
+      "subject": "BTF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-20",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-20",
+      "subject": "AF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-20",
+      "subject": "TX",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-21",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-21",
+      "subject": "TX",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-21",
+      "subject": "FF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-22",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-22",
+      "subject": "BTF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-22",
+      "subject": "AF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-23",
+      "subject": "TX",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-23",
+      "subject": "FF II",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-23",
+      "subject": "LGP",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-26",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-26",
+      "subject": "LGP",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-26",
+      "subject": "BTF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-27",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-27",
+      "subject": "AF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-27",
+      "subject": "TX",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-28",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-28",
+      "subject": "TX",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-28",
+      "subject": "FF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-29",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-29",
+      "subject": "BTF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-29",
+      "subject": "AF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-03",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-03",
+      "subject": "LGP",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-03",
+      "subject": "BTF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-03",
+      "subject": "LGP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática II",
+      "title": "P4",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-04",
+      "subject": "BTF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-04",
+      "subject": "AF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-04",
+      "subject": "FF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-05",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-05",
+      "subject": "FF II",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-05",
+      "subject": "AF",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-06",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-06",
+      "subject": "BTF",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-06",
+      "subject": "LGP",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-10",
+      "subject": "AF",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-10",
+      "subject": "LGP",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-10",
+      "subject": "FF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-11",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-11",
+      "subject": "TX",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-11",
+      "subject": "TX",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-12",
+      "subject": "TX",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-12",
+      "subject": "TX",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-12",
+      "subject": "TX",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-13",
+      "subject": "LGP",
+      "start": "09:00",
+      "end": "13:00",
+      "type": "practice",
+      "group": "Gr1",
+      "location": "Aula Informática II",
+      "title": "P5",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-18",
+      "subject": "FF II",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2 y 5",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-21",
+      "subject": "LGP",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2 y 5",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-24",
+      "subject": "BTF",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2 y 5",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-26",
+      "subject": "AF",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2 y 5",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-27",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "holiday",
+      "group": null,
+      "location": null,
+      "title": "Festivo (Corpus)",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-31",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "holiday",
+      "group": null,
+      "location": null,
+      "title": "Día de Castilla-La Mancha",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-06-01",
+      "subject": "TX",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2 y 5",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-06-03",
       "subject": "SP",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aula 5",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
-      "date": "2027-01-27",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
+      "date": "2027-06-08",
+      "subject": "FFI",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aula 5",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
-      "date": "2027-01-27",
-      "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-28",
+      "date": "2027-06-10",
       "subject": "BI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aula 5",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
-      "date": "2027-01-28",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-28",
-      "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-29",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "pattern-seed"
-    },
-    {
-      "date": "2027-01-29",
+      "date": "2027-06-14",
       "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
       "group": null,
-      "location": null,
+      "location": "Aula 5",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
     },
     {
-      "date": "2027-01-29",
-      "subject": "FFI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
+      "date": "2027-06-16",
+      "subject": "TF II",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aula 5",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-06-18",
+      "subject": "LGP",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aula 5",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-06-22",
+      "subject": "TX",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aula 5",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-06-24",
+      "subject": null,
+      "start": "00:00",
+      "end": "23:59",
+      "type": "holiday",
       "group": null,
       "location": null,
+      "title": "San Juan",
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-06-28",
+      "subject": "BTF",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aula 5",
       "title": null,
-      "source": "pattern-seed"
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-06-30",
+      "subject": "AF",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aula 5",
+      "title": null,
+      "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-07-02",
+      "subject": "FF II",
+      "start": "09:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aula 5",
+      "title": null,
+      "source": "official-damero-2c"
     }
   ]
 }

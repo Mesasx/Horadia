@@ -2,9 +2,8 @@
  * Decodes the bundled `university-schedule.json` into value types, applying the
  * G1 practice-group filter (§22) — port of the Swift `UniversityScheduleImporter`.
  *
- * The JSON is a *seed* derived from the standard weekly pattern until the real
- * DAMERO is imported; every row is materialised explicitly by date, never by
- * recurrence (§23).
+ * The JSON is generated from the two official 2026-27 DAMERO documents; every
+ * row is materialised explicitly by date, never as a runtime recurrence.
  */
 
 import type { PastelToken } from "./palette";
@@ -19,7 +18,7 @@ import {
 } from "./time";
 
 interface RawDoc {
-  meta: { schemaVersion: number; sourceDocument: string; provisional: boolean; practiceGroup?: string; coverage?: { from: string; to: string } };
+  meta: { schemaVersion: number; sourceDocument: string; sourceFiles?: string[]; provisional: boolean; practiceGroup?: string; coverage?: { from: string; to: string } };
   subjects: { code: string; fullName: string; color: string }[];
   events: RawEvent[];
 }
@@ -53,6 +52,7 @@ export interface ImportedEvent {
   kind: UniversityEventKind;
   location: string | null;
   title: string | null;
+  audience: "all" | "g1";
 }
 
 export interface ImportResult {
@@ -70,6 +70,21 @@ export function normalizedGroup(raw: string | null | undefined): "g1" | null {
   if (raw == null) return null;
   const match = /^G(?:R|RUPO)?\s*([1-4])$/i.exec(raw.trim());
   return match?.[1] === "1" ? "g1" : null;
+}
+
+/** Whether an official row applies to Alba: ungrouped/all-group or G1. */
+export function groupAudience(
+  raw: string | null | undefined,
+): "all" | "g1" | null {
+  if (raw == null || raw.trim() === "") return "all";
+  const compact = raw
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toUpperCase();
+  if (/^TODOS? (?:(?:LOS|EL) )?GRUPOS?$/.test(compact)) return "all";
+  return normalizedGroup(raw);
 }
 
 function mapKind(raw: string): UniversityEventKind | null {
@@ -108,12 +123,11 @@ export function importSchedule(doc: unknown): ImportResult {
   }));
 
   const events: ImportedEvent[] = [];
-  for (let i = 0; i < raw.events.length; i++) {
-    const dto = raw.events[i];
+  for (const dto of raw.events) {
 
-    // §22: only load practices for Alba's group. A non-null group that does not
-    // normalise to G1 is skipped entirely.
-    if (dto.group != null && normalizedGroup(dto.group) === null) continue;
+    // Only rows for G1 or all groups apply to Alba. Other groups are discarded.
+    const audience = groupAudience(dto.group);
+    if (audience === null) continue;
 
     const day = parseDayKey(dto.date);
     if (!day) throw new Error(`bad date ${dto.date}`);
@@ -132,7 +146,9 @@ export function importSchedule(doc: unknown): ImportResult {
     if (!kind) throw new Error(`unknown type ${dto.type}`);
 
     events.push({
-      id: `evt-${dto.date}-${dto.subject ?? dto.type}-${dto.start}-${i}`,
+      id: `evt-${dto.date}-${dto.subject ?? dto.type}-${dto.start}-${dto.type}`
+        .toLowerCase()
+        .replace(/[^a-z0-9-]+/g, "-"),
       day: day.getTime(),
       subjectCode: dto.subject ?? null,
       start,
@@ -140,6 +156,7 @@ export function importSchedule(doc: unknown): ImportResult {
       kind,
       location: dto.location ?? null,
       title: dto.title ?? null,
+      audience,
     });
   }
 

@@ -44,8 +44,8 @@ informa, y solo se continúa si la base es estable.
 
 ## web/ · Fase 3c — Universidad completa + rutinas
 
-- [ ] Importar el **DAMERO CUARTO 26-27 real** (1er cuatrimestre; sin inventar
-      feb–jun). PDF bloqueado por WAF → el usuario lo descarga a mano.
+- [x] Importar los **DAMERO CUARTO 26-27 oficiales** de 1C y 2C, con clases,
+      prácticas G1/todos los grupos, exámenes, festivos y vacaciones.
 - [ ] Rutinas (§16): editar una instancia vs. serie
 - [ ] Exámenes: cuenta atrás, estilo, avisos 24 h / 1 h (§25)
 - [ ] Festivos / vacaciones del DAMERO real (§26)
