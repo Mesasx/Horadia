@@ -1,5 +1,5 @@
 /**
- * Builds the checked-in schedule from the two official 2026-27 DAMERO PDFs.
+ * Builds the checked-in schedule from the three official 2026-27 DAMERO PDFs.
  * Every generated date is explicitly present in those documents. This is not
  * a recurrence engine: week helpers only reduce transcription repetition.
  */
@@ -29,6 +29,8 @@ const subjects = [
     color: "seafoam",
   },
   { code: "FF II", fullName: "Farmacología y Farmacoterapia II", color: "sage" },
+  { code: "B&F", fullName: "Biofarmacia y Farmacocinética", color: "mauve" },
+  { code: "FCG", fullName: "Farmacognosia y Fitoterapia", color: "citron" },
 ];
 
 const events = [];
@@ -62,6 +64,20 @@ function lectureDay(date, codes, source) {
   codes.forEach((subject, index) =>
     addEvent({ date, subject, start: times[index][0], end: times[index][1], type: "lecture", source }),
   );
+}
+
+function selectedLectureDay(date, codes, source) {
+  codes.forEach((subject, index) => {
+    if (!subject) return;
+    addEvent({
+      date,
+      subject,
+      start: times[index][0],
+      end: times[index][1],
+      type: "lecture",
+      source,
+    });
+  });
 }
 
 const firstStandard = [
@@ -104,6 +120,7 @@ function vacation(from, to, title, source) {
 
 const C1 = "official-damero-1c";
 const C2 = "official-damero-2c";
+const C3_2C = "official-damero-third-2c";
 
 // 1C: lectures exactly as printed on pages 1-12.
 lectureDay("2026-09-04", ["FGFG", "BI", "TF II"], C1);
@@ -248,6 +265,59 @@ exam("2027-06-28", "BTF", "16:00", "Aula 5", C2);
 exam("2027-06-30", "AF", "16:00", "Aula 5", C2);
 exam("2027-07-02", "FF II", "09:00", "Aula 5", C2);
 
+// 3rd-year 2C: Alba also attends B&F and FCG. Lectures are transcribed
+// explicitly because the official timetable changes around partials and breaks.
+const thirdSelectedStandard = [
+  ["FCG", "B&F", null],
+  [null, null, null],
+  ["B&F", "FCG", null],
+  ["FCG", null, "B&F"],
+  [null, null, null],
+];
+
+selectedLectureDay("2027-01-20", thirdSelectedStandard[2], C3_2C);
+selectedLectureDay("2027-01-21", thirdSelectedStandard[3], C3_2C);
+["2027-01-27", "2027-02-03", "2027-02-10"].forEach((date) =>
+  selectedLectureDay(date, thirdSelectedStandard[2], C3_2C),
+);
+["2027-01-28", "2027-02-04", "2027-02-11"].forEach((date) =>
+  selectedLectureDay(date, thirdSelectedStandard[3], C3_2C),
+);
+["2027-02-01", "2027-02-08"].forEach((date) =>
+  selectedLectureDay(date, thirdSelectedStandard[0], C3_2C),
+);
+
+selectedLectureDay("2027-02-15", ["FCG", "B&F", null], C3_2C);
+selectedLectureDay("2027-02-16", [null, null, "B&F"], C3_2C);
+selectedLectureDay("2027-02-17", [null, "FCG", null], C3_2C);
+selectedLectureDay("2027-02-18", [null, null, "B&F"], C3_2C);
+
+selectedLectureDay("2027-03-31", thirdSelectedStandard[2], C3_2C);
+selectedLectureDay("2027-04-01", thirdSelectedStandard[3], C3_2C);
+selectedLectureDay("2027-04-02", ["FCG", null, null], C3_2C);
+["2027-04-12", "2027-04-19", "2027-04-26"].forEach((monday) => {
+  selectedLectureDay(monday, thirdSelectedStandard[0], C3_2C);
+  selectedLectureDay(addDays(monday, 2), thirdSelectedStandard[2], C3_2C);
+  selectedLectureDay(addDays(monday, 3), thirdSelectedStandard[3], C3_2C);
+});
+
+// 3rd-year 2C: only Alba's G1 intensive practices.
+for (let index = 0; index < 4; index += 1) {
+  practice(addDays("2027-05-03", index), "FCG", "09:00", "13:30", "G1", "Biolab I", null, C3_2C);
+}
+practice("2027-05-07", "FCG", "09:00", "11:00", "G1", "Biolab I", null, C3_2C);
+for (let index = 0; index < 5; index += 1) {
+  practice(addDays("2027-05-10", index), "B&F", "16:00", "20:00", "G1", "TecnoLab I y Aula 5", null, C3_2C);
+}
+
+// 3rd-year 2C: partial, ordinary and extraordinary exams for Alba's subjects.
+exam("2027-03-15", "B&F", "16:00", "Aulas 1-2, Aula de estudio y Seminario II", C3_2C);
+exam("2027-03-18", "FCG", "16:00", "Aulas 1-2, 5 y 6", C3_2C);
+exam("2027-05-17", "B&F", "16:00", "Aulas 1-2, 5 y 6", C3_2C);
+exam("2027-05-20", "FCG", "16:00", "Aulas 1-2, 5 y 6", C3_2C);
+exam("2027-06-17", "B&F", "16:00", "Aulas 1-2", C3_2C);
+exam("2027-06-21", "FCG", "16:00", "Aulas 1-2", C3_2C);
+
 const kindOrder = { vacation: 0, holiday: 1, lecture: 2, practice: 3, exam: 4 };
 events.sort(
   (a, b) =>
@@ -260,15 +330,16 @@ events.sort(
 const document = {
   meta: {
     schemaVersion: 2,
-    sourceDocument: "DAMERO CUARTO CURSO 2026-27 - 1C y 2C",
+    sourceDocument: "DAMEROS 2026-27 - cuarto curso 1C/2C y asignaturas de tercero 2C",
     sourceFiles: [
       "1C CUARTO CURSO DAMERO 26-27.pdf",
       "2C CUARTO CURSO DAMERO 26-27.pdf",
+      "2C TERCER CURSO DAMERO 26-27.pdf",
     ],
     coverage: { from: "2026-08-31", to: "2027-07-16" },
     provisional: false,
     practiceGroup: "G1",
-    notes: "Transcripción verificada de ambos DAMEROS oficiales. Solo G1 y actividades para todos los grupos.",
+    notes: "Transcripción verificada de los tres DAMEROS oficiales. Alba cursa B&F y FCG de tercero; solo G1 y actividades para todos los grupos.",
   },
   subjects,
   events,

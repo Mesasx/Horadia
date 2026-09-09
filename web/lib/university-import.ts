@@ -2,7 +2,7 @@
  * Decodes the bundled `university-schedule.json` into value types, applying the
  * G1 practice-group filter (§22) — port of the Swift `UniversityScheduleImporter`.
  *
- * The JSON is generated from the two official 2026-27 DAMERO documents; every
+ * The JSON is generated from the three official 2026-27 DAMERO documents; every
  * row is materialised explicitly by date, never as a runtime recurrence.
  */
 

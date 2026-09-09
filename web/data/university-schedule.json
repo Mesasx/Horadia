@@ -1,10 +1,11 @@
 {
   "meta": {
     "schemaVersion": 2,
-    "sourceDocument": "DAMERO CUARTO CURSO 2026-27 - 1C y 2C",
+    "sourceDocument": "DAMEROS 2026-27 - cuarto curso 1C/2C y asignaturas de tercero 2C",
     "sourceFiles": [
       "1C CUARTO CURSO DAMERO 26-27.pdf",
-      "2C CUARTO CURSO DAMERO 26-27.pdf"
+      "2C CUARTO CURSO DAMERO 26-27.pdf",
+      "2C TERCER CURSO DAMERO 26-27.pdf"
     ],
     "coverage": {
       "from": "2026-08-31",
@@ -12,7 +13,7 @@
     },
     "provisional": false,
     "practiceGroup": "G1",
-    "notes": "Transcripción verificada de ambos DAMEROS oficiales. Solo G1 y actividades para todos los grupos."
+    "notes": "Transcripción verificada de los tres DAMEROS oficiales. Alba cursa B&F y FCG de tercero; solo G1 y actividades para todos los grupos."
   },
   "subjects": [
     {
@@ -64,6 +65,16 @@
       "code": "FF II",
       "fullName": "Farmacología y Farmacoterapia II",
       "color": "sage"
+    },
+    {
+      "code": "B&F",
+      "fullName": "Biofarmacia y Farmacocinética",
+      "color": "mauve"
+    },
+    {
+      "code": "FCG",
+      "fullName": "Farmacognosia y Fitoterapia",
+      "color": "citron"
     }
   ],
   "events": [
@@ -2027,6 +2038,28 @@
     },
     {
       "date": "2027-01-20",
+      "subject": "B&F",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-01-20",
+      "subject": "FCG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-01-20",
       "subject": "BI",
       "start": "16:00",
       "end": null,
@@ -2035,6 +2068,17 @@
       "location": "Aulas 1, 2 y 5",
       "title": null,
       "source": "official-damero-1c"
+    },
+    {
+      "date": "2027-01-21",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-01-21",
@@ -2068,6 +2112,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-21",
+      "subject": "B&F",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-01-22",
@@ -2148,6 +2203,17 @@
     },
     {
       "date": "2027-01-27",
+      "subject": "B&F",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-01-27",
       "subject": "LGP",
       "start": "09:00",
       "end": "10:30",
@@ -2156,6 +2222,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-27",
+      "subject": "FCG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-01-27",
@@ -2178,6 +2255,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-28",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-01-28",
@@ -2211,6 +2299,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-01-28",
+      "subject": "B&F",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-01-28",
@@ -2269,6 +2368,28 @@
     },
     {
       "date": "2027-02-01",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-02-01",
+      "subject": "B&F",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-02-01",
       "subject": "LGP",
       "start": "10:45",
       "end": "12:15",
@@ -2324,6 +2445,17 @@
     },
     {
       "date": "2027-02-03",
+      "subject": "B&F",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-02-03",
       "subject": "LGP",
       "start": "09:00",
       "end": "10:30",
@@ -2332,6 +2464,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-03",
+      "subject": "FCG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-02-03",
@@ -2357,6 +2500,17 @@
     },
     {
       "date": "2027-02-04",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-02-04",
       "subject": "TX",
       "start": "09:00",
       "end": "12:15",
@@ -2365,6 +2519,17 @@
       "location": "Visita al Toxicológico",
       "title": "P1",
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-04",
+      "subject": "B&F",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-02-05",
@@ -2409,6 +2574,28 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-08",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-02-08",
+      "subject": "B&F",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-02-08",
@@ -2489,6 +2676,17 @@
     },
     {
       "date": "2027-02-10",
+      "subject": "B&F",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-02-10",
       "subject": "LGP",
       "start": "09:00",
       "end": "10:30",
@@ -2497,6 +2695,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-10",
+      "subject": "FCG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-02-10",
@@ -2519,6 +2728,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-11",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-02-11",
@@ -2552,6 +2772,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-11",
+      "subject": "B&F",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-02-12",
@@ -2596,6 +2827,28 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-15",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-02-15",
+      "subject": "B&F",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-02-15",
@@ -2654,6 +2907,17 @@
     },
     {
       "date": "2027-02-16",
+      "subject": "B&F",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-02-16",
       "subject": "TX",
       "start": "12:30",
       "end": "14:00",
@@ -2673,6 +2937,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-17",
+      "subject": "FCG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-02-17",
@@ -2728,6 +3003,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-02-18",
+      "subject": "B&F",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-02-19",
@@ -2895,6 +3181,17 @@
       "source": "official-damero-2c"
     },
     {
+      "date": "2027-03-15",
+      "subject": "B&F",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2, Aula de estudio y Seminario II",
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
       "date": "2027-03-16",
       "subject": "AF",
       "start": "09:00",
@@ -2926,6 +3223,17 @@
       "location": "Aula Informática II",
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-03-18",
+      "subject": "FCG",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2, 5 y 6",
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-03-19",
@@ -3027,6 +3335,61 @@
       "source": "official-damero-2c"
     },
     {
+      "date": "2027-03-31",
+      "subject": "B&F",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-03-31",
+      "subject": "FCG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-01",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-01",
+      "subject": "B&F",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-02",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
       "date": "2027-04-02",
       "subject": "TX",
       "start": "09:00",
@@ -3094,6 +3457,28 @@
     },
     {
       "date": "2027-04-12",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-12",
+      "subject": "B&F",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-12",
       "subject": "FF II",
       "start": "16:00",
       "end": null,
@@ -3138,6 +3523,17 @@
     },
     {
       "date": "2027-04-14",
+      "subject": "B&F",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-14",
       "subject": "LGP",
       "start": "09:00",
       "end": "10:30",
@@ -3146,6 +3542,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-14",
+      "subject": "FCG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-04-14",
@@ -3171,6 +3578,17 @@
     },
     {
       "date": "2027-04-15",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-15",
       "subject": "FF II",
       "start": "09:00",
       "end": "10:30",
@@ -3203,6 +3621,17 @@
       "source": "official-damero-2c"
     },
     {
+      "date": "2027-04-15",
+      "subject": "B&F",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
       "date": "2027-04-16",
       "subject": "BTF",
       "start": "09:00",
@@ -3245,6 +3674,28 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-19",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-19",
+      "subject": "B&F",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-04-19",
@@ -3303,6 +3754,17 @@
     },
     {
       "date": "2027-04-21",
+      "subject": "B&F",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-21",
       "subject": "LGP",
       "start": "09:00",
       "end": "10:30",
@@ -3311,6 +3773,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-21",
+      "subject": "FCG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-04-21",
@@ -3336,6 +3809,17 @@
     },
     {
       "date": "2027-04-22",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-22",
       "subject": "FF II",
       "start": "09:00",
       "end": "10:30",
@@ -3368,6 +3852,17 @@
       "source": "official-damero-2c"
     },
     {
+      "date": "2027-04-22",
+      "subject": "B&F",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
       "date": "2027-04-23",
       "subject": "TX",
       "start": "09:00",
@@ -3410,6 +3905,28 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-26",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-26",
+      "subject": "B&F",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-04-26",
@@ -3468,6 +3985,17 @@
     },
     {
       "date": "2027-04-28",
+      "subject": "B&F",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-04-28",
       "subject": "LGP",
       "start": "09:00",
       "end": "10:30",
@@ -3476,6 +4004,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-28",
+      "subject": "FCG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-04-28",
@@ -3498,6 +4037,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-29",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-04-29",
@@ -3531,6 +4081,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-04-29",
+      "subject": "B&F",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-05-03",
@@ -3542,6 +4103,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-03",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "13:30",
+      "type": "practice",
+      "group": "G1",
+      "location": "Biolab I",
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-05-03",
@@ -3589,6 +4161,17 @@
     },
     {
       "date": "2027-05-04",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "13:30",
+      "type": "practice",
+      "group": "G1",
+      "location": "Biolab I",
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-05-04",
       "subject": "AF",
       "start": "10:45",
       "end": "12:15",
@@ -3622,6 +4205,17 @@
     },
     {
       "date": "2027-05-05",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "13:30",
+      "type": "practice",
+      "group": "G1",
+      "location": "Biolab I",
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-05-05",
       "subject": "FF II",
       "start": "10:45",
       "end": "12:15",
@@ -3655,6 +4249,17 @@
     },
     {
       "date": "2027-05-06",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "13:30",
+      "type": "practice",
+      "group": "G1",
+      "location": "Biolab I",
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-05-06",
       "subject": "BTF",
       "start": "10:45",
       "end": "12:15",
@@ -3674,6 +4279,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-07",
+      "subject": "FCG",
+      "start": "09:00",
+      "end": "11:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "Biolab I",
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-05-10",
@@ -3709,6 +4325,17 @@
       "source": "official-damero-2c"
     },
     {
+      "date": "2027-05-10",
+      "subject": "B&F",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "TecnoLab I y Aula 5",
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
       "date": "2027-05-11",
       "subject": "LGP",
       "start": "09:00",
@@ -3742,6 +4369,17 @@
       "source": "official-damero-2c"
     },
     {
+      "date": "2027-05-11",
+      "subject": "B&F",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "TecnoLab I y Aula 5",
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
       "date": "2027-05-12",
       "subject": "TX",
       "start": "09:00",
@@ -3773,6 +4411,17 @@
       "location": null,
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-12",
+      "subject": "B&F",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "TecnoLab I y Aula 5",
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-05-13",
@@ -3786,6 +4435,39 @@
       "source": "official-damero-2c"
     },
     {
+      "date": "2027-05-13",
+      "subject": "B&F",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "TecnoLab I y Aula 5",
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-05-14",
+      "subject": "B&F",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G1",
+      "location": "TecnoLab I y Aula 5",
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
+      "date": "2027-05-17",
+      "subject": "B&F",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2, 5 y 6",
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
       "date": "2027-05-18",
       "subject": "FF II",
       "start": "16:00",
@@ -3795,6 +4477,17 @@
       "location": "Aulas 1-2 y 5",
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-05-20",
+      "subject": "FCG",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2, 5 y 6",
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-05-21",
@@ -3918,6 +4611,17 @@
       "source": "official-damero-2c"
     },
     {
+      "date": "2027-06-17",
+      "subject": "B&F",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2",
+      "title": null,
+      "source": "official-damero-third-2c"
+    },
+    {
       "date": "2027-06-18",
       "subject": "LGP",
       "start": "16:00",
@@ -3927,6 +4631,17 @@
       "location": "Aula 5",
       "title": null,
       "source": "official-damero-2c"
+    },
+    {
+      "date": "2027-06-21",
+      "subject": "FCG",
+      "start": "16:00",
+      "end": null,
+      "type": "exam",
+      "group": null,
+      "location": "Aulas 1-2",
+      "title": null,
+      "source": "official-damero-third-2c"
     },
     {
       "date": "2027-06-22",

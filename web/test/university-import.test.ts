@@ -51,10 +51,10 @@ describe("university import - official 2026-27 DAMERO", () => {
     expect(result.coverage).toEqual({ from: "2026-08-31", to: "2027-07-16" });
   });
 
-  it("has all ten fourth-year subjects", () => {
+  it("has all fourth-year subjects plus Alba's two third-year subjects", () => {
     const codes = result.subjects.map((subject) => subject.code).sort();
     expect(codes).toEqual([
-      "AF", "BI", "BTF", "FF II", "FFI", "FGFG", "LGP", "SP", "TF II", "TX",
+      "AF", "B&F", "BI", "BTF", "FCG", "FF II", "FFI", "FGFG", "LGP", "SP", "TF II", "TX",
     ]);
   });
 
@@ -104,6 +104,53 @@ describe("university import - official 2026-27 DAMERO", () => {
     expect(map.AF.fullName).toContain("Atención Farmacéutica");
     expect(map.LGP.fullName).toContain("Legislación, Gestión");
     expect(map["FF II"].fullName).toBe("Farmacología y Farmacoterapia II");
+    expect(map["B&F"].fullName).toBe("Biofarmacia y Farmacocinética");
+    expect(map.FCG.fullName).toBe("Farmacognosia y Fitoterapia");
     expect(map.FFI.workspaceId).toBe("subject:FFI");
+  });
+
+  it("adds every B&F and FCG event from the third-year second-term DAMERO", () => {
+    const added = result.events.filter(
+      (event) => event.subjectCode === "B&F" || event.subjectCode === "FCG",
+    );
+    expect(added).toHaveLength(64);
+    expect(added.filter((event) => event.subjectCode === "B&F")).toHaveLength(32);
+    expect(added.filter((event) => event.subjectCode === "FCG")).toHaveLength(32);
+  });
+
+  it("keeps only Alba's G1 intensive practices with the printed times", () => {
+    const may3 = new Date(2027, 4, 3).getTime();
+    const may7 = new Date(2027, 4, 7).getTime();
+    const may10 = new Date(2027, 4, 10).getTime();
+    const practices = result.events.filter(
+      (event) =>
+        (event.subjectCode === "B&F" || event.subjectCode === "FCG") &&
+        event.kind === "practice",
+    );
+    expect(practices).toHaveLength(10);
+    expect(practices.every((event) => event.audience === "g1")).toBe(true);
+    expect(
+      practices.find((event) => event.day === may3 && event.subjectCode === "FCG")?.end,
+    ).toEqual({ hour: 13, minute: 30 });
+    expect(
+      practices.find((event) => event.day === may7 && event.subjectCode === "FCG")?.end,
+    ).toEqual({ hour: 11, minute: 0 });
+    expect(
+      practices.find((event) => event.day === may10 && event.subjectCode === "B&F")?.start,
+    ).toEqual({ hour: 16, minute: 0 });
+  });
+
+  it("includes both partial, ordinary and extraordinary exams", () => {
+    const exams = result.events.filter(
+      (event) =>
+        (event.subjectCode === "B&F" || event.subjectCode === "FCG") &&
+        event.kind === "exam",
+    );
+    expect(exams).toHaveLength(6);
+    expect(exams.map((event) => event.day)).toEqual(
+      ["2027-03-15", "2027-03-18", "2027-05-17", "2027-05-20", "2027-06-17", "2027-06-21"].map(
+        (date) => new Date(`${date}T00:00:00`).getTime(),
+      ),
+    );
   });
 });
