@@ -5,20 +5,34 @@
  * — colour is editable, the timetable is not), tema, and app info.
  */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePlannerStore } from "@/store/planner-store";
 import { ALL_SUBJECTS, SCHEDULE_PROVISIONAL, SCHEDULE_COVERAGE } from "@/lib/planner";
 import { subjectsWithColors } from "@/lib/planner";
 import { paletteVars, PASTEL_TOKENS, PASTEL_NAMES } from "@/lib/palette";
 import { formatDayMonthLong } from "@/lib/format";
 import { useTheme } from "@/components/useTheme";
+import {
+  enablePushNotifications,
+  getPushStatus,
+  sendTestPush,
+  syncPushReminders,
+  type PushStatus,
+} from "@/lib/push-client";
 
 export function SettingsView() {
   const state = usePlannerStore();
   const setSubjectColour = usePlannerStore((s) => s.setSubjectColour);
   const subjects = subjectsWithColors(state);
   const [editing, setEditing] = useState<string | null>(null);
+  const [pushStatus, setPushStatus] = useState<PushStatus | null>(null);
+  const [pushBusy, setPushBusy] = useState(false);
+  const [pushMessage, setPushMessage] = useState<string | null>(null);
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    void getPushStatus().then(setPushStatus);
+  }, []);
 
   const birthday = new Date(2000, state.preferences.birthdayMonth - 1, state.preferences.birthdayDay);
 
@@ -50,6 +64,76 @@ export function SettingsView() {
               </button>
             ))}
           </div>
+        </Section>
+
+        <Section
+          title="Notificaciones"
+          footer={
+            pushStatus?.needsHomeScreenInstall
+              ? "En iPhone, añade Horadia a la pantalla de inicio y ábrela desde su icono."
+              : "El permiso solo se solicita cuando pulsas Activar notificaciones."
+          }
+        >
+          <Row label="Estado" detail={pushStatusLabel(pushStatus)} />
+          <button
+            type="button"
+            disabled={pushBusy || pushStatus?.subscribed}
+            onClick={async () => {
+              setPushBusy(true);
+              setPushMessage(null);
+              try {
+                const status = await enablePushNotifications(
+                  usePlannerStore.getState().reminders,
+                );
+                setPushStatus(status);
+                setPushMessage("Notificaciones activadas correctamente.");
+              } catch (error) {
+                setPushMessage(
+                  error instanceof Error ? error.message : "No se pudieron activar.",
+                );
+                setPushStatus(await getPushStatus());
+              } finally {
+                setPushBusy(false);
+              }
+            }}
+            className="w-full px-4 py-3 text-left text-[15px] font-medium disabled:opacity-40"
+            style={{ color: "var(--accent)" }}
+          >
+            {pushStatus?.subscribed
+              ? "Notificaciones activadas"
+              : "Activar notificaciones"}
+          </button>
+          <button
+            type="button"
+            disabled={pushBusy || !pushStatus?.subscribed}
+            onClick={async () => {
+              setPushBusy(true);
+              setPushMessage(null);
+              try {
+                await sendTestPush();
+                setPushMessage("Notificación de prueba enviada.");
+              } catch (error) {
+                setPushMessage(
+                  error instanceof Error ? error.message : "No se pudo enviar la prueba.",
+                );
+              } finally {
+                setPushBusy(false);
+              }
+            }}
+            className="w-full px-4 py-3 text-left text-[15px] font-medium disabled:opacity-40"
+            style={{ color: "var(--accent)" }}
+          >
+            Enviar notificación de prueba
+          </button>
+          {pushMessage ? (
+            <p
+              className="px-4 py-3 text-[13px]"
+              role="status"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              {pushMessage}
+            </p>
+          ) : null}
         </Section>
 
         <Section
@@ -111,6 +195,7 @@ export function SettingsView() {
             onClick={() => {
               if (confirm("¿Restablecer todas las actividades y ajustes?")) {
                 usePlannerStore.getState().resetAll();
+                void syncPushReminders([], true);
               }
             }}
             className="px-4 py-3 text-left text-[15px]"
@@ -126,6 +211,14 @@ export function SettingsView() {
       </div>
     </div>
   );
+}
+
+function pushStatusLabel(status: PushStatus | null): string {
+  if (!status) return "Comprobando…";
+  if (status.needsHomeScreenInstall) return "Requiere instalación";
+  if (!status.supported) return "No disponibles";
+  if (status.permission === "denied") return "Bloqueadas";
+  return status.subscribed ? "Activas" : "Desactivadas";
 }
 
 function Section({

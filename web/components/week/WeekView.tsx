@@ -26,6 +26,8 @@ import type { ScheduledItem } from "@/lib/scheduled-item";
 import type { TimeSlot } from "@/lib/timeslot";
 import { PLANNER_SCALE_LABELS, type PlannerScale } from "@/lib/planner-scale";
 import { DayColumn } from "./DayColumn";
+import { ReminderSection } from "@/components/reminders/ReminderSection";
+import { NewReminderSheet } from "@/components/reminders/NewReminderSheet";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function columnWidths(available: number) {
@@ -58,6 +60,18 @@ export function WeekView({
   const scrollSettleTimerRef = useRef<number | null>(null);
   const pendingScrollLeftRef = useRef<number | null>(null);
   const [width, setWidth] = useState(390);
+  const [creatingReminder, setCreatingReminder] = useState(false);
+
+  useEffect(() => {
+    const linkedId = new URLSearchParams(window.location.search).get("reminder");
+    if (!linkedId) return;
+    const linked = state.reminders.find((reminder) => reminder.id === linkedId);
+    if (!linked?.date) return;
+    const linkedDay = new Date(`${linked.date}T00:00:00`);
+    if (!Number.isNaN(linkedDay.getTime())) {
+      setWeekStart(startOfWeek(linkedDay));
+    }
+  }, [state.reminders]);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -234,6 +248,13 @@ export function WeekView({
           ))}
         </div>
       </div>
+      <ReminderSection
+        weekStart={weekStart}
+        onAdd={() => setCreatingReminder(true)}
+      />
+      {creatingReminder ? (
+        <NewReminderSheet open onClose={() => setCreatingReminder(false)} />
+      ) : null}
     </div>
   );
 }

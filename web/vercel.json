@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/push/prepare",
+      "schedule": "0 3 * * *"
+    }
+  ]
+}

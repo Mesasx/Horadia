@@ -5,6 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Horadia",
     short_name: "Horadia",
     description: "Planificador semanal — mantén pulsado, arrastra y suelta.",
+    id: "/",
     start_url: "/",
     scope: "/",
     display: "standalone",

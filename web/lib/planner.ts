@@ -33,6 +33,7 @@ import {
   weekDays,
 } from "./time";
 import scheduleJson from "@/data/university-schedule.json";
+import type { Reminder } from "./reminder";
 
 // MARK: - Static university data (immutable, from the bundled JSON)
 
@@ -85,6 +86,7 @@ export interface PlannerState {
   library: LibraryActivity[];
   preferences: Preferences;
   subjectColors: SubjectColors;
+  reminders: Reminder[];
 }
 
 export function initialPlannerState(referenceDate: Date = new Date()): PlannerState {
@@ -94,6 +96,7 @@ export function initialPlannerState(referenceDate: Date = new Date()): PlannerSt
     library: seedLibrary(),
     preferences: DEFAULT_PREFERENCES,
     subjectColors: {},
+    reminders: [],
   };
 }
 

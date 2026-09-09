@@ -5,7 +5,7 @@
  * localStorage so once loaded it is fully usable with no connection.
  */
 
-const CACHE = "horadia-v1";
+const CACHE = "horadia-v2";
 const CORE = ["/", "/manifest.webmanifest", "/icon-192.png", "/icon-512.png", "/apple-touch-icon.png"];
 
 self.addEventListener("install", (event) => {
@@ -27,6 +27,7 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+  if (url.pathname.startsWith("/api/")) return;
 
   event.respondWith(
     fetch(request)
@@ -43,6 +44,47 @@ self.addEventListener("fetch", (event) => {
           if (shell) return shell;
         }
         return new Response("Sin conexión", { status: 503, headers: { "Content-Type": "text/plain" } });
+      }),
+  );
+});
+
+self.addEventListener("push", (event) => {
+  let payload = {
+    title: "Horadia",
+    body: "Tienes un recordatorio pendiente.",
+    url: "/",
+    tag: "horadia-reminder",
+  };
+  try {
+    if (event.data) payload = { ...payload, ...event.data.json() };
+  } catch {
+    if (event.data) payload.body = event.data.text();
+  }
+  event.waitUntil(
+    self.registration.showNotification(payload.title, {
+      body: payload.body,
+      icon: "/icon-192.png",
+      badge: "/icon-192.png",
+      tag: payload.tag,
+      data: { url: payload.url },
+    }),
+  );
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const relativeUrl = event.notification.data?.url || "/";
+  const targetUrl = new URL(relativeUrl, self.location.origin).href;
+  event.waitUntil(
+    self.clients
+      .matchAll({ type: "window", includeUncontrolled: true })
+      .then(async (openClients) => {
+        const client = openClients[0];
+        if (client) {
+          if ("navigate" in client) await client.navigate(targetUrl);
+          return client.focus();
+        }
+        return self.clients.openWindow(targetUrl);
       }),
   );
 });

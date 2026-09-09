@@ -31,6 +31,11 @@ import {
 } from "@/lib/planner";
 import type { ScheduledItem } from "@/lib/scheduled-item";
 import type { LibraryActivity } from "@/lib/seed";
+import {
+  createReminder,
+  type NewReminder,
+  type Reminder,
+} from "@/lib/reminder";
 
 export interface PlannerStore extends PlannerState {
   hydrated: boolean;
@@ -57,6 +62,8 @@ export interface PlannerStore extends PlannerState {
   }) => LibraryActivity;
   setPreferences: (patch: Partial<Preferences>) => void;
   setSubjectColour: (code: string, color: string) => void;
+  addReminder: (input: NewReminder) => Reminder;
+  toggleReminder: (id: string) => Reminder | undefined;
   resetAll: () => void;
 }
 
@@ -99,19 +106,46 @@ export const usePlannerStore = create<PlannerStore>()(
       setPreferences: (patch) =>
         set((s) => ({ preferences: { ...s.preferences, ...patch } })),
       setSubjectColour: (code, color) => set((s) => setSubjectColor(s, code, color)),
+      addReminder: (input) => {
+        const reminder = createReminder(input);
+        set((s) => ({ reminders: [...s.reminders, reminder] }));
+        return reminder;
+      },
+      toggleReminder: (id) => {
+        const current = get().reminders.find((reminder) => reminder.id === id);
+        if (!current) return undefined;
+        const reminder = { ...current, completed: !current.completed };
+        set((s) => ({
+          reminders: s.reminders.map((candidate) =>
+            candidate.id === id ? reminder : candidate,
+          ),
+        }));
+        return reminder;
+      },
       resetAll: () => set({ ...initialPlannerState() }),
     }),
     {
       name: STORAGE_KEY,
       storage: createJSONStorage(() => localStorage),
-      version: 1,
+      version: 2,
       partialize: (s) => ({
         personalItems: s.personalItems,
         omittedInstanceKeys: s.omittedInstanceKeys,
         library: s.library,
         preferences: s.preferences,
         subjectColors: s.subjectColors,
+        reminders: s.reminders,
       }),
+      migrate: (persistedState) => persistedState as PlannerStore,
+      merge: (persistedState, currentState) => {
+        const stored = persistedState as Partial<PlannerStore>;
+        return {
+          ...currentState,
+          ...stored,
+          reminders: Array.isArray(stored.reminders) ? stored.reminders : [],
+          hydrated: false,
+        };
+      },
       onRehydrateStorage: () => (state) => {
         state?._setHydrated();
       },
