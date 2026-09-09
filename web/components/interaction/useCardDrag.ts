@@ -67,6 +67,7 @@ export function useCardDrag(
     el: null as HTMLElement | null,
     suppressClickUntil: 0,
     scrollEl: null as HTMLElement | null,
+    usePageScroll: false,
     scrollDeltaY: 0,
     autoScrollSpeed: 0,
     autoScrollFrame: null as number | null,
@@ -93,13 +94,22 @@ export function useCardDrag(
   const runAutoScroll = useCallback(() => {
     const tick = () => {
       const s = state.current;
-      if (!s.lifted || !s.scrollEl || s.autoScrollSpeed === 0) {
+      if (
+        !s.lifted ||
+        (!s.usePageScroll && !s.scrollEl) ||
+        s.autoScrollSpeed === 0
+      ) {
         s.autoScrollFrame = null;
         return;
       }
-      const before = s.scrollEl.scrollTop;
-      s.scrollEl.scrollTop += s.autoScrollSpeed;
-      s.scrollDeltaY += s.scrollEl.scrollTop - before;
+      const before = s.usePageScroll ? window.scrollY : s.scrollEl!.scrollTop;
+      if (s.usePageScroll) {
+        window.scrollBy({ top: s.autoScrollSpeed, behavior: "auto" });
+      } else {
+        s.scrollEl!.scrollTop += s.autoScrollSpeed;
+      }
+      const after = s.usePageScroll ? window.scrollY : s.scrollEl!.scrollTop;
+      s.scrollDeltaY += after - before;
       s.ty = s.lastY - s.startY + s.scrollDeltaY;
       s.autoScrollFrame = requestAnimationFrame(tick);
     };
@@ -116,7 +126,10 @@ export function useCardDrag(
       if (!el) return;
       s.lifted = true;
       s.suppressClickUntil = Date.now() + 700;
-      s.scrollEl = el.closest<HTMLElement>(".week-scroller");
+      s.usePageScroll = Boolean(el.closest(".week-scroller"));
+      s.scrollEl = s.usePageScroll
+        ? null
+        : el.closest<HTMLElement>("[data-drag-scroll]");
       s.scrollDeltaY = 0;
       const rect = el.getBoundingClientRect();
       if (s.pointerId >= 0) {
@@ -219,7 +232,9 @@ export function useCardDrag(
       s.ty = dy + s.scrollDeltaY;
       s.overDelete = clientY > window.innerHeight - DELETE_ZONE_PX;
 
-      const scrollRect = s.scrollEl?.getBoundingClientRect();
+      const scrollRect = s.usePageScroll
+        ? { top: 0, bottom: window.innerHeight - DELETE_ZONE_PX }
+        : s.scrollEl?.getBoundingClientRect();
       if (s.overDelete) {
         stopAutoScroll();
       } else if (scrollRect) {

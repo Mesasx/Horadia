@@ -70,6 +70,8 @@ export function PlannerApp() {
     setTab(next);
   };
 
+  const isWeekView = tab === "week";
+
   const viewFor = (view: Tab) => {
     switch (view) {
       case "week":
@@ -85,11 +87,22 @@ export function PlannerApp() {
 
   return (
     <PlannerInteractionProvider>
-      <div className="flex h-[100dvh] flex-col" style={{ background: "var(--bg)" }}>
-        <main className="relative min-h-0 flex-1 overflow-hidden pb-[68px]">
+      <div
+        className={isWeekView ? "min-h-[100dvh]" : "flex h-[100dvh] flex-col"}
+        style={{ background: "var(--bg)" }}
+      >
+        <main
+          className={
+            isWeekView
+              ? "pb-[68px]"
+              : "relative min-h-0 flex-1 overflow-hidden pb-[68px]"
+          }
+        >
           <div
             key={tab}
-            className={`tab-view tab-enter-${tabDirection} absolute inset-0`}
+            className={`tab-view tab-enter-${tabDirection} ${
+              isWeekView ? "relative" : "absolute inset-0"
+            }`}
           >
             {viewFor(tab)}
           </div>

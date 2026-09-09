@@ -25,7 +25,7 @@ export function DayColumn({
 }) {
   return (
     <div
-      className="flex min-h-full flex-col rounded-[var(--r-card)]"
+      className="flex h-full flex-col rounded-[var(--r-card)]"
       style={{
         background: "var(--surface)",
         border: `1px solid ${isToday ? "var(--accent)" : "var(--hairline)"}`,

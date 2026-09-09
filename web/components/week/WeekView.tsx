@@ -150,7 +150,7 @@ export function WeekView({
   const weekTitle = `${formatDayMonth(days[0])} – ${formatDayMonth(days[6])}`;
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex flex-col">
       <header className="safe-top px-4 pb-1 pt-3">
         <p
           className="mb-0.5 px-1 text-[11px] font-semibold uppercase tracking-wide"
@@ -203,19 +203,19 @@ export function WeekView({
 
       <div
         ref={containerRef}
-        className="min-h-0 flex-1"
+        className="w-full"
       >
         <div
           ref={scrollerRef}
           onScroll={handleHorizontalScroll}
-          className="week-scroller flex h-full snap-x snap-proximity overflow-auto px-3 py-2"
+          className="week-scroller flex items-stretch snap-x snap-proximity overflow-x-auto px-3 py-2"
           style={{ gap: spacing }}
         >
           {renderedDays.map((date, i) => (
             <div
               key={dayKey(date)}
               ref={i === 0 ? currentMondayRef : i === 7 ? nextMondayRef : undefined}
-              className="min-h-full shrink-0 self-start snap-start"
+              className="shrink-0 snap-start"
               style={{
                 width:
                   date.getDay() === 0 || date.getDay() === 6 ? weekend : weekday,

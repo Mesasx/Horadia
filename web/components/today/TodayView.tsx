@@ -54,7 +54,10 @@ export function TodayView({
         ) : null}
       </header>
 
-      <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-28">
+      <div
+        data-drag-scroll
+        className="min-h-0 flex-1 overflow-y-auto px-4 pb-28"
+      >
         {next ? (
           <NextUpCard item={next} now={now} onSelect={() => onSelectItem(next)} />
         ) : null}

@@ -148,7 +148,6 @@ button {
 }
 
 body.planner-drag-active {
-  overflow: hidden;
   touch-action: none;
   overscroll-behavior: none;
 }
