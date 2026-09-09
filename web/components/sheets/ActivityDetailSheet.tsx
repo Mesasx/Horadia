@@ -15,7 +15,13 @@ import { isOmitted } from "@/lib/planner";
 import { paletteVars } from "@/lib/palette";
 import { iconFor } from "@/lib/icons";
 import { formatRange, formatWeekdayLong, formatDuration } from "@/lib/format";
-import { addDays, startOfDay, TimeGrid } from "@/lib/time";
+import {
+  addDays,
+  parseTimeOfDay,
+  settingTime,
+  startOfDay,
+  TimeGrid,
+} from "@/lib/time";
 import { haptic } from "@/lib/haptics";
 import {
   accessibilityCategory,
@@ -27,6 +33,7 @@ import {
   Copy,
   CalendarPlus,
   CalendarClock,
+  Clock3,
   Lock,
   LockOpen,
   Minus,
@@ -45,6 +52,7 @@ export function ActivityDetailSheet({
   const store = usePlannerStore.getState();
   const [copyPicker, setCopyPicker] = useState(false);
   const [movePicker, setMovePicker] = useState(false);
+  const [timeEditor, setTimeEditor] = useState(false);
 
   // Personal items are re-read live so the sheet reflects edits; classes are
   // shown from the snapshot the caller passed (they are not in personalItems).
@@ -60,7 +68,7 @@ export function ActivityDetailSheet({
 
   return (
     <>
-      <Sheet open={!copyPicker && !movePicker} onClose={onClose}>
+      <Sheet open={!copyPicker && !movePicker && !timeEditor} onClose={onClose}>
         <div
           className="mb-2 flex items-center gap-3 rounded-[14px] px-4 py-3"
           style={{ background: c.fill, color: c.accent }}
@@ -97,6 +105,13 @@ export function ActivityDetailSheet({
                 icon={item.isPinned ? <LockOpen size={18} /> : <Lock size={18} />}
                 label={item.isPinned ? "Desbloquear" : "Fijar"}
                 onClick={() => store.togglePin(item.id)}
+              />
+              <SheetRow
+                icon={<Clock3 size={18} />}
+                label="Cambiar hora"
+                detail={formatRange(item.start, item.end)}
+                disabled={item.isPinned}
+                onClick={() => setTimeEditor(true)}
               />
               <SheetRow
                 icon={<Minus size={18} />}
@@ -217,7 +232,101 @@ export function ActivityDetailSheet({
           onClose();
         }}
       />
+      {timeEditor ? (
+        <TimeEditorSheet
+          key={item.id}
+          open
+          item={item}
+          onClose={() => setTimeEditor(false)}
+          onSave={(start, end) => {
+            store.reschedule(item.id, start, end);
+            haptic("drop");
+            setTimeEditor(false);
+          }}
+        />
+      ) : null}
     </>
+  );
+}
+
+function inputTime(date: number): string {
+  const value = new Date(date);
+  return `${String(value.getHours()).padStart(2, "0")}:${String(
+    value.getMinutes(),
+  ).padStart(2, "0")}`;
+}
+
+function TimeEditorSheet({
+  open,
+  item,
+  onClose,
+  onSave,
+}: {
+  open: boolean;
+  item: ScheduledItem;
+  onClose: () => void;
+  onSave: (start: number, end: number) => void;
+}) {
+  const [startValue, setStartValue] = useState(() => inputTime(item.start));
+  const [endValue, setEndValue] = useState(() => inputTime(item.end));
+  const startTime = parseTimeOfDay(startValue);
+  const endTime = parseTimeOfDay(endValue);
+  const day = new Date(item.start);
+  const start = startTime ? settingTime(day, startTime).getTime() : null;
+  const end = endTime ? settingTime(day, endTime).getTime() : null;
+  const valid = start !== null && end !== null && end > start;
+
+  return (
+    <Sheet open={open} onClose={onClose} title="Cambiar hora">
+      <div className="grid grid-cols-2 gap-3 py-2">
+        <TimeField label="Inicio" value={startValue} onChange={setStartValue} />
+        <TimeField label="Fin" value={endValue} onChange={setEndValue} />
+      </div>
+      {!valid ? (
+        <p className="px-1 pb-2 text-[13px]" style={{ color: "var(--now)" }}>
+          La hora de fin debe ser posterior a la de inicio.
+        </p>
+      ) : null}
+      <button
+        type="button"
+        disabled={!valid}
+        onClick={() => {
+          if (start !== null && end !== null) onSave(start, end);
+        }}
+        className="mt-2 min-h-12 w-full rounded-[14px] px-4 text-[16px] font-semibold disabled:opacity-35"
+        style={{ background: "var(--accent)", color: "white" }}
+      >
+        Guardar hora
+      </button>
+    </Sheet>
+  );
+}
+
+function TimeField({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="flex flex-col gap-1.5 text-[13px] font-semibold">
+      <span style={{ color: "var(--text-secondary)" }}>{label}</span>
+      <input
+        type="time"
+        step={900}
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        className="min-h-12 rounded-[12px] px-3 text-[17px] tabular-nums"
+        style={{
+          background: "var(--surface-raised)",
+          border: "1px solid var(--hairline)",
+          color: "var(--text)",
+        }}
+      />
+    </label>
   );
 }
 

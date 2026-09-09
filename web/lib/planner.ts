@@ -170,6 +170,23 @@ export function moveItem(state: PlannerState, id: string, start: number): Planne
   return replaceItem(state, { ...item, start: snapped, end: snapped + duration });
 }
 
+/** Changes an activity's start and end atomically on the 15-minute grid. */
+export function rescheduleItem(
+  state: PlannerState,
+  id: string,
+  start: number,
+  end: number,
+): PlannerState {
+  const item = findItem(state, id);
+  if (!item || item.isImmovable || item.isPinned) return state;
+  const snappedStart = TimeGrid.snap(new Date(start)).getTime();
+  const snappedEnd = Math.max(
+    TimeGrid.snap(new Date(end)).getTime(),
+    snappedStart + TimeGrid.minimumActivityDuration,
+  );
+  return replaceItem(state, { ...item, start: snappedStart, end: snappedEnd });
+}
+
 /** Moves an activity to another day, keeping its time of day and duration. */
 export function moveItemToDay(state: PlannerState, id: string, day: Date): PlannerState {
   const item = findItem(state, id);

@@ -159,11 +159,6 @@ body.planner-drag-active {
   scrollbar-width: none;
 }
 
-.day-column-scroller {
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
-}
-
 .week-scroller::-webkit-scrollbar {
   display: none;
 }

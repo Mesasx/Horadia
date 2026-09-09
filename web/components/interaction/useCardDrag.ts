@@ -22,6 +22,8 @@ import { itemDuration, type ScheduledItem } from "@/lib/scheduled-item";
 const HOLD_MS = 480;
 const SLOP = 6;
 const DELETE_ZONE_PX = 104;
+const AUTO_SCROLL_EDGE_PX = 84;
+const AUTO_SCROLL_STEP_PX = 10;
 
 export interface CardDragConfig {
   pxPerMin: number;
@@ -41,8 +43,18 @@ export function useCardDrag(
   titleVariant: "short" | "full" = "short",
 ) {
   const interaction = usePlannerInteraction();
+  const {
+    organizing,
+    beginDrag,
+    updateDrag,
+    endDrag,
+    commitMove,
+    commitRemove,
+    draggingId,
+  } = interaction;
   const state = useRef({
     pointerId: -1,
+    touchId: -1,
     startX: 0,
     startY: 0,
     lastX: 0,
@@ -54,14 +66,48 @@ export function useCardDrag(
     overDelete: false,
     el: null as HTMLElement | null,
     suppressClickUntil: 0,
+    scrollEl: null as HTMLElement | null,
+    scrollDeltaY: 0,
+    autoScrollSpeed: 0,
+    autoScrollFrame: null as number | null,
   });
 
-  const clearTimer = () => {
+  const elementRef = useRef<HTMLElement | null>(null);
+
+  const clearTimer = useCallback(() => {
     if (state.current.timer) {
       clearTimeout(state.current.timer);
       state.current.timer = null;
     }
-  };
+  }, []);
+
+  const stopAutoScroll = useCallback(() => {
+    const s = state.current;
+    s.autoScrollSpeed = 0;
+    if (s.autoScrollFrame !== null) {
+      cancelAnimationFrame(s.autoScrollFrame);
+      s.autoScrollFrame = null;
+    }
+  }, []);
+
+  const runAutoScroll = useCallback(() => {
+    const tick = () => {
+      const s = state.current;
+      if (!s.lifted || !s.scrollEl || s.autoScrollSpeed === 0) {
+        s.autoScrollFrame = null;
+        return;
+      }
+      const before = s.scrollEl.scrollTop;
+      s.scrollEl.scrollTop += s.autoScrollSpeed;
+      s.scrollDeltaY += s.scrollEl.scrollTop - before;
+      s.ty = s.lastY - s.startY + s.scrollDeltaY;
+      s.autoScrollFrame = requestAnimationFrame(tick);
+    };
+
+    if (state.current.autoScrollFrame === null) {
+      state.current.autoScrollFrame = requestAnimationFrame(tick);
+    }
+  }, []);
 
   const lift = useCallback(
     () => {
@@ -70,13 +116,17 @@ export function useCardDrag(
       if (!el) return;
       s.lifted = true;
       s.suppressClickUntil = Date.now() + 700;
+      s.scrollEl = el.closest<HTMLElement>(".week-scroller");
+      s.scrollDeltaY = 0;
       const rect = el.getBoundingClientRect();
-      try {
-        el.setPointerCapture(s.pointerId);
-      } catch {
-        /* no-op */
+      if (s.pointerId >= 0) {
+        try {
+          el.setPointerCapture(s.pointerId);
+        } catch {
+          /* no-op */
+        }
       }
-      interaction.beginDrag({
+      beginDrag({
         item,
         titleVariant,
         x: s.lastX,
@@ -87,20 +137,21 @@ export function useCardDrag(
         height: rect.height,
       });
     },
-    [interaction, item, titleVariant],
+    [beginDrag, item, titleVariant],
   );
 
   const finish = useCallback(() => {
     const s = state.current;
     if (!s.lifted) return;
     s.lifted = false;
+    stopAutoScroll();
 
     if (s.overDelete) {
-      interaction.commitRemove(item);
+      commitRemove(item);
       return;
     }
     if (item.isImmovable || item.isPinned) {
-      interaction.endDrag();
+      endDrag();
       if (item.isImmovable) haptic("select");
       return;
     }
@@ -116,55 +167,98 @@ export function useCardDrag(
     const upper = endOfDayMidnight(new Date(target)).getTime();
     target = clampStart(target, dur, lower, upper);
 
-    interaction.commitMove(item, target, new Date(target));
-  }, [interaction, item, config.columnPitch, config.pxPerMin]);
+    commitMove(item, target, new Date(target));
+  }, [
+    commitMove,
+    commitRemove,
+    endDrag,
+    item,
+    config.columnPitch,
+    config.pxPerMin,
+    stopAutoScroll,
+  ]);
 
-  const onPointerDown = useCallback(
-    (e: React.PointerEvent) => {
-      if (e.pointerType === "mouse" && e.button !== 0) return;
+  const beginGesture = useCallback(
+    (clientX: number, clientY: number, element: HTMLElement, pointerId = -1) => {
       const s = state.current;
-      s.pointerId = e.pointerId;
-      s.startX = e.clientX;
-      s.startY = e.clientY;
-      s.lastX = e.clientX;
-      s.lastY = e.clientY;
+      s.pointerId = pointerId;
+      s.startX = clientX;
+      s.startY = clientY;
+      s.lastX = clientX;
+      s.lastY = clientY;
       s.tx = 0;
       s.ty = 0;
+      s.scrollDeltaY = 0;
       s.overDelete = false;
       s.lifted = false;
-      s.el = e.currentTarget as HTMLElement;
+      s.el = element;
       clearTimer();
-      if (interaction.organizing) {
+      stopAutoScroll();
+      if (organizing) {
         lift();
       } else {
         s.timer = setTimeout(lift, HOLD_MS);
       }
     },
-    [interaction.organizing, lift],
+    [clearTimer, lift, organizing, stopAutoScroll],
+  );
+
+  const moveGesture = useCallback(
+    (clientX: number, clientY: number): boolean => {
+      const s = state.current;
+      s.lastX = clientX;
+      s.lastY = clientY;
+      const dx = clientX - s.startX;
+      const dy = clientY - s.startY;
+      if (!s.lifted) {
+        if (Math.abs(dx) > SLOP || Math.abs(dy) > SLOP) clearTimer();
+        return false;
+      }
+
+      s.tx = dx;
+      s.ty = dy + s.scrollDeltaY;
+      s.overDelete = clientY > window.innerHeight - DELETE_ZONE_PX;
+
+      const scrollRect = s.scrollEl?.getBoundingClientRect();
+      if (s.overDelete) {
+        stopAutoScroll();
+      } else if (scrollRect) {
+        if (clientY < scrollRect.top + AUTO_SCROLL_EDGE_PX) {
+          s.autoScrollSpeed = -AUTO_SCROLL_STEP_PX;
+        } else if (clientY > scrollRect.bottom - AUTO_SCROLL_EDGE_PX) {
+          s.autoScrollSpeed = AUTO_SCROLL_STEP_PX;
+        } else {
+          stopAutoScroll();
+        }
+        if (s.autoScrollSpeed !== 0) runAutoScroll();
+      }
+
+      updateDrag({ x: clientX, y: clientY, overDelete: s.overDelete });
+      return true;
+    },
+    [clearTimer, runAutoScroll, stopAutoScroll, updateDrag],
+  );
+
+  const onPointerDown = useCallback(
+    (e: React.PointerEvent) => {
+      if (e.pointerType === "touch") return;
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      beginGesture(e.clientX, e.clientY, e.currentTarget as HTMLElement, e.pointerId);
+    },
+    [beginGesture],
   );
 
   const onPointerMove = useCallback(
     (e: React.PointerEvent) => {
-      const s = state.current;
-      s.lastX = e.clientX;
-      s.lastY = e.clientY;
-      const dx = e.clientX - s.startX;
-      const dy = e.clientY - s.startY;
-      if (!s.lifted) {
-        if (Math.abs(dx) > SLOP || Math.abs(dy) > SLOP) clearTimer();
-        return;
-      }
-      e.preventDefault();
-      s.tx = dx;
-      s.ty = dy;
-      s.overDelete = e.clientY > window.innerHeight - DELETE_ZONE_PX;
-      interaction.updateDrag({ x: e.clientX, y: e.clientY, overDelete: s.overDelete });
+      if (e.pointerType === "touch") return;
+      if (moveGesture(e.clientX, e.clientY)) e.preventDefault();
     },
-    [interaction],
+    [moveGesture],
   );
 
   const onPointerUp = useCallback(
     (e: React.PointerEvent) => {
+      if (e.pointerType === "touch") return;
       clearTimer();
       const s = state.current;
       try {
@@ -174,16 +268,60 @@ export function useCardDrag(
       }
       finish();
     },
-    [finish],
+    [clearTimer, finish],
   );
 
   const onPointerCancel = useCallback(() => {
     clearTimer();
+    stopAutoScroll();
     if (state.current.lifted) {
       state.current.lifted = false;
-      interaction.endDrag();
+      endDrag();
     }
-  }, [interaction]);
+  }, [clearTimer, endDrag, stopAutoScroll]);
+
+  const setElementRef = useCallback((element: HTMLDivElement | null) => {
+    elementRef.current = element;
+  }, []);
+
+  useEffect(() => {
+    const element = elementRef.current;
+    if (!element) return;
+
+    const onTouchStart = (event: TouchEvent) => {
+      if (event.touches.length !== 1) return;
+      const touch = event.touches[0];
+      state.current.touchId = touch.identifier;
+      beginGesture(touch.clientX, touch.clientY, element);
+      if (organizing) event.preventDefault();
+    };
+    const onTouchMove = (event: TouchEvent) => {
+      const touch = Array.from(event.touches).find(
+        (candidate) => candidate.identifier === state.current.touchId,
+      );
+      if (!touch) return;
+      if (moveGesture(touch.clientX, touch.clientY)) event.preventDefault();
+    };
+    const onTouchEnd = (event: TouchEvent) => {
+      clearTimer();
+      if (state.current.lifted) {
+        event.preventDefault();
+        finish();
+      }
+    };
+    const onTouchCancel = () => onPointerCancel();
+
+    element.addEventListener("touchstart", onTouchStart, { passive: false });
+    element.addEventListener("touchmove", onTouchMove, { passive: false });
+    element.addEventListener("touchend", onTouchEnd, { passive: false });
+    element.addEventListener("touchcancel", onTouchCancel);
+    return () => {
+      element.removeEventListener("touchstart", onTouchStart);
+      element.removeEventListener("touchmove", onTouchMove);
+      element.removeEventListener("touchend", onTouchEnd);
+      element.removeEventListener("touchcancel", onTouchCancel);
+    };
+  }, [beginGesture, clearTimer, finish, moveGesture, onPointerCancel, organizing]);
 
   const onContextMenu = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
@@ -199,8 +337,9 @@ export function useCardDrag(
   useEffect(
     () => () => {
       if (state.current.timer) clearTimeout(state.current.timer);
+      stopAutoScroll();
     },
-    [],
+    [stopAutoScroll],
   );
 
   return {
@@ -211,7 +350,8 @@ export function useCardDrag(
       onPointerCancel,
       onContextMenu,
     },
+    setElementRef,
     consumeClick,
-    isDragging: interaction.draggingId === item.id,
+    isDragging: draggingId === item.id,
   };
 }

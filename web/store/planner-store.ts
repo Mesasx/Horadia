@@ -17,6 +17,7 @@ import {
   removeItem,
   replaceItem,
   moveItem,
+  rescheduleItem,
   moveItemToDay,
   resizeItem,
   togglePinned,
@@ -39,6 +40,7 @@ export interface PlannerStore extends PlannerState {
   remove: (id: string) => void;
   replace: (item: ScheduledItem) => void;
   move: (id: string, start: number) => void;
+  reschedule: (id: string, start: number, end: number) => void;
   moveToDay: (id: string, day: Date) => void;
   resize: (id: string, end: number) => void;
   togglePin: (id: string) => void;
@@ -71,6 +73,8 @@ export const usePlannerStore = create<PlannerStore>()(
       remove: (id) => set((s) => removeItem(s, id)),
       replace: (item) => set((s) => replaceItem(s, item)),
       move: (id, start) => set((s) => moveItem(s, id, start)),
+      reschedule: (id, start, end) =>
+        set((s) => rescheduleItem(s, id, start, end)),
       moveToDay: (id, day) => set((s) => moveItemToDay(s, id, day)),
       resize: (id, end) => set((s) => resizeItem(s, id, end)),
       togglePin: (id) => set((s) => togglePinned(s, id)),

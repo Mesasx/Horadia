@@ -181,7 +181,11 @@ function DraggableCard({
   onSelect: () => void;
 }) {
   const interaction = usePlannerInteraction();
-  const { handlers, isDragging, consumeClick } = useCardDrag(item, config, titleVariant);
+  const { handlers, setElementRef, isDragging, consumeClick } = useCardDrag(
+    item,
+    config,
+    titleVariant,
+  );
   const organizing = interaction.organizing;
   const canDelete = organizing && isPersonal(item);
 
@@ -198,12 +202,18 @@ function DraggableCard({
       }}
     >
       <div
+        ref={setElementRef}
         {...handlers}
+        data-item-id={item.id}
         onClick={(event) => {
           if (!consumeClick(event) && !interaction.drag) onSelect();
         }}
         className={`interactive-card ${organizing && isPersonal(item) ? "jiggle" : ""}`}
-        style={{ height: "100%", cursor: "pointer" }}
+        style={{
+          height: "100%",
+          cursor: "pointer",
+          touchAction: organizing ? "none" : "pan-x pan-y",
+        }}
       >
         <ActivityCard item={item} titleVariant={titleVariant} />
       </div>

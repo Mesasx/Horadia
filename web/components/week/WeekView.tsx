@@ -208,14 +208,14 @@ export function WeekView({
         <div
           ref={scrollerRef}
           onScroll={handleHorizontalScroll}
-          className="week-scroller flex h-full snap-x snap-proximity overflow-x-auto px-3 py-2"
+          className="week-scroller flex h-full snap-x snap-proximity overflow-auto px-3 py-2"
           style={{ gap: spacing }}
         >
           {renderedDays.map((date, i) => (
             <div
               key={dayKey(date)}
               ref={i === 0 ? currentMondayRef : i === 7 ? nextMondayRef : undefined}
-              className="h-full shrink-0 snap-start"
+              className="min-h-full shrink-0 self-start snap-start"
               style={{
                 width:
                   date.getDay() === 0 || date.getDay() === 6 ? weekend : weekday,

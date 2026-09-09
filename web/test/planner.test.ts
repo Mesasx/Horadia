@@ -7,6 +7,7 @@ import {
   addItem,
   removeItem,
   moveItem,
+  rescheduleItem,
   moveItemToDay,
   resizeItem,
   togglePinned,
@@ -63,6 +64,20 @@ describe("PlannerStore parity", () => {
     expect(findItem(moved, item.id)!.start).not.toBe(item.start);
     const resized = resizeItem(moved, item.id, at(MON, 17, 0).getTime());
     expect(findItem(resized, item.id)!.end).toBe(at(MON, 17, 0).getTime());
+  });
+
+  it("reschedules start and end atomically on the 15-minute grid", () => {
+    const s0 = state();
+    const item = deporte(s0);
+    const s1 = rescheduleItem(
+      s0,
+      item.id,
+      at(MON, 19, 7).getTime(),
+      at(MON, 20, 38).getTime(),
+    );
+    const changed = findItem(s1, item.id)!;
+    expect(changed.start).toBe(at(MON, 19, 0).getTime());
+    expect(changed.end).toBe(at(MON, 20, 45).getTime());
   });
 
   it("moveItemToDay keeps the time of day", () => {
@@ -150,8 +165,14 @@ describe("omitting a class (§14)", () => {
     const withUniversity = addItem(s0, item);
     const moved = moveItem(withUniversity, item.id, at(MON, 20, 0).getTime());
     const resized = resizeItem(moved, item.id, at(MON, 22, 0).getTime());
-    expect(findItem(resized, item.id)!.start).toBe(item.start);
-    expect(findItem(resized, item.id)!.end).toBe(item.end);
+    const rescheduled = rescheduleItem(
+      resized,
+      item.id,
+      at(MON, 18, 0).getTime(),
+      at(MON, 20, 0).getTime(),
+    );
+    expect(findItem(rescheduled, item.id)!.start).toBe(item.start);
+    expect(findItem(rescheduled, item.id)!.end).toBe(item.end);
     expect(item.fullTitle).toBeTruthy();
     expect(item.subjectCode).toBe(item.title);
   });
