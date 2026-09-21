@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Sheet } from "@/components/Sheet";
+import { ALL_SUBJECTS } from "@/lib/planner";
 import { haptic } from "@/lib/haptics";
 import { syncPushReminders } from "@/lib/push-client";
 import {
@@ -18,43 +19,74 @@ export function NewReminderSheet({
   open: boolean;
   onClose: () => void;
 }) {
+  const [kind, setKind] = useState<"reminder" | "delivery">("reminder");
+  const [subjectCode, setSubjectCode] = useState("");
+  const [saved, setSaved] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [notice, setNotice] = useState("");
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [offset, setOffset] = useState<NotificationOffset>(null);
   const canNotify = Boolean(date && time);
-  const canSave = title.trim().length > 0;
+  const canSave = title.trim().length > 0 && (kind !== "delivery" || Boolean(subjectCode && date));
 
-  const save = () => {
-    if (!canSave) return;
+  const save = async () => {
+    if (saved) { onClose(); return; }
+    if (!canSave || saving) return;
+    setSaving(true);
     const reminder = usePlannerStore.getState().addReminder({
       title,
+      kind,
+      subjectCode: kind === "delivery" ? subjectCode : null,
       date: date || null,
       time: time || null,
       notificationOffset: canNotify ? offset : null,
     });
     haptic("drop");
-    void syncPushReminders([reminder]);
-    onClose();
+    setSaved(true);
+    try {
+      const synced = await syncPushReminders([reminder]);
+      if (reminder.notificationOffset !== null && !synced) {
+        setNotice("Guardado. El aviso aún no está programado: activa las notificaciones en Ajustes y comprueba tu conexión.");
+      } else onClose();
+    } catch {
+      setNotice("Guardado en este dispositivo. No se pudo sincronizar el aviso; comprueba tu conexión y las notificaciones en Ajustes.");
+    } finally { setSaving(false); }
   };
 
   return (
     <Sheet open={open} onClose={onClose} title="Nuevo recordatorio">
       <div className="flex flex-col gap-4 py-2">
+        <fieldset disabled={saved || saving} className="flex flex-col gap-4 disabled:opacity-60">
+        <Field label="Tipo">
+          <select value={kind} onChange={(event) => setKind(event.target.value as "reminder" | "delivery")}
+            className="min-h-12 w-full rounded-[12px] px-3 text-[16px]" style={fieldStyle}>
+            <option value="reminder">Recordatorio</option>
+            <option value="delivery">Entrega de una asignatura</option>
+          </select>
+        </Field>
+        {kind === "delivery" ? <Field label="Asignatura">
+          <select value={subjectCode} onChange={(event) => setSubjectCode(event.target.value)}
+            className="min-h-12 w-full rounded-[12px] px-3 text-[15px]" style={fieldStyle}>
+            <option value="">Selecciona una asignatura</option>
+            {ALL_SUBJECTS.map((subject) => <option key={subject.code} value={subject.code}>{subject.fullName}</option>)}
+          </select>
+        </Field> : null}
         <Field label="Título">
           <input
             autoFocus
             value={title}
             maxLength={160}
             onChange={(event) => setTitle(event.target.value)}
-            placeholder="Comprar champú"
+            placeholder={kind === "delivery" ? "Informe de prácticas" : "Comprar champú"}
             className="min-h-12 w-full rounded-[12px] px-3 text-[16px] outline-none"
             style={fieldStyle}
           />
         </Field>
 
         <div className="grid grid-cols-2 gap-3">
-          <Field label="Fecha · opcional">
+          <Field label={kind === "delivery" ? "Fecha límite" : "Fecha · opcional"}>
             <input
               type="date"
               value={date}
@@ -105,14 +137,16 @@ export function NewReminderSheet({
           ) : null}
         </Field>
 
+        </fieldset>
+        {notice ? <p role="status" className="text-[13px]" style={{ color: "var(--text-secondary)" }}>{notice}</p> : null}
         <button
           type="button"
-          disabled={!canSave}
+          disabled={(!canSave && !saved) || saving}
           onClick={save}
           className="min-h-12 w-full rounded-[14px] text-[16px] font-semibold disabled:opacity-35"
           style={{ background: "var(--accent)", color: "white" }}
         >
-          Guardar
+          {saving ? "Guardando…" : saved ? "Listo" : kind === "delivery" ? "Guardar entrega" : "Guardar"}
         </button>
       </div>
     </Sheet>

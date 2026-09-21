@@ -3,18 +3,20 @@
  * Every generated date is explicitly present in those documents. This is not
  * a recurrence engine: week helpers only reduce transcription repetition.
  */
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+
+const studentProfile = JSON.parse(readFileSync(new URL("../data/student-profile.json", import.meta.url), "utf8"));
 
 const output = fileURLToPath(
   new URL("../data/university-schedule.json", import.meta.url),
 );
 
 const subjects = [
-  { code: "FGFG", fullName: "Farmacología y Farmacia Galénica", color: "sky" },
-  { code: "BI", fullName: "Bioquímica e Inmunología", color: "mint" },
+  { code: "FGFG", fullName: "Farmacogenética y Farmacogenómica", color: "sky" },
+  { code: "BI", fullName: "Bioinformática", color: "mint" },
   { code: "TF II", fullName: "Tecnología Farmacéutica II", color: "lavender" },
-  { code: "FFI", fullName: "Fisiología y Fisiopatología", color: "apricot" },
+  { code: "FFI", fullName: "Farmacología y Farmacoterapia I", color: "apricot" },
   { code: "SP", fullName: "Salud Pública", color: "rose" },
   { code: "BTF", fullName: "Biotecnología Farmacéutica", color: "butter" },
   { code: "TX", fullName: "Toxicología", color: "peach" },
@@ -151,34 +153,35 @@ lectureDay("2026-11-18", ["FGFG", "SP", "SP"], C1);
 lectureDay("2026-11-19", ["BI", "FFI", "TF II"], C1);
 lectureDay("2026-11-20", firstStandard[4], C1);
 
-// 1C: G1 and all-group practices only.
-practice("2026-09-23", "FGFG", "16:00", "20:00", "G1", "FarmaLab I", "P1", C1);
-practice("2026-09-28", "BI", "16:00", "20:15", "G1", "Aula Informática I", "P_1E y P_2E", C1);
-practice("2026-09-29", "BI", "16:00", "18:00", "G1", "Aula Informática I", "P_3E", C1);
-practice("2026-10-02", "SP", "16:00", "20:00", "G1", "Aula Informática II", "P1", C1);
-practice("2026-10-06", "BI", "09:00", "13:15", "G1", "Aula Informática I", "P_4y5 E", C1);
-practice("2026-10-07", "SP", "09:00", "13:00", "G1", "Aula Informática II", "P2", C1);
-practice("2026-10-08", "FGFG", "09:00", "13:00", "G1", "FarmaLab I", "P2A", C1);
-practice("2026-10-09", "FGFG", "09:00", "13:00", "G1", "FarmaLab I", "P2B", C1);
-practice("2026-11-04", "SP", "16:00", "20:00", "G1", "QuimiLab II", "P3", C1);
-practice("2026-11-09", "SP", "16:00", "20:00", "G1", "Aula Informática II / QuimiLab II", "P4", C1);
-practice("2026-11-10", "FGFG", "16:00", "20:00", "G1", "FarmaLab I", "P3A", C1);
-practice("2026-11-12", "FGFG", "16:00", "20:00", "G1", "FarmaLab I", "P3B", C1);
-for (let index = 0; index < 5; index += 1) {
-  practice(addDays("2026-11-23", index), "TF II", "09:00", "13:00", "Gr1", "TecnoLab", null, C1);
-}
-practice("2026-11-30", "BI", "09:00", "11:00", "G1", "Aula Informática I", "P_1MV", C1);
-practice("2026-12-01", "BI", "09:00", "11:00", "G1", "Aula Informática I", "P_2MV", C1);
-practice("2026-12-02", "BI", "09:00", "11:00", "G1", "Aula Informática I", "P_3MV", C1);
-practice("2026-12-03", "BI", "09:00", "13:00", "G1", "Aula Informática I", "P_4y5MV", C1);
-practice("2026-12-01", "SP", "16:00", "20:00", "G1", "Aula Informática II", "P5", C1);
+// 1C: G2 sessions verified against the supplied DAMERO, pages 4–6, 10–14, 16.
+practice("2026-09-22", "FGFG", "16:00", "20:00", "G2", "FarmaLab I", "P1", C1);
+practice("2026-09-23", "BI", "16:00", "18:00", "G2", "Aula Informática I", "P_1E", C1);
+practice("2026-09-23", "BI", "18:15", "20:15", "G2", "Aula Informática I", "P_2E", C1);
+practice("2026-09-24", "BI", "16:00", "18:00", "G2", "Aula Informática I", "P_3E", C1);
+practice("2026-09-29", "SP", "16:00", "20:00", "G2", "Aula Informática II", "P1", C1);
+practice("2026-09-30", "FGFG", "16:00", "20:00", "G2", "FarmaLab I", "P2A", C1);
+practice("2026-10-01", "FGFG", "16:00", "20:00", "G2", "FarmaLab I", "P2B", C1);
+practice("2026-10-06", "SP", "09:00", "13:00", "G2", "Aula Informática II", "P2", C1);
+practice("2026-10-07", "BI", "09:00", "13:15", "G2", "Aula Informática I", "P_4y5 E", C1);
+practice("2026-11-03", "FGFG", "16:00", "20:00", "G2", "FarmaLab I", "P3A", C1);
+practice("2026-11-05", "FGFG", "16:00", "20:00", "G2", "FarmaLab I", "P3B", C1);
+practice("2026-11-06", "SP", "16:00", "20:00", "G2", "QuimiLab II", "P3", C1);
+practice("2026-11-11", "SP", "16:00", "20:00", "G2", "Aula Informática II / QuimiLab II", "P4", C1);
 [
-  ["2026-12-14", "Aula Informática II / FarmaLab II"],
-  ["2026-12-15", "Aula Informática II / FarmaLab II"],
-  ["2026-12-16", "FarmaLab II"],
-  ["2026-12-17", "Aula Informática II / FarmaLab II"],
-  ["2026-12-18", "Aula de clase / FarmaLab II"],
-].forEach(([date, location]) => practice(date, "FFI", "09:00", "13:00", "Gr1", location, null, C1));
+  ["2026-11-16", "Aula Informática II / FarmaLab II"],
+  ["2026-11-17", "Aula Informática II / FarmaLab II"],
+  ["2026-11-18", "FarmaLab II"],
+  ["2026-11-19", "Aula Informática II / FarmaLab II"],
+  ["2026-11-20", "FarmaLab II / Aula de clase"],
+].forEach(([date, location]) => practice(date, "FFI", "16:00", "20:00", "Gr2", location, null, C1));
+practice("2026-11-23", "BI", "09:00", "11:00", "G2", "Aula Informática I", "P_1MV", C1);
+practice("2026-11-24", "BI", "09:00", "11:00", "G2", "Aula Informática I", "P_2MV", C1);
+practice("2026-11-25", "BI", "09:00", "11:00", "G2", "Aula Informática I", "P_3MV", C1);
+practice("2026-11-26", "BI", "09:00", "13:00", "G2", "Aula Informática I", "P_4y5MV", C1);
+practice("2026-11-30", "SP", "16:00", "20:00", "G2", "Aula Informática II", "P5", C1);
+for (let index = 0; index < 5; index += 1) {
+  practice(addDays("2026-12-14", index), "TF II", "09:00", "13:00", "Gr2", "TecnoLab", null, C1);
+}
 
 // 1C: partial and ordinary exams, plus closures shown in the DAMERO.
 exam("2026-10-13", "FFI", "09:00", "Aulas 1-2, 5 y 6", C1);
@@ -219,24 +222,24 @@ lectureDay("2027-05-10", ["AF", "LGP", "FF II"], C2);
 lectureDay("2027-05-11", ["LGP", "TX", "TX"], C2);
 lectureDay("2027-05-12", ["TX", "TX", "TX"], C2);
 
-// 2C: G1 and all-group practices/workshops only.
+// 2C: G2 and all-group practices/workshops only.
 practice("2027-02-04", "TX", "09:00", "12:15", "Todos los grupos", "Visita al Toxicológico", "P1", C2);
 addEvent({ date: "2027-01-28", start: "16:00", end: "20:00", type: "lecture", title: "Workshop Investigación", source: C2 });
 practice("2027-02-08", "LGP", "16:00", "20:00", "Todos los grupos", "Mediateca", "P1", C2);
-practice("2027-02-09", "TX", "16:00", "20:00", "Gr1", "InstrumentaLab", "P2", C2);
+practice("2027-02-09", "TX", "16:00", "20:00", "Gr2", "InstrumentaLab", "P2", C2);
 practice("2027-02-15", "LGP", "16:00", "20:00", "Todos los grupos", "Mediateca", "P2", C2);
-practice("2027-02-19", "TX", "16:00", "20:00", "Gr1", "InstrumentaLab", "P3", C2);
-practice("2027-03-02", "TX", "09:00", "13:00", "G1", "InstrumentaLab", "P4", C2);
-practice("2027-03-03", "TX", "09:00", "13:00", "G1", "InstrumentaLab", "P5", C2);
-practice("2027-03-05", "LGP", "09:00", "13:00", "Gr1", "Aula Informática I", "P3", C2);
+practice("2027-02-19", "TX", "16:00", "20:00", "Gr2", "InstrumentaLab", "P3", C2);
+practice("2027-03-02", "TX", "09:00", "13:00", "G2", "InstrumentaLab", "P4", C2);
+practice("2027-03-03", "TX", "09:00", "13:00", "G2", "InstrumentaLab", "P5", C2);
+practice("2027-03-05", "LGP", "09:00", "13:00", "Gr2", "Aula Informática I", "P3", C2);
 for (let index = 0; index < 5; index += 1) {
-  practice(addDays("2027-03-08", index), "BTF", "09:00", "13:00", "G1", "TecnoLab", null, C2);
-  practice(addDays("2027-03-15", index), "AF", "09:00", "13:00", "Gr1", "Aula Informática II", null, C2);
-  practice(addDays("2027-04-05", index), "FF II", "09:00", "13:00", "Gr1", "FarmaLab I", null, C2);
+  practice(addDays("2027-03-08", index), "BTF", "09:00", "13:00", "G2", "TecnoLab", null, C2);
+  practice(addDays("2027-03-15", index), "AF", "09:00", "13:00", "Gr2", "Aula Informática II", null, C2);
+  practice(addDays("2027-04-05", index), "FF II", "09:00", "13:00", "Gr2", "FarmaLab I", null, C2);
 }
 addEvent({ date: "2027-03-19", start: "16:00", end: "20:00", type: "lecture", title: "Actividad del centro", source: C2 });
-practice("2027-05-03", "LGP", "16:00", "20:00", "Gr1", "Aula Informática II", "P4", C2);
-practice("2027-05-13", "LGP", "09:00", "13:00", "Gr1", "Aula Informática II", "P5", C2);
+practice("2027-05-03", "LGP", "16:00", "20:00", "Gr2", "Aula Informática II", "P4", C2);
+practice("2027-05-13", "LGP", "09:00", "13:00", "Gr2", "Aula Informática II", "P5", C2);
 
 // 2C: vacations, holidays, partial, ordinary and extraordinary exams.
 exam("2027-02-22", "LGP", "16:00", "Aulas 1-2, 5 y 6", C2);
@@ -301,13 +304,13 @@ selectedLectureDay("2027-04-02", ["FCG", null, null], C3_2C);
   selectedLectureDay(addDays(monday, 3), thirdSelectedStandard[3], C3_2C);
 });
 
-// 3rd-year 2C: only Alba's G1 intensive practices.
+// 3rd-year 2C: only Alba's G2 intensive practices.
 for (let index = 0; index < 4; index += 1) {
-  practice(addDays("2027-05-03", index), "FCG", "09:00", "13:30", "G1", "Biolab I", null, C3_2C);
+  practice(addDays("2027-05-03", index), "FCG", "09:00", "13:30", "G2", "Biolab I", null, C3_2C);
 }
-practice("2027-05-07", "FCG", "09:00", "11:00", "G1", "Biolab I", null, C3_2C);
+practice("2027-05-07", "FCG", "09:00", "11:00", "G2", "Biolab I", null, C3_2C);
 for (let index = 0; index < 5; index += 1) {
-  practice(addDays("2027-05-10", index), "B&F", "16:00", "20:00", "G1", "TecnoLab I y Aula 5", null, C3_2C);
+  practice(addDays("2027-05-10", index), "B&F", "16:00", "20:00", "G2", "TecnoLab I y Aula 5", null, C3_2C);
 }
 
 // 3rd-year 2C: partial, ordinary and extraordinary exams for Alba's subjects.
@@ -338,8 +341,8 @@ const document = {
     ],
     coverage: { from: "2026-08-31", to: "2027-07-16" },
     provisional: false,
-    practiceGroup: "G1",
-    notes: "Transcripción verificada de los tres DAMEROS oficiales. Alba cursa B&F y FCG de tercero; solo G1 y actividades para todos los grupos.",
+    practiceGroup: `G${studentProfile.practiceGroup}`,
+    notes: "Transcripción verificada de los tres DAMEROS oficiales. Alba cursa B&F y FCG de tercero; solo G2 y actividades para todos los grupos.",
   },
   subjects,
   events,

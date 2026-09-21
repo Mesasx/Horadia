@@ -1,10 +1,16 @@
 /**
  * Decodes the bundled `university-schedule.json` into value types, applying the
- * G1 practice-group filter (§22) — port of the Swift `UniversityScheduleImporter`.
+ * configured practice-group filter (§22) — port of the Swift `UniversityScheduleImporter`.
  *
  * The JSON is generated from the three official 2026-27 DAMERO documents; every
  * row is materialised explicitly by date, never as a runtime recurrence.
  */
+
+import studentProfile from "../data/student-profile.json";
+
+export type PracticeAudience = `g${number}`;
+export const PRACTICE_GROUP = studentProfile.practiceGroup;
+export const PRACTICE_AUDIENCE: PracticeAudience = `g${PRACTICE_GROUP}`;
 
 import type { PastelToken } from "./palette";
 import { PASTEL_TOKENS } from "./palette";
@@ -52,7 +58,7 @@ export interface ImportedEvent {
   kind: UniversityEventKind;
   location: string | null;
   title: string | null;
-  audience: "all" | "g1";
+  audience: "all" | PracticeAudience;
 }
 
 export interface ImportResult {
@@ -63,19 +69,19 @@ export interface ImportResult {
 }
 
 /**
- * Normalises raw group strings from the DAMERO ("G1", "Gr1", "GRUPO 1", …).
- * Returns `"g1"` only when the group is Alba's; `null` for G2/G3/G4/Gr2… (§22).
+ * Normalises raw group strings from the DAMERO ("G2", "Gr2", "GRUPO 2", …).
+ * Returns the configured audience only for Alba's group; null for other groups.
  */
-export function normalizedGroup(raw: string | null | undefined): "g1" | null {
+export function normalizedGroup(raw: string | null | undefined): PracticeAudience | null {
   if (raw == null) return null;
   const match = /^G(?:R|RUPO)?\s*([1-4])$/i.exec(raw.trim());
-  return match?.[1] === "1" ? "g1" : null;
+  return match && Number(match[1]) === PRACTICE_GROUP ? PRACTICE_AUDIENCE : null;
 }
 
-/** Whether an official row applies to Alba: ungrouped/all-group or G1. */
+/** Whether an official row applies to Alba: ungrouped/all-group or the configured group. */
 export function groupAudience(
   raw: string | null | undefined,
-): "all" | "g1" | null {
+): "all" | PracticeAudience | null {
   if (raw == null || raw.trim() === "") return "all";
   const compact = raw
     .normalize("NFD")
@@ -125,7 +131,7 @@ export function importSchedule(doc: unknown): ImportResult {
   const events: ImportedEvent[] = [];
   for (const dto of raw.events) {
 
-    // Only rows for G1 or all groups apply to Alba. Other groups are discarded.
+    // Only rows for the configured group or all groups apply to Alba. Other groups are discarded.
     const audience = groupAudience(dto.group);
     if (audience === null) continue;
 

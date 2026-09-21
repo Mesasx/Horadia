@@ -1,51 +1,31 @@
-/*
- * Minimal offline service worker for Horadia (§29 — must work offline).
- * Strategy: network-first for navigations and Next assets (so updates land),
- * falling back to the cache when offline; the app itself keeps all data in
- * localStorage so once loaded it is fully usable with no connection.
- */
-
-const CACHE = "horadia-v2";
-const CORE = ["/", "/manifest.webmanifest", "/icon-192.png", "/icon-512.png", "/apple-touch-icon.png"];
+/* Private pages are always checked by the server. Never cache authenticated HTML,
+ * RSC payloads or API responses. Bumping this cache clears the old public shell. */
+const CACHE = "horadia-private-v3";
+const CORE = ["/manifest.webmanifest", "/icon-192.png", "/icon-512.png", "/apple-touch-icon.png"];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).catch(() => {}));
+  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(CORE)).catch(() => {}));
   self.skipWaiting();
 });
-
 self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))),
-    ),
-  );
+  event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key.startsWith("horadia-") && key !== CACHE).map((key) => caches.delete(key)))));
   self.clients.claim();
 });
-
 self.addEventListener("fetch", (event) => {
   const { request } = event;
-  if (request.method !== "GET") return;
   const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
-  if (url.pathname.startsWith("/api/")) return;
-
-  event.respondWith(
-    fetch(request)
-      .then((response) => {
-        const copy = response.clone();
-        caches.open(CACHE).then((c) => c.put(request, copy)).catch(() => {});
-        return response;
-      })
-      .catch(async () => {
-        const cached = await caches.match(request);
-        if (cached) return cached;
-        if (request.mode === "navigate") {
-          const shell = await caches.match("/");
-          if (shell) return shell;
-        }
-        return new Response("Sin conexión", { status: 503, headers: { "Content-Type": "text/plain" } });
-      }),
-  );
+  if (request.method !== "GET" || url.origin !== self.location.origin) return;
+  if (url.pathname.startsWith("/_next/static/") || CORE.includes(url.pathname)) {
+    event.respondWith(fetch(request).then((response) => {
+      if (response.ok) { const copy = response.clone(); caches.open(CACHE).then((cache) => cache.put(request, copy)).catch(() => {}); }
+      return response;
+    }).catch(async () => await caches.match(request) || new Response("Sin conexión", { status: 503 })));
+  } else if (request.mode === "navigate") {
+    event.respondWith(fetch(request, { cache: "no-store" }).catch(() => new Response(
+      '<!doctype html><html lang="es"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Horadia</title><body style="font-family:system-ui;padding:32px"><h1>Horadia</h1><p>Conéctate para abrir tu espacio privado. Tus datos siguen guardados en este dispositivo.</p><a href="/">Volver a intentar</a></body></html>',
+      { status: 503, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } },
+    )));
+  }
 });
 
 self.addEventListener("push", (event) => {

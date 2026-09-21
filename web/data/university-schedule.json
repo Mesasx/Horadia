@@ -12,18 +12,18 @@
       "to": "2027-07-16"
     },
     "provisional": false,
-    "practiceGroup": "G1",
-    "notes": "Transcripción verificada de los tres DAMEROS oficiales. Alba cursa B&F y FCG de tercero; solo G1 y actividades para todos los grupos."
+    "practiceGroup": "G2",
+    "notes": "Transcripción verificada de los tres DAMEROS oficiales. Alba cursa B&F y FCG de tercero; solo G2 y actividades para todos los grupos."
   },
   "subjects": [
     {
       "code": "FGFG",
-      "fullName": "Farmacología y Farmacia Galénica",
+      "fullName": "Farmacogenética y Farmacogenómica",
       "color": "sky"
     },
     {
       "code": "BI",
-      "fullName": "Bioquímica e Inmunología",
+      "fullName": "Bioinformática",
       "color": "mint"
     },
     {
@@ -33,7 +33,7 @@
     },
     {
       "code": "FFI",
-      "fullName": "Fisiología y Fisiopatología",
+      "fullName": "Farmacología y Farmacoterapia I",
       "color": "apricot"
     },
     {
@@ -486,76 +486,21 @@
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-09-23",
-      "subject": "SP",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-23",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-23",
-      "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-23",
+      "date": "2026-09-22",
       "subject": "FGFG",
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "FarmaLab I",
       "title": "P1",
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-09-24",
-      "subject": "BI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-24",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
+      "start": "09:00",
+      "end": "10:30",
       "type": "lecture",
       "group": null,
       "location": null,
@@ -563,10 +508,10 @@
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-09-25",
+      "date": "2026-09-23",
       "subject": "TF II",
-      "start": "09:00",
-      "end": "10:30",
+      "start": "10:45",
+      "end": "12:15",
       "type": "lecture",
       "group": null,
       "location": null,
@@ -574,19 +519,8 @@
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-09-25",
+      "date": "2026-09-23",
       "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-25",
-      "subject": "FFI",
       "start": "12:30",
       "end": "14:00",
       "type": "lecture",
@@ -596,94 +530,182 @@
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-09-28",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-28",
-      "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-28",
-      "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-28",
-      "subject": "BI",
-      "start": "16:00",
-      "end": "20:15",
-      "type": "practice",
-      "group": "G1",
-      "location": "Aula Informática I",
-      "title": "P_1E y P_2E",
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-29",
-      "subject": "FFI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-29",
-      "subject": "SP",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-29",
-      "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-09-29",
+      "date": "2026-09-23",
       "subject": "BI",
       "start": "16:00",
       "end": "18:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
+      "location": "Aula Informática I",
+      "title": "P_1E",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-23",
+      "subject": "BI",
+      "start": "18:15",
+      "end": "20:15",
+      "type": "practice",
+      "group": "G2",
+      "location": "Aula Informática I",
+      "title": "P_2E",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-24",
+      "subject": "BI",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-24",
+      "subject": "FFI",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-24",
+      "subject": "SP",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-24",
+      "subject": "BI",
+      "start": "16:00",
+      "end": "18:00",
+      "type": "practice",
+      "group": "G2",
       "location": "Aula Informática I",
       "title": "P_3E",
       "source": "official-damero-1c"
     },
     {
+      "date": "2026-09-25",
+      "subject": "TF II",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-25",
+      "subject": "FGFG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-25",
+      "subject": "FFI",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-28",
+      "subject": "FGFG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-28",
+      "subject": "BI",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-28",
+      "subject": "TF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-29",
+      "subject": "FFI",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-29",
+      "subject": "SP",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-29",
+      "subject": "BI",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-29",
+      "subject": "SP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G2",
+      "location": "Aula Informática II",
+      "title": "P1",
+      "source": "official-damero-1c"
+    },
+    {
       "date": "2026-09-30",
       "subject": "SP",
       "start": "09:00",
@@ -714,6 +736,17 @@
       "group": null,
       "location": null,
       "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-09-30",
+      "subject": "FGFG",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G2",
+      "location": "FarmaLab I",
+      "title": "P2A",
       "source": "official-damero-1c"
     },
     {
@@ -750,6 +783,17 @@
       "source": "official-damero-1c"
     },
     {
+      "date": "2026-10-01",
+      "subject": "FGFG",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G2",
+      "location": "FarmaLab I",
+      "title": "P2B",
+      "source": "official-damero-1c"
+    },
+    {
       "date": "2026-10-02",
       "subject": "TF II",
       "start": "09:00",
@@ -780,17 +824,6 @@
       "group": null,
       "location": null,
       "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-10-02",
-      "subject": "SP",
-      "start": "16:00",
-      "end": "20:00",
-      "type": "practice",
-      "group": "G1",
-      "location": "Aula Informática II",
-      "title": "P1",
       "source": "official-damero-1c"
     },
     {
@@ -828,46 +861,24 @@
     },
     {
       "date": "2026-10-06",
-      "subject": "BI",
-      "start": "09:00",
-      "end": "13:15",
-      "type": "practice",
-      "group": "G1",
-      "location": "Aula Informática I",
-      "title": "P_4y5 E",
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-10-07",
       "subject": "SP",
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "Aula Informática II",
       "title": "P2",
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-10-08",
-      "subject": "FGFG",
+      "date": "2026-10-07",
+      "subject": "BI",
       "start": "09:00",
-      "end": "13:00",
+      "end": "13:15",
       "type": "practice",
-      "group": "G1",
-      "location": "FarmaLab I",
-      "title": "P2A",
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-10-09",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "13:00",
-      "type": "practice",
-      "group": "G1",
-      "location": "FarmaLab I",
-      "title": "P2B",
+      "group": "G2",
+      "location": "Aula Informática I",
+      "title": "P_4y5 E",
       "source": "official-damero-1c"
     },
     {
@@ -1146,206 +1157,19 @@
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-11-04",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-04",
-      "subject": "TF II",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-04",
-      "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-04",
-      "subject": "SP",
-      "start": "16:00",
-      "end": "20:00",
-      "type": "practice",
-      "group": "G1",
-      "location": "QuimiLab II",
-      "title": "P3",
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-05",
-      "subject": "BI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-05",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-05",
-      "subject": "SP",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-06",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-06",
-      "subject": "FGFG",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-06",
-      "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-09",
-      "subject": "FGFG",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-09",
-      "subject": "BI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-09",
-      "subject": "TF II",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-09",
-      "subject": "SP",
-      "start": "16:00",
-      "end": "20:00",
-      "type": "practice",
-      "group": "G1",
-      "location": "Aula Informática II / QuimiLab II",
-      "title": "P4",
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-10",
-      "subject": "FFI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-10",
-      "subject": "SP",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-10",
-      "subject": "BI",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-10",
+      "date": "2026-11-03",
       "subject": "FGFG",
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "FarmaLab I",
       "title": "P3A",
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-11-11",
-      "subject": "SP",
+      "date": "2026-11-04",
+      "subject": "FGFG",
       "start": "09:00",
       "end": "10:30",
       "type": "lecture",
@@ -1355,7 +1179,7 @@
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-04",
       "subject": "TF II",
       "start": "10:45",
       "end": "12:15",
@@ -1366,40 +1190,7 @@
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-11-11",
-      "subject": "FGFG",
-      "start": "12:30",
-      "end": "14:00",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-12",
-      "subject": "BI",
-      "start": "09:00",
-      "end": "10:30",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-12",
-      "subject": "FFI",
-      "start": "10:45",
-      "end": "12:15",
-      "type": "lecture",
-      "group": null,
-      "location": null,
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-12",
+      "date": "2026-11-04",
       "subject": "SP",
       "start": "12:30",
       "end": "14:00",
@@ -1410,17 +1201,237 @@
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-05",
+      "subject": "BI",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-05",
+      "subject": "FFI",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-05",
+      "subject": "SP",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-05",
       "subject": "FGFG",
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "FarmaLab I",
       "title": "P3B",
       "source": "official-damero-1c"
     },
     {
+      "date": "2026-11-06",
+      "subject": "TF II",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-06",
+      "subject": "FGFG",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-06",
+      "subject": "BI",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-06",
+      "subject": "SP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G2",
+      "location": "QuimiLab II",
+      "title": "P3",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-09",
+      "subject": "FGFG",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-09",
+      "subject": "BI",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-09",
+      "subject": "TF II",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-10",
+      "subject": "FFI",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-10",
+      "subject": "SP",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-10",
+      "subject": "BI",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-11",
+      "subject": "SP",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-11",
+      "subject": "TF II",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-11",
+      "subject": "FGFG",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-11",
+      "subject": "SP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G2",
+      "location": "Aula Informática II / QuimiLab II",
+      "title": "P4",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-12",
+      "subject": "BI",
+      "start": "09:00",
+      "end": "10:30",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-12",
+      "subject": "FFI",
+      "start": "10:45",
+      "end": "12:15",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-12",
+      "subject": "SP",
+      "start": "12:30",
+      "end": "14:00",
+      "type": "lecture",
+      "group": null,
+      "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
       "date": "2026-11-13",
       "subject": "TF II",
       "start": "09:00",
@@ -1487,6 +1498,17 @@
       "source": "official-damero-1c"
     },
     {
+      "date": "2026-11-16",
+      "subject": "FFI",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "Gr2",
+      "location": "Aula Informática II / FarmaLab II",
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
       "date": "2026-11-17",
       "subject": "FFI",
       "start": "09:00",
@@ -1516,6 +1538,17 @@
       "type": "lecture",
       "group": null,
       "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-17",
+      "subject": "FFI",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "Gr2",
+      "location": "Aula Informática II / FarmaLab II",
       "title": null,
       "source": "official-damero-1c"
     },
@@ -1553,6 +1586,17 @@
       "source": "official-damero-1c"
     },
     {
+      "date": "2026-11-18",
+      "subject": "FFI",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "Gr2",
+      "location": "FarmaLab II",
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
       "date": "2026-11-19",
       "subject": "BI",
       "start": "09:00",
@@ -1586,6 +1630,17 @@
       "source": "official-damero-1c"
     },
     {
+      "date": "2026-11-19",
+      "subject": "FFI",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "Gr2",
+      "location": "Aula Informática II / FarmaLab II",
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
       "date": "2026-11-20",
       "subject": "TF II",
       "start": "09:00",
@@ -1615,117 +1670,73 @@
       "type": "lecture",
       "group": null,
       "location": null,
+      "title": null,
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-20",
+      "subject": "FFI",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "Gr2",
+      "location": "FarmaLab II / Aula de clase",
       "title": null,
       "source": "official-damero-1c"
     },
     {
       "date": "2026-11-23",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "13:00",
-      "type": "practice",
-      "group": "Gr1",
-      "location": "TecnoLab",
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-24",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "13:00",
-      "type": "practice",
-      "group": "Gr1",
-      "location": "TecnoLab",
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-25",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "13:00",
-      "type": "practice",
-      "group": "Gr1",
-      "location": "TecnoLab",
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-26",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "13:00",
-      "type": "practice",
-      "group": "Gr1",
-      "location": "TecnoLab",
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-27",
-      "subject": "TF II",
-      "start": "09:00",
-      "end": "13:00",
-      "type": "practice",
-      "group": "Gr1",
-      "location": "TecnoLab",
-      "title": null,
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-11-30",
       "subject": "BI",
       "start": "09:00",
       "end": "11:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "Aula Informática I",
       "title": "P_1MV",
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-12-01",
+      "date": "2026-11-24",
       "subject": "BI",
       "start": "09:00",
       "end": "11:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "Aula Informática I",
       "title": "P_2MV",
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-12-01",
-      "subject": "SP",
-      "start": "16:00",
-      "end": "20:00",
-      "type": "practice",
-      "group": "G1",
-      "location": "Aula Informática II",
-      "title": "P5",
-      "source": "official-damero-1c"
-    },
-    {
-      "date": "2026-12-02",
+      "date": "2026-11-25",
       "subject": "BI",
       "start": "09:00",
       "end": "11:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "Aula Informática I",
       "title": "P_3MV",
       "source": "official-damero-1c"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-11-26",
       "subject": "BI",
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "Aula Informática I",
       "title": "P_4y5MV",
+      "source": "official-damero-1c"
+    },
+    {
+      "date": "2026-11-30",
+      "subject": "SP",
+      "start": "16:00",
+      "end": "20:00",
+      "type": "practice",
+      "group": "G2",
+      "location": "Aula Informática II",
+      "title": "P5",
       "source": "official-damero-1c"
     },
     {
@@ -1774,56 +1785,56 @@
     },
     {
       "date": "2026-12-14",
-      "subject": "FFI",
+      "subject": "TF II",
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
-      "location": "Aula Informática II / FarmaLab II",
+      "group": "Gr2",
+      "location": "TecnoLab",
       "title": null,
       "source": "official-damero-1c"
     },
     {
       "date": "2026-12-15",
-      "subject": "FFI",
+      "subject": "TF II",
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
-      "location": "Aula Informática II / FarmaLab II",
+      "group": "Gr2",
+      "location": "TecnoLab",
       "title": null,
       "source": "official-damero-1c"
     },
     {
       "date": "2026-12-16",
-      "subject": "FFI",
+      "subject": "TF II",
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
-      "location": "FarmaLab II",
+      "group": "Gr2",
+      "location": "TecnoLab",
       "title": null,
       "source": "official-damero-1c"
     },
     {
       "date": "2026-12-17",
-      "subject": "FFI",
+      "subject": "TF II",
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
-      "location": "Aula Informática II / FarmaLab II",
+      "group": "Gr2",
+      "location": "TecnoLab",
       "title": null,
       "source": "official-damero-1c"
     },
     {
       "date": "2026-12-18",
-      "subject": "FFI",
+      "subject": "TF II",
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
-      "location": "Aula de clase / FarmaLab II",
+      "group": "Gr2",
+      "location": "TecnoLab",
       "title": null,
       "source": "official-damero-1c"
     },
@@ -2669,7 +2680,7 @@
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "InstrumentaLab",
       "title": "P2",
       "source": "official-damero-2c"
@@ -3054,7 +3065,7 @@
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "InstrumentaLab",
       "title": "P3",
       "source": "official-damero-2c"
@@ -3087,7 +3098,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "InstrumentaLab",
       "title": "P4",
       "source": "official-damero-2c"
@@ -3098,7 +3109,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "InstrumentaLab",
       "title": "P5",
       "source": "official-damero-2c"
@@ -3109,7 +3120,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "Aula Informática I",
       "title": "P3",
       "source": "official-damero-2c"
@@ -3120,7 +3131,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "TecnoLab",
       "title": null,
       "source": "official-damero-2c"
@@ -3131,7 +3142,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "TecnoLab",
       "title": null,
       "source": "official-damero-2c"
@@ -3142,7 +3153,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "TecnoLab",
       "title": null,
       "source": "official-damero-2c"
@@ -3153,7 +3164,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "TecnoLab",
       "title": null,
       "source": "official-damero-2c"
@@ -3164,7 +3175,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "TecnoLab",
       "title": null,
       "source": "official-damero-2c"
@@ -3175,7 +3186,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "Aula Informática II",
       "title": null,
       "source": "official-damero-2c"
@@ -3197,7 +3208,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "Aula Informática II",
       "title": null,
       "source": "official-damero-2c"
@@ -3208,7 +3219,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "Aula Informática II",
       "title": null,
       "source": "official-damero-2c"
@@ -3219,7 +3230,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "Aula Informática II",
       "title": null,
       "source": "official-damero-2c"
@@ -3241,7 +3252,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "Aula Informática II",
       "title": null,
       "source": "official-damero-2c"
@@ -3406,7 +3417,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "FarmaLab I",
       "title": null,
       "source": "official-damero-2c"
@@ -3417,7 +3428,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "FarmaLab I",
       "title": null,
       "source": "official-damero-2c"
@@ -3428,7 +3439,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "FarmaLab I",
       "title": null,
       "source": "official-damero-2c"
@@ -3439,7 +3450,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "FarmaLab I",
       "title": null,
       "source": "official-damero-2c"
@@ -3450,7 +3461,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "FarmaLab I",
       "title": null,
       "source": "official-damero-2c"
@@ -4110,7 +4121,7 @@
       "start": "09:00",
       "end": "13:30",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "Biolab I",
       "title": null,
       "source": "official-damero-third-2c"
@@ -4143,7 +4154,7 @@
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "Aula Informática II",
       "title": "P4",
       "source": "official-damero-2c"
@@ -4165,7 +4176,7 @@
       "start": "09:00",
       "end": "13:30",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "Biolab I",
       "title": null,
       "source": "official-damero-third-2c"
@@ -4209,7 +4220,7 @@
       "start": "09:00",
       "end": "13:30",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "Biolab I",
       "title": null,
       "source": "official-damero-third-2c"
@@ -4253,7 +4264,7 @@
       "start": "09:00",
       "end": "13:30",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "Biolab I",
       "title": null,
       "source": "official-damero-third-2c"
@@ -4286,7 +4297,7 @@
       "start": "09:00",
       "end": "11:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "Biolab I",
       "title": null,
       "source": "official-damero-third-2c"
@@ -4330,7 +4341,7 @@
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "TecnoLab I y Aula 5",
       "title": null,
       "source": "official-damero-third-2c"
@@ -4374,7 +4385,7 @@
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "TecnoLab I y Aula 5",
       "title": null,
       "source": "official-damero-third-2c"
@@ -4418,7 +4429,7 @@
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "TecnoLab I y Aula 5",
       "title": null,
       "source": "official-damero-third-2c"
@@ -4429,7 +4440,7 @@
       "start": "09:00",
       "end": "13:00",
       "type": "practice",
-      "group": "Gr1",
+      "group": "Gr2",
       "location": "Aula Informática II",
       "title": "P5",
       "source": "official-damero-2c"
@@ -4440,7 +4451,7 @@
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "TecnoLab I y Aula 5",
       "title": null,
       "source": "official-damero-third-2c"
@@ -4451,7 +4462,7 @@
       "start": "16:00",
       "end": "20:00",
       "type": "practice",
-      "group": "G1",
+      "group": "G2",
       "location": "TecnoLab I y Aula 5",
       "title": null,
       "source": "official-damero-third-2c"

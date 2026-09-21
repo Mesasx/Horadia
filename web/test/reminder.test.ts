@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   createReminder,
+  isDeliveryOverdue,
   reminderNotificationTime,
   remindersForWeek,
   type Reminder,
@@ -65,5 +66,35 @@ describe("recordatorios", () => {
       "sin-fecha",
       "completado",
     ]);
+  });
+});
+
+
+describe("entregas", () => {
+  const input = { title: "Informe de prácticas", kind: "delivery" as const, subjectCode: "BI", date: "2026-09-22", time: "18:00", notificationOffset: 1440 as const };
+  it("stores the subject and schedules the requested advance notice", () => {
+    const value = createReminder(input, 123);
+    expect(value.kind).toBe("delivery");
+    expect(value.subjectCode).toBe("BI");
+    expect(reminderNotificationTime(value)).toBe(d(2026, 9, 21, 18).getTime());
+    expect(reminderNotificationTime({ ...value, completed: true })).toBeNull();
+  });
+  it("requires a subject and deadline for deliveries only", () => {
+    expect(() => createReminder({ ...input, date: null })).toThrow();
+    expect(() => createReminder({ ...input, subjectCode: null })).toThrow();
+    expect(createReminder({ ...input, kind: "reminder", date: null }).notificationOffset).toBeNull();
+  });
+  it("keeps overdue deliveries from older weeks visible in the current week", () => {
+    const value = createReminder(input);
+    const today = d(2026, 10, 6);
+    expect(remindersForWeek([value], today, today)).toEqual([value]);
+    expect(remindersForWeek([{ ...value, completed: true }], today, today)).toEqual([]);
+    expect(remindersForWeek([value], d(2026, 10, 13), today)).toEqual([]);
+  });
+  it("does not mark a date-only delivery late until the next day", () => {
+    const value = createReminder({ ...input, time: null });
+    expect(isDeliveryOverdue(value, d(2026, 9, 22, 23, 59))).toBe(false);
+    expect(isDeliveryOverdue(value, d(2026, 9, 23))).toBe(true);
+    expect(isDeliveryOverdue({ ...value, completed: true }, d(2026, 9, 23))).toBe(false);
   });
 });

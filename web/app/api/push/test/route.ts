@@ -1,3 +1,4 @@
+import { requireApiAccess } from "@/lib/server/require-access";
 import {
   enforceRateLimit,
   getSubscription,
@@ -10,6 +11,8 @@ import {
 } from "@/lib/server/push-server";
 
 export async function POST(request: Request) {
+  const denied = await requireApiAccess();
+  if (denied) return denied;
   if (!isSameOriginBrowserRequest(request)) {
     return Response.json({ error: "Origen no permitido." }, { status: 403 });
   }

@@ -207,3 +207,28 @@ describe("omitting a class (§14)", () => {
     }
   });
 });
+
+
+describe("G2 schedule in the planner", () => {
+  it("shows G2 P1 on September 22 and removes the former G1 FGFG session", () => {
+    const day = d(2026, 9, 22);
+    const timeline = timelineFor(initialPlannerState(day), day);
+    expect(timeline.blocks.some((block) => block.kind === "item" &&
+      block.item.subjectCode === "FGFG" &&
+      block.item.kind.type === "university" && block.item.kind.kind === "practice")).toBe(true);
+    expect(universityEvents(d(2026, 9, 23)).some((event) =>
+      event.subjectCode === "FGFG" && event.kind === "practice")).toBe(false);
+  });
+
+  it("does not apply an old G1 omission to a G2 practice", () => {
+    const day = d(2026, 9, 22);
+    const event = universityEvents(day).find((event) => event.kind === "practice")!;
+    const item = makeUniversityItem(event, day, SUBJECTS_BY_CODE);
+    expect(item.instanceKey).toBe("FGFG|2026-09-22|960|g2");
+    const old = omitClass(initialPlannerState(day), "FGFG|2026-09-22|960");
+    expect(timelineFor(old, day).blocks.some((block) =>
+      block.kind === "item" && block.item.id === item.id)).toBe(true);
+    expect(timelineFor(omitClass(old, item.instanceKey!), day).blocks.some((block) =>
+      block.kind === "item" && block.item.id === item.id)).toBe(false);
+  });
+});

@@ -161,6 +161,7 @@ export async function syncPushReminders(
       replace,
       reminders: reminders.map((reminder) => ({
         ...reminder,
+        title: reminder.kind === "delivery" ? `Entrega · ${reminder.subjectCode}: ${reminder.title}`.slice(0, 160) : reminder.title,
         notifyAt: reminderNotificationTime(reminder),
       })),
     }),

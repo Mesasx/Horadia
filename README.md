@@ -2,7 +2,7 @@
 
 Planificador semanal personal. La interacción principal es **mantener pulsado →
 arrastrar → soltar**, como reorganizar los iconos de la pantalla de inicio.
-Primera usuaria: Alba (Farmacia, 4º curso, grupo G1, que además trabaja).
+Primera usuaria: Alba (Farmacia, 4º curso, grupo G2, que además trabaja).
 
 ## Estructura
 
@@ -24,17 +24,23 @@ npm test         # motores portados de Swift (49 tests)
 npm run build
 ```
 
-- **Persistencia:** `localStorage` en el dispositivo. Sin login, sin backend, sin
-  servidor. Funciona sin conexión (service worker + PWA).
+- **Persistencia:** `localStorage` en el dispositivo. El acceso privado se valida
+  en servidor y deja una sesión persistente por dispositivo. Funciona sin conexión
+  una vez autorizada (service worker + PWA).
 - **Sin iCloud ni widgets** (fuera de alcance para la web).
 - **Zona horaria:** usa la del navegador (la de Alba es Europe/Madrid).
 
 ## Horario de la universidad
 
-`web/data/university-schedule.json` — de momento es una **semilla provisional**
-generada a partir del patrón semanal estándar. Pendiente de sustituir por el
-"DAMERO CUARTO 26-27" real (solo 1er cuatrimestre; sin inventar febrero–junio).
-Solo se cargan las prácticas del **G1** (`Gr1` ≡ `G1`).
+`web/data/university-schedule.json` contiene el DAMERO de primer cuatrimestre
+transcrito para G2 y la cobertura de segundo cuatrimestre que ya existía en el
+repositorio. Para verificar las fechas de G2 del segundo cuatrimestre faltan los
+dos PDF oficiales correspondientes.
+Solo se cargan las prácticas del **G2** (`Gr2` ≡ `G2`) y las actividades marcadas para todos los grupos.
+
+La app web pide la contraseña del dispositivo la primera vez que se abre en cada navegador. Para desplegar el acceso privado hay que configurar `HORADIA_ACCESS_PASSWORD_HASH` y `HORADIA_SESSION_SECRET` en Vercel; nunca se debe guardar la contraseña en el repositorio.
+
+En Semana, “Recordatorios y entregas” permite crear una entrega asociada a cualquiera de las asignaturas de Alba, con fecha límite, hora opcional, aviso y estado completada. Las entregas se guardan junto al resto de los datos locales y se sincronizan con Web Push cuando las notificaciones están activadas.
 
 ## Fases
 

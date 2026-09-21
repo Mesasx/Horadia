@@ -7,15 +7,15 @@ import {
 } from "@/lib/university-import";
 import scheduleJson from "@/data/university-schedule.json";
 
-describe("university import - G1 filter", () => {
-  it("normalizes every supported G1 spelling", () => {
-    for (const group of ["G1", "Gr1", "GR1", "Grupo 1", "GRUPO 1", " g1 "]) {
-      expect(normalizedGroup(group)).toBe("g1");
+describe("university import - G2 filter", () => {
+  it("normalizes every supported G2 spelling", () => {
+    for (const group of ["G2", "Gr2", "GR2", "Grupo 2", "GRUPO 2", " g2 "]) {
+      expect(normalizedGroup(group)).toBe("g2");
     }
   });
 
   it("drops every other group", () => {
-    for (const group of ["G2", "G3", "G4", "Gr2", "Gr3", "Gr4", "GRUPO 4", "B", "1B"]) {
+    for (const group of ["G1", "G3", "G4", "Gr1", "Gr3", "Gr4", "GRUPO 4", "B", "1B"]) {
       expect(normalizedGroup(group)).toBeNull();
     }
   });
@@ -24,22 +24,22 @@ describe("university import - G1 filter", () => {
     expect(groupAudience(null)).toBe("all");
     expect(groupAudience("Todos los grupos")).toBe("all");
     expect(groupAudience("TODO EL GRUPO")).toBe("all");
-    expect(groupAudience("Gr1")).toBe("g1");
-    expect(groupAudience("Gr2")).toBeNull();
+    expect(groupAudience("Gr2")).toBe("g2");
+    expect(groupAudience("Gr1")).toBeNull();
   });
 
-  it("keeps G1 and all-group practices but drops G2", () => {
+  it("keeps G2 and all-group practices but drops G1", () => {
     const doc = {
       meta: { schemaVersion: 2, sourceDocument: "test", provisional: false },
       subjects: [{ code: "BI", fullName: "Bioquímica", color: "mint" }],
       events: [
-        { date: "2026-09-14", subject: "BI", start: "16:00", end: "19:00", type: "practice", group: "Gr1" },
+        { date: "2026-09-14", subject: "BI", start: "16:00", end: "19:00", type: "practice", group: "Gr2" },
         { date: "2026-09-15", subject: "BI", start: "16:00", end: "19:00", type: "practice", group: "Todos los grupos" },
-        { date: "2026-09-16", subject: "BI", start: "16:00", end: "19:00", type: "practice", group: "G2" },
+        { date: "2026-09-16", subject: "BI", start: "16:00", end: "19:00", type: "practice", group: "G1" },
       ],
     };
     const practices = importSchedule(doc).events.filter((event) => event.kind === "practice");
-    expect(practices.map((event) => event.audience)).toEqual(["g1", "all"]);
+    expect(practices.map((event) => event.audience)).toEqual(["g2", "all"]);
   });
 });
 
@@ -81,7 +81,7 @@ describe("university import - official 2026-27 DAMERO", () => {
       (event) => event.day === march8 && event.kind === "practice",
     );
     expect(practices.map((event) => event.subjectCode)).toEqual(["BTF"]);
-    expect(practices.every((event) => event.audience === "g1")).toBe(true);
+    expect(practices.every((event) => event.audience === "g2")).toBe(true);
   });
 
   it("includes practices scheduled for all groups", () => {
@@ -94,10 +94,10 @@ describe("university import - official 2026-27 DAMERO", () => {
 
   it("keeps full names and stable workspace identities", () => {
     const map = subjectsByCode(result);
-    expect(map.FGFG.fullName).toBe("Farmacología y Farmacia Galénica");
-    expect(map.BI.fullName).toBe("Bioquímica e Inmunología");
+    expect(map.FGFG.fullName).toBe("Farmacogenética y Farmacogenómica");
+    expect(map.BI.fullName).toBe("Bioinformática");
     expect(map["TF II"].fullName).toBe("Tecnología Farmacéutica II");
-    expect(map.FFI.fullName).toBe("Fisiología y Fisiopatología");
+    expect(map.FFI.fullName).toBe("Farmacología y Farmacoterapia I");
     expect(map.SP.fullName).toBe("Salud Pública");
     expect(map.BTF.fullName).toBe("Biotecnología Farmacéutica");
     expect(map.TX.fullName).toBe("Toxicología");
@@ -118,7 +118,7 @@ describe("university import - official 2026-27 DAMERO", () => {
     expect(added.filter((event) => event.subjectCode === "FCG")).toHaveLength(32);
   });
 
-  it("keeps only Alba's G1 intensive practices with the printed times", () => {
+  it("keeps only Alba's G2 intensive practices with the printed times", () => {
     const may3 = new Date(2027, 4, 3).getTime();
     const may7 = new Date(2027, 4, 7).getTime();
     const may10 = new Date(2027, 4, 10).getTime();
@@ -128,7 +128,7 @@ describe("university import - official 2026-27 DAMERO", () => {
         event.kind === "practice",
     );
     expect(practices).toHaveLength(10);
-    expect(practices.every((event) => event.audience === "g1")).toBe(true);
+    expect(practices.every((event) => event.audience === "g2")).toBe(true);
     expect(
       practices.find((event) => event.day === may3 && event.subjectCode === "FCG")?.end,
     ).toEqual({ hour: 13, minute: 30 });
@@ -152,5 +152,33 @@ describe("university import - official 2026-27 DAMERO", () => {
         (date) => new Date(`${date}T00:00:00`).getTime(),
       ),
     );
+  });
+});
+
+
+describe("first-term G2 DAMERO regression", () => {
+  const practices = scheduleJson.events.filter((event) => event.type === "practice" && event.date < "2027-01-01");
+
+  it("contains the five subjects and all 28 printed sessions", () => {
+    expect(practices).toHaveLength(28);
+    expect([...new Set(practices.map((event) => event.subject))].sort()).toEqual(["BI", "FFI", "FGFG", "SP", "TF II"]);
+    expect(practices.every((event) => /^(G2|Gr2)$/.test(event.group ?? ""))).toBe(true);
+  });
+
+  it("keeps the actual BI break and exceptional finishing time", () => {
+    expect(practices.filter((event) => event.date === "2026-09-23").map((event) => [event.start, event.end]))
+      .toEqual([["16:00", "18:00"], ["18:15", "20:15"]]);
+    expect(practices.find((event) => event.date === "2026-10-07")?.end).toBe("13:15");
+  });
+
+  it("moves intensive weeks to G2 dates and times", () => {
+    expect(practices.filter((event) => event.subject === "FFI").map((event) => [event.date, event.start, event.end])).toEqual([
+      ["2026-11-16", "16:00", "20:00"], ["2026-11-17", "16:00", "20:00"],
+      ["2026-11-18", "16:00", "20:00"], ["2026-11-19", "16:00", "20:00"],
+      ["2026-11-20", "16:00", "20:00"],
+    ]);
+    expect(practices.filter((event) => event.subject === "TF II").map((event) => event.date)).toEqual([
+      "2026-12-14", "2026-12-15", "2026-12-16", "2026-12-17", "2026-12-18",
+    ]);
   });
 });

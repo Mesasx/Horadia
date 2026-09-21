@@ -24,6 +24,7 @@ export function SettingsView() {
   const state = usePlannerStore();
   const setSubjectColour = usePlannerStore((s) => s.setSubjectColour);
   const subjects = subjectsWithColors(state);
+  const [logoutError, setLogoutError] = useState("");
   const [editing, setEditing] = useState<string | null>(null);
   const [pushStatus, setPushStatus] = useState<PushStatus | null>(null);
   const [pushBusy, setPushBusy] = useState(false);
@@ -46,6 +47,17 @@ export function SettingsView() {
         <Section title="Perfil">
           <Row label="Nombre" detail={state.preferences.ownerName} />
           <Row label="Cumpleaños" detail={formatDayMonthLong(birthday)} />
+        </Section>
+
+        <Section title="Acceso privado">
+          <button className="min-h-12 w-full px-4 text-left text-[14px] font-semibold" onClick={async () => {
+            try {
+              const response = await fetch("/api/auth/logout", { method: "POST" });
+              if (!response.ok) throw new Error();
+              window.location.replace("/login");
+            } catch { setLogoutError("No se pudo cerrar sesión. Comprueba tu conexión."); }
+          }}>Cerrar sesión en este dispositivo</button>
+          {logoutError ? <p role="alert" className="px-4 pb-3 text-sm">{logoutError}</p> : null}
         </Section>
 
         <Section title="Apariencia">

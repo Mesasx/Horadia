@@ -2,10 +2,12 @@
 
 import { useEffect, useMemo } from "react";
 import { Bell, Check, Circle, Plus } from "lucide-react";
+import { SUBJECTS_BY_CODE } from "@/lib/planner";
 import { haptic } from "@/lib/haptics";
 import { formatWeekdayLong } from "@/lib/format";
 import { syncPushReminders } from "@/lib/push-client";
 import {
+  isDeliveryOverdue,
   notificationOffsetLabel,
   remindersForWeek,
   type Reminder,
@@ -47,7 +49,7 @@ export function ReminderSection({
   return (
     <section id="reminders" className="px-4 pb-6 pt-3">
       <div className="mb-2 flex items-center justify-between">
-        <h2 className="text-[19px] font-bold">Recordatorios</h2>
+        <h2 className="text-[19px] font-bold">Recordatorios y entregas</h2>
         <button
           type="button"
           onClick={onAdd}
@@ -129,10 +131,15 @@ export function ReminderSection({
 
 function ReminderMetadata({ reminder }: { reminder: Reminder }) {
   const parts: string[] = [];
+  if (reminder.kind === "delivery") {
+    parts.push("Entrega");
+    if (reminder.subjectCode) parts.push(SUBJECTS_BY_CODE[reminder.subjectCode]?.fullName ?? reminder.subjectCode);
+    if (isDeliveryOverdue(reminder)) parts.push("Vencida");
+  }
   const day = reminder.date ? parseDayKey(reminder.date) : null;
   if (day) {
     const weekday = formatWeekdayLong(day);
-    parts.push(weekday.charAt(0).toUpperCase() + weekday.slice(1));
+    parts.push(weekday.charAt(0).toUpperCase() + weekday.slice(1) + (reminder.kind === "delivery" ? ` ${day.getDate()}/${day.getMonth() + 1}` : ""));
   }
   if (reminder.time) parts.push(reminder.time);
   if (reminder.notificationOffset !== null) {

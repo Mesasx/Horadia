@@ -1,8 +1,11 @@
+import { requireApiAccess } from "@/lib/server/require-access";
 import { pushBackendConfigured } from "@/lib/server/push-store";
 
 export const dynamic = "force-dynamic";
 
-export function GET() {
+export async function GET() {
+  const denied = await requireApiAccess();
+  if (denied) return denied;
   const publicKey = process.env.VAPID_PUBLIC_KEY;
   if (!publicKey || !pushBackendConfigured()) {
     return Response.json(

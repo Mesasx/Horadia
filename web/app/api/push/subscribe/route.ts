@@ -1,3 +1,4 @@
+import { requireApiAccess } from "@/lib/server/require-access";
 import {
   enforceRateLimit,
   isSameOriginBrowserRequest,
@@ -7,6 +8,8 @@ import {
 import { parsePushSubscription } from "@/lib/server/push-validation";
 
 export async function POST(request: Request) {
+  const denied = await requireApiAccess();
+  if (denied) return denied;
   if (!pushBackendConfigured()) {
     return Response.json({ error: "Web Push no está configurado." }, { status: 503 });
   }

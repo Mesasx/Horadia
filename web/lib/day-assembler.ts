@@ -72,7 +72,7 @@ export function makeUniversityItem(
       event.subjectCode ?? code,
       day,
       minutesSinceMidnight(event.start),
-    ),
+    ) + (event.audience === "all" ? "" : `|${event.audience}`),
     isImmovable: true,
     isPinned: false,
     isCompleted: false,
